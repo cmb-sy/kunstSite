@@ -1,3 +1,3 @@
 # blog
 
-https://zenn.dev/y_ta/books/eec3b78567aeeb/viewer/039462
+隙間時間を使って作成中
