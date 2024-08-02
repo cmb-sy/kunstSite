@@ -14,7 +14,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href="/blog" className="text-white">
+            <Link href="/posts" className="text-white">
               Blog
             </Link>
           </li>
