@@ -1,5 +1,6 @@
 import { type Author } from "@/interfaces/author";
 import Link from "next/link";
+import Avatar from "./avatar";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
 
@@ -33,6 +34,8 @@ export function PostPreview({
       <div className="text-lg mb-4">
         <DateFormatter dateString={date} />
       </div>
+      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <Avatar name={author.name} picture={author.picture} />
     </div>
   );
 }
