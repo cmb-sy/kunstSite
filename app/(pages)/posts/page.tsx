@@ -26,7 +26,7 @@ const BlogPage = async () => {
             key={blog.id}
           >
             <Link href={`/posts/${blog.id}`} className="w-full">
-              <h2>{blog.title}</h2>
+              <h2>{blog.title}sss</h2>
             </Link>
           </div>
         ))}

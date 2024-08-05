@@ -11,16 +11,15 @@ export async function generateStaticParams() {
 
   const blogData = await res.json();
 
-  console.log(blogData);
-
   return blogData.map((blog: TBlog) => ({
     id: blog.id,
   }));
 }
 
 const getBlogArticle = async (id: string) => {
-  const res = await fetch("http://localhost:3000/api/posts/${id}");
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`);
 
+  //   console.log(res);
   const blogArticle = await res.json();
 
   return blogArticle;

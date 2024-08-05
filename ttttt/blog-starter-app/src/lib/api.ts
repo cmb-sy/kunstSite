@@ -18,6 +18,7 @@ export function getPostBySlug(slug: string) {
   return { ...data, slug: realSlug, content } as Post;
 }
 
+// すべての投稿を取得し、日付順に並べ替えたリストを返します。
 export function getAllPosts(): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs

@@ -5,6 +5,7 @@ const GET = (req: NextRequest, { params }: { params: { id: string } }) => {
   const { id } = params;
 
   const blogArticle = blogData.find((blog) => blog.id === id);
+  console.log("test", blogArticle);
 
   if (!blogArticle) {
     return NextResponse.json({}, { status: 404 });
