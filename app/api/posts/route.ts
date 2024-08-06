@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
-import blogData from "@/blog-data.json";
+import { getPostsData } from "@/app/lib/posts";
+
+// import blogData from "@/blog-data.json";
 
 const GET = () => {
-  return NextResponse.json(blogData);
+  console.log("aa", getPostsData());
+  const postsData = getPostsData();
+  return NextResponse.json(postsData);
 };
 
 export { GET };

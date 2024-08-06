@@ -1,4 +1,5 @@
 ---
+id: 1
 title: "プリレンダリングの2つの形態"
 date: "2022-02-22"
 thumbnail: "/images/thumbnail02.jpg"

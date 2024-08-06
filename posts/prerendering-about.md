@@ -1,4 +1,5 @@
 ---
+id: 2
 title: "プリレンダリングについて"
 date: "2020-02-21"
 thumbnail: "/images/thumbnail04.jpg"

@@ -10,7 +10,6 @@ export async function generateStaticParams() {
   const res = await fetch("http://localhost:3000/api/posts/");
 
   const blogData = await res.json();
-
   return blogData.map((blog: TBlog) => ({
     id: blog.id,
   }));

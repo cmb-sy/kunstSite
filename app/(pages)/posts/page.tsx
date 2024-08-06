@@ -10,6 +10,7 @@ const getBlogData = async () => {
   const res = await fetch("http://localhost:3000/api/posts");
 
   const blogData = await res.json();
+  // console.log("確認", blogData);
 
   return blogData;
 };

@@ -15,7 +15,7 @@ const Header = () => {
           </li>
           <li>
             <Link href="/posts" className="text-white">
-              Blog
+              Posts
             </Link>
           </li>
           <li>
