@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import getPostsMetaData from "@/utils/getPostsMetaData";
+import getPostsMetaData from "@/utils/getPostsData";
 // import blogData from "@/blog-data.json";
 
 const GET = () => {

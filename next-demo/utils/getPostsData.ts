@@ -1,6 +1,8 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+import html from "remark-html";
+import { remark } from "remark";
 
 const postsDirectoryPath = path.join(process.cwd(), "posts");
 // console.log("postsDirectoryPath", postsDirectoryPath);
@@ -34,4 +36,20 @@ export function getAllpostsIds() {
       },
     };
   });
+}
+
+export async function getPostsData(id: any) {
+  // idはファイル名
+  const fullPath = path.join(postsDirectoryPath, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf-8");
+
+  const matterResult = matter(fileContents);
+  const blogContents = await remark().use(html).process(matterResult.content);
+
+  const blogContentsHTML = blogContents.toString;
+  return {
+    id,
+    blogContentsHTML,
+    ...matterResult.data,
+  };
 }

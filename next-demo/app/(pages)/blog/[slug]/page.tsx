@@ -1,4 +1,4 @@
-import { getAllpostsIds } from "@/utils/getPostsMetaData";
+import { getAllpostsIds } from "@/utils/getPostsData";
 
 interface TBlog {
   slug: string;
