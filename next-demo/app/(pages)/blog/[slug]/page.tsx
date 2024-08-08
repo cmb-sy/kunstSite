@@ -10,11 +10,7 @@ export async function generateStaticParams() {
   const res = await fetch("http://localhost:3000/api/blog/", {
     cache: "force-cache",
   });
-
   const blogData = await res.json();
-
-  console.log(blogData);
-
   return blogData.map((blog: TBlog) => ({
     slug: blog.slug,
   }));
@@ -24,8 +20,8 @@ const getBlogArticle = async (slug: string) => {
   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
     cache: "force-cache",
   });
-
   const blogArticle = await res.json();
+  console.log("baka", res);
 
   return blogArticle;
 };

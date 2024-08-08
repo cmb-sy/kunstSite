@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
-import blogData from "@/blog-data.json";
+import getPostsMetaData from "@/utils/getPostsMetaData";
+// import blogData from "@/blog-data.json";
 
 const GET = () => {
-  return NextResponse.json(blogData);
+  const allPostsMetaData = getPostsMetaData();
+  // console.log("blogData", blogData);
+  // console.log("allPostsMetaData", allPostsMetaData);
+  return NextResponse.json(allPostsMetaData);
+  // return NextResponse.json(blogData);
 };
 
 export { GET };
