@@ -22,3 +22,16 @@ export default function getPostMetadata() {
   });
   return allPostsData;
 }
+
+// getStaticPathでreturnで使うパスを取得する。
+// https://nextjs.org/docs/pages/api-reference/functions/get-static-paths
+export function getAllpostsIds() {
+  const fileNames = fs.readdirSync(postsDirectoryPath);
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        slug: fileName.replace(/\.md$/, ""),
+      },
+    };
+  });
+}

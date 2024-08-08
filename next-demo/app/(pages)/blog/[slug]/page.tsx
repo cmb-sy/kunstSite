@@ -1,3 +1,5 @@
+import { getAllpostsIds } from "@/utils/getPostsMetaData";
+
 interface TBlog {
   slug: string;
   title: string;
@@ -21,7 +23,7 @@ const getBlogArticle = async (slug: string) => {
     cache: "force-cache",
   });
   const blogArticle = await res.json();
-  console.log("baka", res);
+  // console.log("baka", res);
 
   return blogArticle;
 };
