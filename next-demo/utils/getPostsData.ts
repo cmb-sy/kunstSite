@@ -8,7 +8,7 @@ const postsDirectoryPath = path.join(process.cwd(), "posts");
 // console.log("postsDirectoryPath", postsDirectoryPath);
 
 //   mdフォルダを取り出す
-export default function getPostMetadata() {
+export function getPostMetadata() {
   const fileNames = fs.readdirSync(postsDirectoryPath);
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, "");
@@ -27,7 +27,8 @@ export default function getPostMetadata() {
 
 // getStaticPathでreturnで使うパスを取得する。
 // https://nextjs.org/docs/pages/api-reference/functions/get-static-paths
-export function getAllpostsIds() {
+export function getAllPostsIds() {
+  // 関数名を修正
   const fileNames = fs.readdirSync(postsDirectoryPath);
   return fileNames.map((fileName) => {
     return {
@@ -38,17 +39,17 @@ export function getAllpostsIds() {
   });
 }
 
-export async function getPostsData(id: any) {
+export async function getPostsData(slug: string) {
   // idはファイル名
-  const fullPath = path.join(postsDirectoryPath, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf-8");
+  const fullPath = path.join(postsDirectoryPath, `${slug}.md`);
 
+  const fileContents = fs.readFileSync(fullPath, "utf-8");
   const matterResult = matter(fileContents);
   const blogContents = await remark().use(html).process(matterResult.content);
 
-  const blogContentsHTML = blogContents.toString;
+  const blogContentsHTML = blogContents.toString();
   return {
-    id,
+    slug,
     blogContentsHTML,
     ...matterResult.data,
   };
