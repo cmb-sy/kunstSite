@@ -1,14 +1,14 @@
+// idじゃないと上手くいかない。
 import Link from "next/link";
 
 interface TBlog {
-  slug: string;
+  id: string;
   title: string;
   content: string;
 }
 
 const getBlogData = async () => {
   const res = await fetch("http://localhost:3000/api/blog");
-  console.log("ttt", res);
 
   const blogData = await res.json();
 
@@ -24,10 +24,11 @@ const BlogPage = async () => {
         {blogData.map((blog: TBlog) => (
           <div
             className="col-span-4 border border-black rounded p-5"
-            key={blog.slug}
+            key={blog.id}
           >
-            <Link href={`/blog/${blog.slug}`} className="w-full">
-              <h2>{blog.title}</h2>
+            s{blog.id}s
+            <Link href={`/blog/${blog.id}`} className="w-full">
+              <h2>{blog.title}yy</h2>
             </Link>
           </div>
         ))}
