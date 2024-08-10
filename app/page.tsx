@@ -1,12 +1,5 @@
-// idじゃないと上手くいかない。
 import Link from "next/link";
-
-interface TBlog {
-  id: string;
-  date: string;
-  title: string;
-  blogContentsHTML: string;
-}
+import { Post } from "@/types/post";
 
 const stripHtml = (html: string): string => {
   const doc = html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
@@ -24,18 +17,16 @@ const Home = async () => {
   return (
     <div className="container mx-auto py-[50px]">
       <div className="grid grid-cols-12 gap-3">
-        {blogData.map((blog: TBlog) => (
+        {blogData.map((blog: Post) => (
           <div
             className="col-span-4 border border-black rounded p-5"
-            key={blog.id}
+            key={blog.slug}
           >
-            <Link href={`/blog/${blog.id}`} className="w-full">
+            <Link href={`/blog/${blog.slug}`} className="w-full">
               <h2>{blog.title}</h2>
             </Link>
             <p>{blog.date}</p>
-            {stripHtml(blog.blogContentsHTML).substring(0, 100)}...
-            {/* <p>{blog.blogContentsHTML.substring(0, 100)}...</p>{" "} */}
-            {/* contentの最初の100文字を表示 */}
+            <p>{stripHtml(blog.blogContentsHTML).substring(0, 100)}...</p>
           </div>
         ))}
       </div>
