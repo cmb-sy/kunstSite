@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
-import { getPostMetadata } from "@/utils/getPostsData";
+import { getAllPosts } from "@/utils/getPostsData";
 
-// import blogData from "@/blog-data.json";
-
-const GET = () => {
-  const allPostsMetaData = getPostMetadata();
-  // console.log("blogData", blogData);
-  // console.log("allPostsMetaData", allPostsMetaData);
-  return NextResponse.json(allPostsMetaData);
-  // return NextResponse.json(blogData);
+const GET = async () => {
+  try {
+    const getAllPostsData = await getAllPosts();
+    // console.log("----------------------------");
+    // console.log("getAllPostsData", getAllPostsData);
+    return NextResponse.json(getAllPostsData);
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return NextResponse.error();
+  }
 };
 
 export { GET };
