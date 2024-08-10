@@ -16,18 +16,15 @@ const Home = async () => {
   const blogData = await getBlogData();
   return (
     <div className="container mx-auto py-[50px]">
-      <div className="grid grid-cols-12 gap-3">
+      <div className="grid grid-cols-2 gap-6">
         {blogData.map((blog: Post) => (
-          <div
-            className="col-span-4 border border-black rounded p-5"
-            key={blog.slug}
-          >
-            <Link href={`/blog/${blog.slug}`} className="w-full">
-              <h2>{blog.title}</h2>
-            </Link>
-            <p>{blog.date}</p>
-            <p>{stripHtml(blog.blogContentsHTML).substring(0, 100)}...</p>
-          </div>
+          <Link href={`/blog/${blog.slug}`} className="w-full" key={blog.slug}>
+            <div className="border border-black rounded p-5">
+              <h2 className="text-xl font-bold">{blog.title}</h2>
+              <p className="text-gray-500">{blog.date}</p>
+              <p>{stripHtml(blog.blogContentsHTML).substring(0, 60)}...</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
