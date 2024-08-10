@@ -1,20 +1,16 @@
 // idじゃないと上手くいかない。
 import Link from "next/link";
-import { htmlToText } from "html-to-text";
 
 interface TBlog {
-  blogContentsHTML: any;
-  data: any;
   id: string;
   date: string;
   title: string;
-  content: string;
+  blogContentsHTML: string;
 }
 
-const stripHtml = (html: string) => {
-  return htmlToText(html, {
-    wordwrap: 130,
-  });
+const stripHtml = (html: string): string => {
+  const doc = html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
+  return doc;
 };
 
 const getBlogData = async () => {
