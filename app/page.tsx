@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Post } from "@/types/post";
 
 const stripHtml = (html: string): string => {
-  const doc = html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
-  return doc;
+  const htmlText = html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
+  return htmlText;
 };
 
 const getBlogData = async () => {

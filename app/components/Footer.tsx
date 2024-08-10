@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div>
-      <Link href="/contact" className="text-white">
+      <Link href="/privacy-policy" className="text-white">
         プライバシーポリシー
       </Link>
     </div>
