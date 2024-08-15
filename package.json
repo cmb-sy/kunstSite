@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.14",
     "gray-matter": "^4.0.3",
     "install": "^0.13.0",
     "marked": "^14.0.0",
@@ -20,7 +21,8 @@
     "react-dom": "^18",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "typography": "^0.16.24"
   },
   "devDependencies": {
     "@types/node": "^20",
