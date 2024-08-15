@@ -19,8 +19,12 @@ export default function RootLayout({
     <html lang="ja">
       <body className={noto.className}>
         <Header />
-        <main>{children}</main>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-grow flex">
+            <main className="flex-grow">{children}</main>
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

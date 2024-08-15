@@ -2,8 +2,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Highlight from "@/app/components/HighRight";
 import remarkGfm from "remark-gfm";
 import { Post } from "@/types/post";
-
-export const dynamicParams = false;
+import ProfileCard from "@/app/components/ProfileCard";
 
 // SSG
 export async function generateStaticParams() {
@@ -28,29 +27,32 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   const blogArticle = await getBlogArticle(params.slug);
 
   return (
-    <div className="container mx-auto py-5 px-2 lg:px-10">
-      <article
-        className="w-full max-w-3xl bg-white bg-gray-100 p-5 rounded-lg min-h-screen"
-        style={{ marginLeft: "4rem" }}
-      >
-        <h1 className="text-3xl font-bold text-gray-800">
-          {blogArticle.title}
-        </h1>
-        <br />
-        <div className="text-gray-600">{blogArticle.date}</div>
-        <br />
-        <div className="prose prose-lg text-gray-700">
-          <MDXRemote
-            source={blogArticle.content}
-            components={{ Highlight }}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-              },
-            }}
-          />
-        </div>
-      </article>
+    <div className="container mx-auto py-5 px-2 lg:px-10 flex justify-center w-full">
+      <div className="flex flex-col lg:flex-row w-full max-w-5xl">
+        <main className="w-full lg:w-3/4 bg-white bg-gray-100 p-5 rounded-lg min-h-screen">
+          <h1 className="text-3xl font-bold text-gray-800">
+            {blogArticle.title}
+          </h1>
+          <br />
+          <div className="text-gray-600">{blogArticle.date}</div>
+          <br />
+          <div className="prose prose-lg text-gray-700">
+            <MDXRemote
+              source={blogArticle.content}
+              components={{ Highlight }}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                },
+              }}
+            />
+          </div>
+        </main>
+        <aside className="w-full lg:w-1/4 bg-gray-200 p-5 rounded-lg mt-5 lg:mt-0 lg:ml-20 hidden lg:block">
+          <ProfileCard />
+          <div className="text-gray-700 mt-5">サイドバーのコンテンツ</div>
+        </aside>
+      </div>
     </div>
   );
 };
