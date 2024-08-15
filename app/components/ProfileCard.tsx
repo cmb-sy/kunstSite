@@ -1,5 +1,6 @@
-import React from "react";
+import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProfileCard = () => {
   return (
@@ -9,15 +10,39 @@ const ProfileCard = () => {
           src="/profile.jpg"
           alt="Profile"
           className="rounded-full"
-          width={72}
-          height={72}
+          width={80}
+          height={80}
           priority
         />
       </div>
-      <h2 className="text-2xl font-semibold text-center mt-4 text-gray-800">
-        kunst
-      </h2>
-      <p className="text-gray-600 text-center mt-2">暇人の極み</p>
+      <p className="font-semibold text-center mt-0.5 text-gray-800">kunst</p>
+      <p className="text-gray-600 text-center mt-1">
+        技術力がほしいエンジニアです。最近は山登りにハマっています。
+      </p>
+      <div className="text-center mt-4">
+        <Link href="https://cmb-sy.github.io/portfolio/">
+          <div className="text-blue-500 hover:underline">
+            ポートフォリオへ行く
+          </div>
+        </Link>
+      </div>
+      <div className="flex justify-center mt-4 space-x-4">
+        <Link href="https://twitter.com/yourprofile">
+          <div className="text-gray-600 hover:text-blue-500">
+            <FaTwitter size={24} />
+          </div>
+        </Link>
+        <Link href="https://github.com/yourprofile">
+          <div className="text-gray-600 hover:text-black">
+            <FaGithub size={24} />
+          </div>
+        </Link>
+        <Link href="https://linkedin.com/in/yourprofile">
+          <div className="text-gray-600 hover:text-blue-700">
+            <FaLinkedin size={24} />
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
