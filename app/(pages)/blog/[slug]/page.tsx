@@ -1,8 +1,7 @@
-interface TBlog {
-  slug: string;
-  title: string;
-  content: string;
-}
+import { MDXRemote } from "next-mdx-remote/rsc";
+import Highlight from "@/app/components/HighRight";
+import remarkGfm from "remark-gfm";
+import { Post } from "@/types/post";
 
 export const dynamicParams = false;
 
@@ -12,13 +11,12 @@ export async function generateStaticParams() {
     cache: "force-cache",
   });
   const blogData = await res.json();
-  return blogData.map((blog: TBlog) => ({
+  return blogData.map((blog: Post) => ({
     slug: blog.slug,
   }));
 }
 
 const getBlogArticle = async (slug: string) => {
-  // console.log("slug", slug);
   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
     cache: "force-cache",
   });
@@ -27,21 +25,82 @@ const getBlogArticle = async (slug: string) => {
 };
 
 const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
-  const blogArtcile = await getBlogArticle(params.slug);
+  const blogArticle = await getBlogArticle(params.slug);
 
   return (
-    <div className="container mx-auto py-5">
-      <article>
-        <h1>{blogArtcile.title}</h1>
+    <div className="container mx-auto py-5 px-2 lg:px-10">
+      <article
+        className="w-full max-w-3xl bg-gray-100 p-5 rounded-lg min-h-screen"
+        style={{ marginLeft: "4rem" }}
+      >
+        <h1 className="text-3xl font-bold text-gray-800">
+          {blogArticle.title}
+        </h1>
         <br />
-        <div>{blogArtcile.date}</div>
+        <div className="text-gray-600">{blogArticle.date}</div>
         <br />
-        <div
-          dangerouslySetInnerHTML={{ __html: blogArtcile.blogContentsHTML }}
-        />
+        <div className="prose prose-lg text-gray-700">
+          <MDXRemote
+            source={blogArticle.content}
+            components={{ Highlight }}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+              },
+            }}
+          />
+        </div>
       </article>
     </div>
   );
 };
 
 export default BlogArticlePage;
+
+// interface TBlog {
+//   slug: string;
+//   title: string;
+//   content: string;
+// }
+
+// export const dynamicParams = false;
+
+// // SSG
+// export async function generateStaticParams() {
+//   const res = await fetch("http://localhost:3000/api/blog/", {
+//     cache: "force-cache",
+//   });
+//   const blogData = await res.json();
+//   return blogData.map((blog: TBlog) => ({
+//     slug: blog.slug,
+//   }));
+// }
+
+// const getBlogArticle = async (slug: string) => {
+//   // console.log("slug", slug);
+//   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+//     cache: "force-cache",
+//   });
+//   const blogArticle = await res.json();
+//   return blogArticle;
+// };
+
+// const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
+//   const blogArtcile = await getBlogArticle(params.slug);
+
+//   return (
+//     <div className="container mx-auto py-5">
+//       <article>
+//         <h1>{blogArtcile.title}</h1>
+//         <br />
+//         <div>{blogArtcile.date}</div>
+//         <br />
+//         <div
+//           dangerouslySetInnerHTML={{ __html: blogArtcile.blogContentsHTML }}
+//         />
+//       </article>
+//     </div>
+//   );
+// };
+
+// export default BlogArticlePage;
