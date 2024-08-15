@@ -30,7 +30,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className="container mx-auto py-5 px-2 lg:px-10">
       <article
-        className="w-full max-w-3xl bg-gray-100 p-5 rounded-lg min-h-screen"
+        className="w-full max-w-3xl bg-white bg-gray-100 p-5 rounded-lg min-h-screen"
         style={{ marginLeft: "4rem" }}
       >
         <h1 className="text-3xl font-bold text-gray-800">
