@@ -3,17 +3,68 @@ title: "SSGとSSRの使い分けの場面はいつなのか？"
 date: "2020-02-23"
 ---
 
-私たちは、可能な限り**Static Generation**（データあり・なし）の使用を推奨します。なぜなら、ページは一度構築され、CDN によって提供されるので、リクエストごとにサーバーがページをレンダリングするよりもはるかに高速になるためです。
+md ファイルでやるなら以下の形になる
 
-Static Generation は、次のようなさまざまなタイプのページに使用できます。
+```javascript
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+import html from "remark-html";
+import { remark } from "remark";
+import { Post } from "@/types/post";
 
-- マーケティングページ
-- ブログ記事
-- E コマース商品一覧
-- ヘルプ・ドキュメント
+const postsDirectoryPath = path.join(process.cwd(), "posts");
 
-自問自答する必要があります。「このページをユーザーの要求より先にレンダリングすることは可能か？もし答えがイエスであれば、Static Generation を選択すべきです。
+export async function getPostBySlug(slug: string) {
+  const realSlug = slug.replace(/\.md$/, "");
+  const fullPath = path.join(postsDirectoryPath, `${realSlug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const matterResult = matter(fileContents);
+  const blogContents = await remark().use(html).process(matterResult.content);
+  const blogContentsHTML = blogContents.toString();
+  return { ...matterResult.data, slug: realSlug, blogContentsHTML } as Post;
+}
 
-一方、ユーザーのリクエストに先立ってページをプリレンダリングできない場合、Static Generation は**良いアイデアではありません**。たとえば、頻繁に更新されるデータを表示するページで、リクエストのたびにページのコンテンツが変わるような場合です。
+export async function getAllPosts(): Promise<Post[]> {
+  const slugs = fs.readdirSync(postsDirectoryPath);
+  const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
+  return posts;
+}
+```
 
-そのような場合は、**サーバーサイド・レンダリング**を使用することができます。速度が遅くなりますが、プリレンダリングされたページは常に最新の状態に保たれます。また、プリレンダリングをスキップして、クライアントサイド JavaScript を使用してデータを入力することもできます。
+```javascript
+import Link from "next/link";
+import { Post } from "@/types/post";
+
+const stripHtml = (html: string): string => {
+  const htmlText = html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
+  return htmlText;
+};
+
+const getBlogData = async () => {
+  const res = await fetch("http://localhost:3000/api/blog");
+  const blogData = await res.json();
+  return blogData;
+};
+
+const Home = async () => {
+  const blogData = await getBlogData();
+  return (
+    <div className="container mx-auto py-[50px]">
+      <div className="grid grid-cols-2 gap-6">
+        {blogData.map((blog: Post) => (
+          <Link href={`/blog/${blog.slug}`} className="w-full" key={blog.slug}>
+            <div className="border border-black rounded p-5">
+              <h2 className="text-xl font-bold">{blog.title}</h2>
+              <p className="text-gray-500">{blog.date}</p>
+              <p>{stripHtml(blog.blogContentsHTML).substring(0, 60)}...</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+```
