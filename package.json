@@ -27,8 +27,7 @@
     "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
     "remark-math": "^6.0.0",
-    "tocbot": "^4.29.0",
-    "typography": "^0.16.24"
+    "tocbot": "^4.29.0"
   },
   "devDependencies": {
     "@types/node": "^20",
