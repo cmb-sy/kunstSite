@@ -26,6 +26,9 @@ const Home = async () => {
               <div key={index} className="p-4 border rounded shadow-sm">
                 <Link href={`/blog/${post.slug}`}>
                   <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+                  <div className="category-title bg-blue-500 text-white px-2 py-1 rounded-full">
+                    {post.category}
+                  </div>
                   <p className="text-gray-500 mb-2">{post.date}</p>
                   <p>{strippedContent}</p>
                 </Link>

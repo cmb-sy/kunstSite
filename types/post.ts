@@ -2,5 +2,5 @@ export type Post = {
   slug: string;
   title: string;
   date: string;
-  blogContentsHTML: string;
+  category: "機械学習" | "React";
 };
