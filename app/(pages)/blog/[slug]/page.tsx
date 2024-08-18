@@ -40,8 +40,8 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   const blogArticle = await getBlogArticle(params.slug);
 
   return (
-    <div className="container mx-auto py-5 px-2 lg:px-10 flex justify-end w-full">
-      <article className="flex flex-col lg:w-4/5 mr-auto ml-10">
+    <div className="container mx-auto py-5 px-2 lg:px-10 flex justify-between w-full">
+      <article className="flex flex-col lg:w-3/4 mr-auto">
         <div className="bg-white bg-gray-100 p-5 min-h-screen">
           <h1 className="text-3xl font-bold text-gray-800">
             {blogArticle.title}
@@ -69,9 +69,9 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
       </article>
-      <aside className="w-full lg:w-1/4 p-5 rounded-lg mt-5 lg:mt-0 lg:ml-0 hidden lg:block">
+      <aside className="w-full lg:w-1/4 pr-5 pb-5 pl-5 rounded-lg mt-5 lg:mt-0 lg:ml-0 lg:sticky lg:top-5">
         <ProfileCard />
-        <div className="sticky top-5 max-h-[80vh] overflow-y-auto">
+        <div className="sticky max-h-[80vh] overflow-y-auto">
           <Toc />
         </div>
       </aside>
