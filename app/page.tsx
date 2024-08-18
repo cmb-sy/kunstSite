@@ -23,11 +23,16 @@ const Home = async () => {
               await stripMarkdown(post.content)
             ).substring(0, 70);
             return (
-              <div key={index} className="p-4 border rounded shadow-sm">
+              <div
+                key={index}
+                className="p-6 border rounded shadow-sm relative"
+              >
                 <Link href={`/blog/${post.slug}`}>
                   <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                  <div className="category-title bg-blue-500 text-white px-2 py-1 rounded-full">
-                    {post.category}
+                  <div className="relative">
+                    <div className="absolute top-10 right-0 bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">
+                      {post.category}
+                    </div>
                   </div>
                   <p className="text-gray-500 mb-2">{post.date}</p>
                   <p>{strippedContent}</p>
