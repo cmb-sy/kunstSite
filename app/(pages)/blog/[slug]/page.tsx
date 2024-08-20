@@ -40,8 +40,8 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   const blogArticle = await getBlogArticle(params.slug);
 
   return (
-    <div className="container mx-auto py-5 px-2 lg:px-10 flex justify-between w-full">
-      <article className="flex flex-col lg:w-3/4 mr-auto">
+    <div className="container mx-auto py-5 px-2 lg:px-20 flex justify-between w-full">
+      <article className="flex flex-col lg:w-2/3 mr-auto">
         <div className="bg-white bg-gray-100 p-5 min-h-screen">
           <h1 className="text-3xl font-bold text-gray-800">
             {blogArticle.title}
@@ -55,7 +55,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
             integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
             crossOrigin="anonymous"
           />
-          <div className="prose prose-lg text-gray-700 max-w-5xl target-toc">
+          <div className="prose text-gray-700 max-w-4xl target-toc">
             <MDXRemote
               source={blogArticle.content}
               components={{ Highlight }}
@@ -69,7 +69,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
       </article>
-      <aside className="w-full lg:w-1/4 pr-5 pb-5 pl-5 rounded-lg mt-5 lg:mt-0 lg:ml-0 lg:sticky lg:top-5">
+      <aside className="hidden lg:block w-full lg:w-custom-298 pr-5 pb-5 pl-5 mt-5 lg:mt-0 lg:ml-1 lg:sticky lg:top-5">
         <ProfileCard />
         <div className="sticky max-h-[80vh] overflow-y-auto">
           <Toc />

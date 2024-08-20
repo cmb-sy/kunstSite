@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProfileCard = () => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto">
+    <div className="bg-white p-5 shadow-lg max-w-sm mx-auto lg:w-custom-298 ">
       <div className="flex justify-center">
         <Image
           src="/profile.jpg"
