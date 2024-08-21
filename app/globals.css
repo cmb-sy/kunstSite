@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f5f6f6;
-}
-
 .toc-list {
   @apply w-full my-0 px-0;
 }
@@ -28,4 +24,20 @@ body {
 
 .is-active-link {
   @apply text-gray-200 bg-gray-500 font-bold;
+}
+
+/* 記事関係 */
+.section-style2 {
+  max-width: 1300px;
+}
+
+.section-style {
+  width: 100%;
+}
+
+/* 画面幅が1024px以上の場合のセクションスタイル */
+@media (min-width: 1024px) {
+  .section-style {
+    width: 885px;
+  }
 }
