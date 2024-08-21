@@ -28,7 +28,13 @@
 
 /* 記事関係 */
 .section-style2 {
-  max-width: 1300px;
+  max-width: 1024px;
+}
+/* 画面幅が1024px以上の場合のセクションスタイル */
+@media (min-width: 1025px) {
+  .section-style2 {
+    max-width: 1300px;
+  }
 }
 
 .section-style {
@@ -37,6 +43,12 @@
 
 /* 画面幅が1024px以上の場合のセクションスタイル */
 @media (min-width: 1024px) {
+  .section-style {
+    width: 610px;
+  }
+}
+
+@media (min-width: 1280px) {
   .section-style {
     width: 885px;
   }

@@ -57,7 +57,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
             crossOrigin="anonymous"
           />
           {/* 目次表示に必要 */}
-          <div className="prose prose-lg text-gray-700 max-w-5xl target-toc">
+          <div className="target-toc">
             <div>
               <MDXRemote
                 source={blogArticle.content}
