@@ -17,14 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.25.0/tocbot.css"
-      />
       <body className={noto.className}>
         <Header />
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-gray-100">
           <div className="flex-grow flex">
+            <link
+              rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.25.0/tocbot.css"
+            />
             <main className="flex-grow bg-gray-100">{children}</main>
           </div>
           <Footer />

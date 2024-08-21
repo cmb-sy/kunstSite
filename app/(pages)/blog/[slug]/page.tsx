@@ -1,7 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Highlight from "@/app/components/HighRight";
 import remarkGfm from "remark-gfm";
-import ProfileCard from "@/app/components/ProfileCard";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
