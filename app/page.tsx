@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-key */
 import { marked } from "marked";
 import Link from "next/link";
 import Sidebar from "./components/Sidevar";
 import SearchBar from "./components/SearchBar";
+import Category from "./components/Category";
 
 const stripMarkdown = async (markdown: string): Promise<string> => {
   const html = await marked(markdown);
@@ -66,7 +68,7 @@ const Home = async () => {
           </div>
         </section>
         <div className="mt-20">
-          <Sidebar TocComponent={<SearchBar />} />
+          <Sidebar TocComponent={[<SearchBar />, <Category />]} />
         </div>
       </div>
     </div>
