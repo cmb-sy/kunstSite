@@ -1,5 +1,4 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Toc } from "@/app/components/toc";
 import Highlight from "@/app/components/HighRight";
 import remarkGfm from "remark-gfm";
 import ProfileCard from "@/app/components/ProfileCard";
@@ -9,6 +8,8 @@ import rehypeSlug from "rehype-slug";
 import rehypePrism from "rehype-prism";
 import "prismjs/components/prism-python.js";
 import "prismjs/themes/prism-tomorrow.css";
+import { Toc } from "@/app/components/toc";
+import Sidebar from "@/app/components/Sidevar";
 
 type Post = {
   slug: string;
@@ -55,25 +56,23 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
             integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
             crossOrigin="anonymous"
           />
-          <div>
-            <MDXRemote
-              source={blogArticle.content}
-              components={{ Highlight }}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm, remarkMath],
-                  rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
-                },
-              }}
-            />
+          {/* 目次表示に必要 */}
+          <div className="prose prose-lg text-gray-700 max-w-5xl target-toc">
+            <div>
+              <MDXRemote
+                source={blogArticle.content}
+                components={{ Highlight }}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm, remarkMath],
+                    rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
+                  },
+                }}
+              />
+            </div>
           </div>
         </section>
-        <aside className="hidden lg:block">
-          <ProfileCard />
-          <div>
-            <Toc />
-          </div>
-        </aside>
+        <Sidebar TocComponent={<Toc />} />
       </div>
     </div>
   );
