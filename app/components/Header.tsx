@@ -10,11 +10,6 @@ const Header = () => {
         </h1>
         <ul className="flex gap-3">
           <li>
-            <Link href="/blog" className="text-white">
-              blog
-            </Link>
-          </li>
-          <li>
             <Link href="/about" className="text-white">
               About
             </Link>
