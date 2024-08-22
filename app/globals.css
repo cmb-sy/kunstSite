@@ -29,29 +29,37 @@
 /* ------------------------- */
 /* 記事 */
 /* ------------------------- */
+/* 画面全体 */
 .section-style2 {
   max-width: 1024px;
 }
 /* 画面幅が1024px以上の場合のセクションスタイル */
-@media (min-width: 1025px) {
+/* @media (min-width: 1024px) {
+  .section-style2 {
+    max-width: 1024px;
+  }
+} */
+
+@media (min-width: 1440px) {
   .section-style2 {
     max-width: 1300px;
   }
 }
 
+/* 記事section */
 .section-style {
   width: 100%;
 }
 
 @media (min-width: 1024px) {
   .section-style {
-    width: 610px;
+    width: 620px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .section-style {
-    width: 885px;
+    width: 900px;
   }
 }
 
