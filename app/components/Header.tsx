@@ -30,7 +30,7 @@ const Header = () => {
             />
           </li>
 
-          <li>ダークモード</li>
+          <li className="text-white">MS</li>
         </ul>
       </div>
     </header>
