@@ -17,14 +17,10 @@ export const Toc = () => {
     return () => tocbot.destroy();
   }, []);
 
-  return <nav className="toc" />;
-};
-
-export const TocBox = () => {
   return (
-    <>
-      <p>目次</p>
-      <Toc />
-    </>
+    <div className="bg-white m-5 p-4 rounded-lg shadow-lg">
+      <span className="text-xl font-bold">目次</span>
+      <nav className="m-1 p-1 toc" />
+    </div>
   );
 };

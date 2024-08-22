@@ -90,3 +90,80 @@
     max-width: 1700px;
   }
 }
+
+/* ------------------------- */
+/* 記事の内容 */
+/* ------------------------- */
+/* 見出し */
+h2 {
+  font-size: 2em; /* フォントサイズを追加 */
+  padding: 1rem 2rem;
+  border-left: 4px solid #000;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.75em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+/* ------------------------- */
+/* 目次 */
+/* ------------------------- */
+.toc {
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.toc-list {
+  padding-top: 0.5rem;
+}
+
+.toc-list:first-child {
+  padding-top: 0;
+}
+
+.toc-list-item {
+  position: relative;
+  list-style: none;
+  padding-left: 5px;
+  padding-bottom: 0.5rem;
+}
+
+.toc-list-item:last-child {
+  padding-bottom: 0;
+}
+
+.toc-list-item::before {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  content: "";
+  background: purple.300;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.toc-link {
+  color: gray.500;
+  font-weight: 700;
+}
+
+.toc-list .toc-link {
+  font-weight: 400;
+}
+
+.toc-list-item.is-active-li .toc-link {
+  color: var(--activeLinkColor);
+}
+
+.toc-list-item.is-active-li::before {
+  background: var(--activeListIconColor);
+  border-color: purple.100;
+}

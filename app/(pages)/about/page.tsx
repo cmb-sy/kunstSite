@@ -2,16 +2,13 @@ import path from "path";
 import fs from "fs/promises";
 import matter from "gray-matter";
 
-import { MDXRemote } from "next-mdx-remote/rsc";
-import Highlight from "@/app/components/HighRight";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-import rehypeSlug from "rehype-slug";
-import rehypePrism from "rehype-prism";
+import SearchBar from "@/app/components/SearchBar";
+import ArticleContent from "@/app/components/ArticleContent";
+
 import "prismjs/components/prism-python.js";
 import "prismjs/themes/prism-tomorrow.css";
-import Sidebar from "@/app/components/Sidevar";
+
+import { Toc } from "@/app/components/toc";
 
 async function getAboutArticleBySlug(slug: string) {
   const aboutDirectoryPath = path.join(process.cwd(), "/app/(pages)/about");
@@ -32,7 +29,6 @@ export async function getStaticParams() {
   const slugs = aboutFilenames.map((filename) => ({
     slug: filename.replace(/\.mdx$/, ""),
   }));
-
   return slugs;
 }
 
@@ -44,38 +40,10 @@ const getBlogArticle = async (slug: string) => {
 const AboutPage = async ({ params }: { params: { slug: string } }) => {
   const blogArticle = await getBlogArticle("aboutBlog.mdx");
   return (
-    <div className="flex justify-center">
-      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between w-full section-style2">
-        <section className="p-8 section-style bg-white">
-          <h1 className="text-3xl font-bold text-gray-800">
-            {blogArticle.title}
-          </h1>
-          <br />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-            integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-            crossOrigin="anonymous"
-          />
-          {/* 目次表示に必要 */}
-          <div className="target-toc">
-            <div>
-              <MDXRemote
-                source={blogArticle.content}
-                components={{ Highlight }}
-                options={{
-                  mdxOptions: {
-                    remarkPlugins: [remarkGfm, remarkMath],
-                    rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
-                  },
-                }}
-              />
-            </div>
-          </div>
-        </section>
-        <Sidebar />
-      </div>
-    </div>
+    <ArticleContent
+      blogArticle={blogArticle}
+      SidebarComponents={[<SearchBar key="searchBar" />, <Toc key="toc" />]}
+    />
   );
 };
 

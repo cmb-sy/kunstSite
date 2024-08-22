@@ -1,7 +1,6 @@
-/* eslint-disable react/jsx-key */
 import { marked } from "marked";
 import Link from "next/link";
-import Sidebar from "./components/Sidevar";
+import Sidebar from "./components/Sidebar";
 import SearchBar from "./components/SearchBar";
 import Category from "./components/Category";
 
@@ -48,7 +47,7 @@ const Home = async () => {
                     className="p-6 border rounded shadow-sm relative"
                   >
                     <Link href={`/blog/${post.slug}`}>
-                      <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+                      <h1 className="text-xl font-bold mb-2">{post.title}</h1>
                       <div className="relative"></div>
                       <div className="flex items-center space-x-2 text-gray-500 text-sm mb-2">
                         <span>{post.date}</span>
@@ -65,7 +64,12 @@ const Home = async () => {
           </div>
         </section>
         <div className="mt-20">
-          <Sidebar TocComponent={[<SearchBar />, <Category />]} />
+          <Sidebar
+            SidebarComponents={[
+              <SearchBar key="search" />,
+              <Category key="category" />,
+            ]}
+          />
         </div>
       </div>
     </div>
