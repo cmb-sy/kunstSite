@@ -1,7 +1,7 @@
-## nextTask
-ブランチを切って進める。
-- 共通部分のコンポーネント化
-- ディレクトリの整理
-- AboutのSSG確認
-- 記事の最低限のcssを作成
+## outline
 
+coming soon
+
+## getting started
+
+coming soon
