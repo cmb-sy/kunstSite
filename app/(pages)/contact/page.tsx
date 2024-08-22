@@ -6,7 +6,7 @@ import React from "react";
 const Form: React.FC = () => {
   return (
     <form
-      action="https://ssgform.com/s/NeXtFoRm"
+      action="https://ssgform.com/s/0ti4DfBGxgrh"
       method="post"
       className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg"
     >
