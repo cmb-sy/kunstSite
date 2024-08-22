@@ -26,7 +26,9 @@
   @apply text-gray-200 bg-gray-500 font-bold;
 }
 
-/* 記事関係 */
+/* ------------------------- */
+/* 記事 */
+/* ------------------------- */
 .section-style2 {
   max-width: 1024px;
 }
@@ -41,7 +43,6 @@
   width: 100%;
 }
 
-/* 画面幅が1024px以上の場合のセクションスタイル */
 @media (min-width: 1024px) {
   .section-style {
     width: 610px;
@@ -51,5 +52,33 @@
 @media (min-width: 1280px) {
   .section-style {
     width: 885px;
+  }
+}
+
+/* ------------------------- */
+/* ホームページ */
+/* ------------------------- */
+.section-style3 {
+  width: 100%;
+}
+/* 画面幅が1024px以上の場合のセクションスタイル */
+@media (min-width: 1024px) {
+  .section-style3 {
+    width: calc(100% - 380px);
+  }
+}
+
+.section-style4 {
+  max-width: 1024px;
+}
+
+@media (min-width: 1024px) {
+  .section-style4 {
+    max-width: 1200px;
+  }
+}
+@media (min-width: 1440px) {
+  .section-style4 {
+    max-width: 1700px;
   }
 }

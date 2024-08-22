@@ -20,11 +20,8 @@ const Home = async () => {
   const blogData = await getBlogData();
   return (
     <div className="flex justify-center">
-      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between">
-        <section
-          className="container mx-auto"
-          style={{ width: "calc(100% - 350px)" }}
-        >
+      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between section-style4">
+        <section className="container mx-auto section-style3">
           <div className="flex justify-center items-center p-4">
             <ul className="flex flex-row space-x-4">
               <li>
