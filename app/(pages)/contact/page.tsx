@@ -8,7 +8,7 @@ const Form: React.FC = () => {
     <form
       action="https://ssgform.com/s/0ti4DfBGxgrh"
       method="post"
-      className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg"
+      className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg mt-10"
     >
       <div className="mb-4">
         <label
