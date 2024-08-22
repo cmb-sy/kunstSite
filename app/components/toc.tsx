@@ -18,7 +18,7 @@ export const Toc = () => {
   }, []);
 
   return (
-    <div className="bg-white m-5 p-4 rounded-lg shadow-lg">
+    <div className="bg-white mt-5 p-4 shadow-lg">
       <span className="text-xl font-bold">目次</span>
       <nav className="m-1 p-1 toc" />
     </div>
