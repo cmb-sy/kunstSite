@@ -8,6 +8,8 @@ import ArticleContent from "@/app/components/ArticleContent";
 import "prismjs/components/prism-python.js";
 import "prismjs/themes/prism-tomorrow.css";
 
+import { Toc } from "@/app/components/toc";
+
 async function getAboutArticleBySlug(slug: string) {
   const aboutDirectoryPath = path.join(process.cwd(), "/app/(pages)/about");
   const cleanSlug = slug.replace(/\.mdx$/, "");
@@ -40,7 +42,7 @@ const AboutPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <ArticleContent
       blogArticle={blogArticle}
-      SidebarComponents={[<SearchBar key="searchBar" />]}
+      SidebarComponents={[<SearchBar key="searchBar" />, <Toc key="toc" />]}
     />
   );
 };
