@@ -1,6 +1,5 @@
-import fs, { readFile } from "fs";
+import fs from "fs";
 import path from "path";
-import { compileMDX } from "next-mdx-remote/rsc";
 import matter from "gray-matter";
 
 const postsDirectoryPath = path.join(process.cwd(), "posts");
