@@ -23,15 +23,6 @@ async function getAboutArticleBySlug(slug: string) {
   };
 }
 
-export async function getStaticParams() {
-  const aboutDirectoryPath = path.join(process.cwd(), "/app/(pages)/about");
-  const aboutFilenames = await fs.readdir(aboutDirectoryPath);
-  const slugs = aboutFilenames.map((filename) => ({
-    slug: filename.replace(/\.mdx$/, ""),
-  }));
-  return slugs;
-}
-
 const getBlogArticle = async (slug: string) => {
   const article = await getAboutArticleBySlug(slug);
   return article;
