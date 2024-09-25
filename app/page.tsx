@@ -35,7 +35,7 @@ const Home = async () => {
               </li>
             </ul>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {await Promise.all(
               blogData.map(async (post: any, index: number) => {
                 const strippedContent = (
@@ -44,7 +44,7 @@ const Home = async () => {
                 return (
                   <div
                     key={index}
-                    className="p-6 border rounded shadow-sm relative"
+                    className="p-6 border rounded shadow-sm bg-white relative"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       <h1 className="text-xl font-bold mb-2">{post.title}</h1>
