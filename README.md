@@ -1,8 +1,9 @@
-## outline
+# outline
 
-coming soon
+☀️ My Blog : https:/...<br>
+This technical blog is intended to output our daily learning and thoughts.
 
-## getting started
+# getting started
 
 Follow these steps to get started with this project.
 
