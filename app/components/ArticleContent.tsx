@@ -1,4 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { ReactNode } from "react";
+
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -7,14 +9,18 @@ import rehypeSlug from "rehype-slug";
 
 import Highlight from "@/app/components/HighRight";
 import Sidebar from "@/app/components/Sidebar";
-
-import "prismjs/components/prism-python.js";
-import "prismjs/themes/prism-tomorrow.css";
+import CodeBlock from "@/app/components/CodeBlock";
 
 interface BlogContentProps {
   blogArticle: any;
   SidebarComponents: React.ReactNode[];
 }
+
+const components = {
+  code: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
+    <CodeBlock {...props} />
+  ),
+};
 
 const BlogContent: React.FC<BlogContentProps> = ({
   blogArticle,
@@ -41,7 +47,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
             <div>
               <MDXRemote
                 source={blogArticle.content}
-                components={{ Highlight }}
+                components={{ ...components, Highlight }}
                 options={{
                   mdxOptions: {
                     remarkPlugins: [remarkGfm, remarkMath],

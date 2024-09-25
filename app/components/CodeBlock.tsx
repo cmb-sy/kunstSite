@@ -37,6 +37,7 @@ const CodeBlock: React.FC<Props> = ({ className, children = "" }: Props) => {
           border-radius: 0.3rem 0.3rem 0 0;
           background-color: #323e52;
           padding: 0.55rem 1rem;
+          margin-top: 25px;
           color: white;
           font-size: 0.8rem;
           font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier,
