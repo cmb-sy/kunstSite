@@ -1,4 +1,4 @@
-import BlogGrid from "./components/BlogGrid";
+import BlogGrid from "./components/ArticleLists";
 
 const getBlogData = async () => {
   const res = await fetch("http://localhost:3000/api/blog");

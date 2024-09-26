@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Sidebar from "./Sidebar";
 import SearchBar from "./SearchBar";
-import Category from "./Category";
+import SideBarCategoryLists from "./SideBarCategoryLists";
 import NotArticle from "@/app/not-article";
 
 import { marked } from "marked";
@@ -11,12 +11,12 @@ const stripMarkdown = async (markdown: string): Promise<string> => {
   return text.trim();
 };
 
-interface BlogGridProps {
+interface ArticleListsProps {
   blogData: any;
   newArticlesLabel: string;
 }
 
-const BlogGrid: React.FC<BlogGridProps> = async ({
+const ArticleLists: React.FC<ArticleListsProps> = async ({
   blogData,
   newArticlesLabel,
 }) => {
@@ -66,7 +66,7 @@ const BlogGrid: React.FC<BlogGridProps> = async ({
         <Sidebar
           SidebarComponents={[
             <SearchBar key="search" />,
-            <Category key="category" />,
+            <SideBarCategoryLists key="category" />,
           ]}
         />
       </div>
@@ -74,4 +74,4 @@ const BlogGrid: React.FC<BlogGridProps> = async ({
   );
 };
 
-export default BlogGrid;
+export default ArticleLists;

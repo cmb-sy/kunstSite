@@ -1,4 +1,4 @@
-import BlogGrid from "@/app/components/BlogGrid";
+import ArticleLists from "@/app/components/ArticleLists";
 import { Categories } from "@/types/post";
 
 interface BlogContentProps {
@@ -6,7 +6,7 @@ interface BlogContentProps {
   category: keyof typeof Categories;
 }
 
-const BlogContent2: React.FC<BlogContentProps> = async ({
+const CategorizedArticleLists: React.FC<BlogContentProps> = async ({
   blogArticle,
   category,
 }) => {
@@ -15,10 +15,10 @@ const BlogContent2: React.FC<BlogContentProps> = async ({
   return (
     <div className="flex justify-center">
       <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between section-style4">
-        <BlogGrid blogData={blogArticle} newArticlesLabel={categoryLabel} />
+        <ArticleLists blogData={blogArticle} newArticlesLabel={categoryLabel} />
       </div>
     </div>
   );
 };
 
-export default BlogContent2;
+export default CategorizedArticleLists;
