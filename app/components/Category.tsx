@@ -1,11 +1,20 @@
 import React from "react";
-import { Categories } from "@/types/post";
+import Link from "next/link";
+import { Categories, Category } from "@/types/post";
 
-const CategoryItem = ({ category }: { category: string }) => {
+const CategoryItem = ({
+  categoryKey,
+  categoryValue,
+}: {
+  categoryKey: Category;
+  categoryValue: string;
+}) => {
   return (
-    <button className="w-full max-w-md p-2 border-b border-gray-200 hover:bg-gray-100 text-left">
-      {category}
-    </button>
+    <Link href={`/category/${categoryKey}`} className="text-white">
+      <button className="w-full max-w-md p-2 border-b border-gray-200 hover:bg-gray-100 text-left">
+        {categoryValue}
+      </button>
+    </Link>
   );
 };
 
@@ -13,8 +22,12 @@ const CategoryList = () => {
   return (
     <div className="flex flex-col items-left mt-4 space-y-2 w-full bg-white p-4 rounded shadow text-left">
       <h1 className="text-2xl font-bold mb-4">Categories</h1>
-      {Object.values(Categories).map((category, index) => (
-        <CategoryItem key={index} category={category} />
+      {Object.entries(Categories).map(([key, value], index) => (
+        <CategoryItem
+          key={index}
+          categoryKey={key as Category}
+          categoryValue={value}
+        />
       ))}
     </div>
   );

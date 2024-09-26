@@ -21,11 +21,10 @@ const CategorArticleListPage = async ({
   const res = await fetch("http://localhost:3000/api/blog");
   const blogData = await res.json();
 
-  // slug値でblogDataをフィルタリング
+  // slug値(カテゴリー)でblogDataをフィルタリング
   const filteredData = blogData.filter(
     (blog: Post) => blog.category === params.slug
   );
-  console.log("filteredData", filteredData);
   return <CategorizedPage blogArticle={filteredData} />;
 };
 
