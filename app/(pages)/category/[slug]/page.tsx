@@ -1,4 +1,4 @@
-import type { Post } from "@/types/post";
+import type { Categories, Post } from "@/types/post";
 import CategorizedPage from "@/app/components/CategorizedPage";
 
 // SSG
@@ -25,7 +25,10 @@ const CategorArticleListPage = async ({
   const filteredData = blogData.filter(
     (blog: Post) => blog.category === params.slug
   );
-  return <CategorizedPage blogArticle={filteredData} category={params.slug} />;
+
+  // params.slugをkeyof typeof Categoriesにキャスト
+  const slugParam = params.slug as keyof typeof Categories;
+  return <CategorizedPage blogArticle={filteredData} category={slugParam} />;
 };
 
 export default CategorArticleListPage;

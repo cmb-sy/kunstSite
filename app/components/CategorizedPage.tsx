@@ -3,7 +3,7 @@ import { Categories } from "@/types/post";
 
 interface BlogContentProps {
   blogArticle: any;
-  category: any;
+  category: keyof typeof Categories;
 }
 
 const BlogContent2: React.FC<BlogContentProps> = async ({
