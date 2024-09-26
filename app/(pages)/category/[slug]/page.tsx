@@ -25,7 +25,7 @@ const CategorArticleListPage = async ({
   const filteredData = blogData.filter(
     (blog: Post) => blog.category === params.slug
   );
-  return <CategorizedPage blogArticle={filteredData} />;
+  return <CategorizedPage blogArticle={filteredData} category={params.slug} />;
 };
 
 export default CategorArticleListPage;

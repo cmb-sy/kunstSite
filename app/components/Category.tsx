@@ -10,8 +10,8 @@ const CategoryItem = ({
   categoryValue: string;
 }) => {
   return (
-    <Link href={`/category/${categoryKey}`} className="text-white">
-      <button className="w-full max-w-md p-2 border-b border-gray-200 hover:bg-gray-100 text-left">
+    <Link href={`/category/${categoryKey}`}>
+      <button className="w-full max-w-md p-2 border-b border-gray-200 hover:bg-gray-100 text-left text-black">
         {categoryValue}
       </button>
     </Link>
