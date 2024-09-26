@@ -1,4 +1,5 @@
 import { marked } from "marked";
+
 import Link from "next/link";
 import Sidebar from "./components/Sidebar";
 import SearchBar from "./components/SearchBar";
@@ -41,6 +42,7 @@ const Home = async () => {
                 const strippedContent = (
                   await stripMarkdown(post.content)
                 ).substring(0, 70);
+
                 return (
                   <div
                     key={index}
@@ -52,7 +54,7 @@ const Home = async () => {
                       <div className="flex items-center space-x-2 text-gray-500 text-sm mb-2">
                         <span>{post.date}</span>
                         <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
-                          {post.category}
+                          仮タグ
                         </span>
                       </div>
                       <p>{strippedContent}</p>
