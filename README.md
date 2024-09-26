@@ -34,7 +34,7 @@ Follow these steps to get started with this project.
 # 残タスク
 
 - [ ] デプロイ
-- [ ] カテゴリーと記事の連携
+- [x] カテゴリーと記事の連携
 - [x] コードのコピーボタンを実装
 - [ ] About の執筆
 - [ ] プライバシーポリシー、利用規約の執筆
