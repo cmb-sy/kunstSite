@@ -16,7 +16,7 @@ interface BlogContentProps {
   SidebarComponents: React.ReactNode[];
 }
 
-const components = {
+const codeBlockComponents = {
   code: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
     <CodeBlock {...props} />
   ),
@@ -47,7 +47,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
             <div>
               <MDXRemote
                 source={blogArticle.content}
-                components={{ ...components, Highlight }}
+                components={{ ...codeBlockComponents, Highlight }}
                 options={{
                   mdxOptions: {
                     remarkPlugins: [remarkGfm, remarkMath],

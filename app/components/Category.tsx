@@ -3,17 +3,17 @@ import { Categories } from "@/types/post";
 
 const CategoryItem = ({ category }: { category: string }) => {
   return (
-    <div className="w-full max-w-md p-2 border-b border-gray-200">
+    <button className="w-full max-w-md p-2 border-b border-gray-200 hover:bg-gray-100 text-left">
       {category}
-    </div>
+    </button>
   );
 };
 
 const CategoryList = () => {
   return (
-    <div className="flex flex-col items-center mt-4 space-y-2 w-full bg-white p-4 rounded shadow">
+    <div className="flex flex-col items-left mt-4 space-y-2 w-full bg-white p-4 rounded shadow text-left">
       <h1 className="text-2xl font-bold mb-4">Categories</h1>
-      {Categories.map((category, index) => (
+      {Object.values(Categories).map((category, index) => (
         <CategoryItem key={index} category={category} />
       ))}
     </div>
