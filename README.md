@@ -41,8 +41,8 @@ Follow these steps to get started with this project.
 - [ ] 旧ブログからの記事移管
 - [ ] 検索機能を追加
 - [ ] ダークモードを追加
-- [ ] Not found の改造
-- [ ] Top ページの記事数の限界値の設定とページネーションの実装
+- [ ] Not foundの改造,portfolioと合わせる
+- [ ] Topページの記事数の限界値の設定とページネーションの実装
 - [ ] ヘッダーの改造
 - [ ] アクセス数の獲得
 - [ ] ViTest によるテスト自動化
