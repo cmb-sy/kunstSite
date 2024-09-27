@@ -35,6 +35,7 @@ Follow these steps to get started with this project.
 
 - [ ] デプロイ
 - [x] カテゴリーと記事の連携
+- [ ] カテゴリーの記事数の表示
 - [x] コードのコピーボタンを実装
 - [ ] About の執筆
 - [ ] プライバシーポリシー、利用規約の執筆
