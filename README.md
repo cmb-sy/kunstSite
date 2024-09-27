@@ -31,12 +31,12 @@ Follow these steps to get started with this project.
    yarn dev
    ```
 
-
 # 残タスク
+
 - [ ] デプロイ
-- [ ] カテゴリーと記事の連携
+- [x] カテゴリーと記事の連携
 - [x] コードのコピーボタンを実装
-- [ ] Aboutの執筆
+- [ ] About の執筆
 - [ ] プライバシーポリシー、利用規約の執筆
 - [ ] 旧ブログからの記事移管
 - [ ] 検索機能を追加
@@ -45,3 +45,4 @@ Follow these steps to get started with this project.
 - [ ] Topページの記事数の限界値の設定とページネーションの実装
 - [ ] ヘッダーの改造
 - [ ] アクセス数の獲得
+- [ ] ViTest によるテスト自動化

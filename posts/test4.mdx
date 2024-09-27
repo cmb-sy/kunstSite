@@ -1,31 +1,18 @@
 ---
-title: "ReactとNext.jsはどちらを使うべき？"
-date: "2020-02-24"
-category: "React"
+title: "プリレンダリングの2つの形態インフラっっっs"
+date: "2022-02-22"
+category: "others"
 ---
 
-# GFM
+Next.js では、プリレンダリングには 2 つの形態があります。**静的生成**と**サーバーサイドレンダリング**です。違いは、ページの HTML をいつ生成するかという点です。
 
-## Autolink literals
+- 静的生成はビルド時に HTML を生成するプリレンダリング方法です。プリレンダリングされた HTML は、各リクエストで再利用されます。
+- サーバーサイドレンダリング**は、**リクエストごとに HTML を生成するプリレンダリング方法です。
 
-www.example.com, https://example.com, and contact@example.com.
+重要なのは、Next.js では、各ページでどのプリレンダリング方式を使うか、選択することができるということです。ほとんどのページで静的生成、その他のページでサーバーサイドレンダリングを利用することで、「ハイブリッド」な Next.js アプリを作成することができます。
 
-## Footnote
+<Highlight>やっほ～</Highlight>
 
-A note[^1]
-
-[^1]: Big note.
-
-### Strikethrough
-
-~one~ or ~~two~~ tildes.
-
-### Table
-
-| a   | b   |   c |  d  |
-| --- | :-- | --: | :-: |
-
-## Tasklist
-
-- [ ] to do
-- [x] done
+$$
+L = \frac{1}{2} \rho v^2 S C_L
+$$
