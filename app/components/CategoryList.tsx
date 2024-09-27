@@ -18,7 +18,7 @@ const CategoryItem = ({
   );
 };
 
-const CategoryLists = () => {
+const CategoryList = () => {
   return (
     <div className="flex flex-col items-left mt-4 space-y-2 w-full bg-white p-4 rounded shadow text-left">
       <h1 className="text-2xl font-bold mb-4">Categories</h1>
@@ -33,4 +33,4 @@ const CategoryLists = () => {
   );
 };
 
-export default CategoryLists;
+export default CategoryList;

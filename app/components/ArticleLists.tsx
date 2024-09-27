@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Sidebar from "./Sidebar";
 import SearchBar from "./SearchBar";
-import SideBarCategoryLists from "./SideBarCategoryLists";
+import SideBarCategoryLists from "./CategoryList";
 import NotArticle from "@/app/not-article";
 
 import { marked } from "marked";
@@ -13,15 +13,15 @@ const stripMarkdown = async (markdown: string): Promise<string> => {
 
 interface ArticleListsProps {
   blogData: any;
-  newArticlesLabel: string;
+  categoryLabel: string;
 }
 
 const ArticleLists: React.FC<ArticleListsProps> = async ({
   blogData,
-  newArticlesLabel,
+  categoryLabel,
 }) => {
+  // カテゴリー内の記事がない場合はレイアウトが崩れるので、別ページへ遷移
   if (blogData.length === 0) {
-    console.log(blogData.length);
     return <NotArticle />;
   }
 
@@ -30,7 +30,7 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
       <section className="container mx-auto section-style3">
         <div className="flex justify-center items-center p-4">
           <button className="text-lg font-medium px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
-            {newArticlesLabel}
+            {categoryLabel},
           </button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
