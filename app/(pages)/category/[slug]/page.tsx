@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const CategorArticleListPage = async ({
+const CategoriedArticleListPage = async ({
   params,
 }: {
   params: { slug: string };
@@ -33,4 +33,4 @@ const CategorArticleListPage = async ({
   );
 };
 
-export default CategorArticleListPage;
+export default CategoriedArticleListPage;
