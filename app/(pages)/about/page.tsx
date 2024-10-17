@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs/promises";
 import matter from "gray-matter";
 
-import SearchBar from "@/app/components/SearchBar";
+// import SearchBar from "@/app/components/SearchBar";
 import ArticleContent from "@/app/components/ArticleContent";
 
 import "prismjs/components/prism-python.js";
@@ -33,7 +33,8 @@ const AboutPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <ArticleContent
       blogArticle={blogArticle}
-      SidebarComponents={[<SearchBar key="searchBar" />, <Toc key="toc" />]}
+      // SidebarComponents={[<SearchBar key="searchBar" />, <Toc key="toc" />]}
+      SidebarComponents={[<Toc key="toc" />]}
     />
   );
 };

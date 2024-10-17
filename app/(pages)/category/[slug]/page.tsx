@@ -1,36 +1,38 @@
-import type { Categories, Post } from "@/types/post";
+import { Categories } from "@/types/categories";
+import { Category } from "@/types/categories";
 import CategorizedArticleLists from "@/app/components/CategorizedArticleLists";
+import { Post } from "@/types/post";
 
 // SSG
 export async function generateStaticParams() {
-  const res = await fetch("http://localhost:3000/api/blog/", {
-    cache: "force-cache",
-  });
-  const blogData = await res.json();
-
-  return blogData.map((blog: Post) => ({
-    slug: blog.slug,
+  return Categories.map((category) => ({
+    slug: category,
   }));
 }
 
-const CategoriedArticleListPage = async ({
+const CategorizedArticleListPage = async ({
   params,
 }: {
   params: { slug: string };
 }) => {
-  const res = await fetch("http://localhost:3000/api/blog");
+  const decodedSlug = decodeURIComponent(params.slug);
+  const res = await fetch("http://localhost:3000/api/blog/", {
+    cache: "force-cache",
+  });
   const blogData = await res.json();
-
   // slug値(カテゴリー)でblogDataをフィルタリング
   const filteredData = blogData.filter(
-    (blog: Post) => blog.category === params.slug
+    (blog: Post) => blog.category === decodedSlug
   );
 
-  // params.slugをkeyof typeof Categoriesにキャスト
-  const slugParam = params.slug as keyof typeof Categories;
+  // params.slugをCategory型にキャストする前にチェック
+  const slugParam = decodedSlug as Category;
   return (
-    <CategorizedArticleLists blogArticle={filteredData} category={slugParam} />
+    <CategorizedArticleLists
+      blogArticle={filteredData}
+      category={slugParam as Category}
+    />
   );
 };
 
-export default CategoriedArticleListPage;
+export default CategorizedArticleListPage;

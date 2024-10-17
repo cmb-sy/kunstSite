@@ -24,18 +24,6 @@ const Header = () => {
               Contact
             </Link>
           </li>
-          <li>
-            <Image
-              src="/search.svg"
-              alt="Search Logo"
-              className="dark:invert"
-              width={24}
-              height={24}
-              priority
-            />
-          </li>
-
-          <li className="text-white">MS</li>
         </ul>
       </div>
     </header>

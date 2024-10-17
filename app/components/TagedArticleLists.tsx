@@ -1,24 +1,22 @@
 import ArticleLists from "@/app/components/ArticleLists";
-import { Categories } from "@/types/categories";
+import type { Tag } from "@/types/tags";
 
 interface BlogContentProps {
   blogArticle: any;
-  category: any;
+  tags: Tag | string[];
 }
 
-const CategorizedArticleLists: React.FC<BlogContentProps> = async ({
+const TagedArticleLists: React.FC<BlogContentProps> = async ({
   blogArticle,
-  category,
+  tags,
 }) => {
-  const categoryLabel = category;
-
   return (
     <div className="flex justify-center">
       <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between section-style4">
-        <ArticleLists blogData={blogArticle} label={categoryLabel} />
+        <ArticleLists blogData={blogArticle} label={tags} />
       </div>
     </div>
   );
 };
 
-export default CategorizedArticleLists;
+export default TagedArticleLists;

@@ -24,6 +24,7 @@ const getBlogArticle = async (slug: string) => {
     cache: "force-cache",
   });
   const blogArticle = await res.json();
+
   return blogArticle;
 };
 
