@@ -30,9 +30,9 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
     <>
       <section className="container mx-auto section-style3">
         <div className="flex justify-center items-center p-4">
-          <button className="text-lg font-medium px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
+          <span className="text-3xl font-medium px-4 py-2 text-black rounded">
             {label}
-          </button>
+          </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {await Promise.all(
