@@ -11,6 +11,8 @@ import Highlight from "@/app/components/HighRight";
 import Sidebar from "@/app/components/Sidebar";
 import CodeBlock from "@/app/components/CodeBlock";
 
+import "@/app/components/ArticleContent.css"; // CSSファイルをインポート
+
 interface BlogContentProps {
   blogArticle: any;
   SidebarComponents: React.ReactNode[];

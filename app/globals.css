@@ -92,25 +92,6 @@
 }
 
 /* ------------------------- */
-/* 記事の内容 */
-/* ------------------------- */
-/* 見出し */
-h2 {
-  font-size: 2em; /* フォントサイズを追加 */
-  padding: 1rem 2rem;
-  border-left: 4px solid #000;
-  background-color: #f0f0f0;
-  color: #333;
-  margin: 1rem 0;
-}
-
-h3 {
-  font-size: 1.75em;
-  font-weight: bold;
-  margin: 0.5em 0;
-}
-
-/* ------------------------- */
 /* 目次 */
 /* ------------------------- */
 .toc {
