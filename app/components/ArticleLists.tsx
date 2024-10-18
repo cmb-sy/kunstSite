@@ -30,21 +30,21 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
     <>
       <section className="container mx-auto section-style3">
         <div className="flex justify-center items-center p-4">
-          <span className="text-3xl font-medium px-4 py-2 text-black rounded">
+          <span className="text-3xl font-medium px-4 pt-1 pb-2 text-black rounded">
             {label}
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {await Promise.all(
             blogData.map(async (post: any, index: number) => {
-              const strippedContent = (
-                await stripMarkdown(post.content)
-              ).substring(0, 70);
+              const strippedContent = (await stripMarkdown(post.content))
+                // カードの大きさに応じて要変更
+                .substring(0, 80);
 
               return (
                 <div
                   key={index}
-                  className="p-6 border rounded shadow-sm bg-white relative"
+                  className="p-5 border rounded shadow-lg bg-white relative transform transition-transform duration-300 hover:scale-105 max-w-lg mx-auto"
                 >
                   <Link href={`/blog/${post.slug}`}>
                     <h1 className="text-xl font-bold mb-2">{post.title}</h1>

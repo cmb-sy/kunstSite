@@ -12,6 +12,7 @@ import Sidebar from "@/app/components/Sidebar";
 import CodeBlock from "@/app/components/CodeBlock";
 
 import "@/app/components/ArticleContent.css"; // CSSファイルをインポート
+import GithubLinkButton from "./GithubLinkButton";
 
 interface BlogContentProps {
   blogArticle: any;
@@ -49,7 +50,11 @@ const BlogContent: React.FC<BlogContentProps> = ({
             <div>
               <MDXRemote
                 source={blogArticle.content}
-                components={{ ...codeBlockComponents, Highlight }}
+                components={{
+                  ...codeBlockComponents,
+                  Highlight,
+                  GithubLinkButton,
+                }}
                 options={{
                   mdxOptions: {
                     remarkPlugins: [remarkGfm, remarkMath],

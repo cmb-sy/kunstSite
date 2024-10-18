@@ -4,7 +4,7 @@ interface ButtonProps {
   text: string;
   className?: string;
 }
-
+// ピカーンボタン
 const Button: React.FC<ButtonProps> = ({ text, className }) => {
   return (
     <button
