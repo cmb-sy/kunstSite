@@ -44,11 +44,14 @@ const BlogContent: React.FC<BlogContentProps> = ({
             href={`/category/${blogArticle.category}`}
           />
           {blogArticle.tags &&
-            blogArticle.tags.map((tag: string, index: number) => (
-              <span key={index}>
-                <ArticleTag text={tag} href={`/tags/${tag}`} />
-              </span>
-            ))}
+            blogArticle.tags
+              // 空文字は排除
+              .filter((tag: string) => tag.trim() !== "")
+              .map((tag: string, index: number) => (
+                <span key={index}>
+                  <ArticleTag text={tag} href={`/tags/${tag}`} />
+                </span>
+              ))}
           <br />
           更新日：<span className="text-gray-600">{blogArticle.date}</span>
           <br />
