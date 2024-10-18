@@ -45,7 +45,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
           />
           {blogArticle.tags &&
             blogArticle.tags
-              // 空文字は排除
+              // 空文字対応
               .filter((tag: string) => tag.trim() !== "")
               .map((tag: string, index: number) => (
                 <span key={index}>
@@ -54,7 +54,6 @@ const BlogContent: React.FC<BlogContentProps> = ({
               ))}
           <br />
           更新日：<span className="text-gray-600">{blogArticle.date}</span>
-          <br />
           <br />
           <link
             rel="stylesheet"

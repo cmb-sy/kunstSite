@@ -11,12 +11,8 @@ const Footer = () => {
             Welcome to our blog! Stay updated with the latest posts.
           </div>
           <div className="text-sm mb-4">
-            <Link href="/privacy-policy" className="hover:underline">
+            <Link href="/privacyPolicy" className="hover:underline">
               プライバシーポリシー
-            </Link>
-            {" | "}
-            <Link href="/terms-of-service" className="hover:underline">
-              利用規約
             </Link>
           </div>
           <div className="text-xs text-gray-500 mb-4">

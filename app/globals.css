@@ -2,30 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.toc-list {
-  @apply w-full my-0 px-0;
-}
-
-.toc-link {
-  @apply text-gray-500 font-medium no-underline transition-colors duration-200 rounded-md inline-block w-full py-1.5 pl-2;
-}
-
-.is-collapsible .toc-link {
-  @apply ml-2 font-normal;
-}
-
-.toc-link:hover {
-  @apply text-gray-200 bg-gray-500;
-}
-
-.toc-list-item {
-  @apply list-none w-full rounded-md py-0 my-0;
-}
-
-.is-active-link {
-  @apply text-gray-200 bg-gray-500 font-bold;
-}
-
 /* ------------------------- */
 /* 記事 */
 /* ------------------------- */
@@ -94,57 +70,22 @@
 /* ------------------------- */
 /* 目次 */
 /* ------------------------- */
-.toc {
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  position: relative;
-}
-
 .toc-list {
-  padding-top: 0.5rem;
-}
-
-.toc-list:first-child {
-  padding-top: 0;
-}
-
-.toc-list-item {
-  position: relative;
-  list-style: none;
-  padding-left: 5px;
-  padding-bottom: 0.5rem;
-}
-
-.toc-list-item:last-child {
-  padding-bottom: 0;
-}
-
-.toc-list-item::before {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  content: "";
-  background: purple.300;
-  border: 2px solid #fff;
-  border-radius: 50%;
+  @apply w-full my-0 px-0;
 }
 
 .toc-link {
-  color: gray.500;
-  font-weight: 700;
+  @apply text-gray-400 text-sm font-light no-underline transition-colors duration-200 rounded-md inline-block w-full py-1 pl-2;
 }
 
-.toc-list .toc-link {
-  font-weight: 400;
+.is-collapsible .toc-link {
+  @apply ml-2 font-normal;
 }
 
-.toc-list-item.is-active-li .toc-link {
-  color: var(--activeLinkColor);
+.toc-list-item {
+  @apply list-none w-full rounded-md py-0 my-0;
 }
 
-.toc-list-item.is-active-li::before {
-  background: var(--activeListIconColor);
-  border-color: purple.100;
+.is-active-link {
+  @apply bg-gray-200;
 }
