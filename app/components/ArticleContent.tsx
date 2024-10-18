@@ -13,6 +13,8 @@ import CodeBlock from "@/app/components/CodeBlock";
 
 import "@/app/components/ArticleContent.css"; // CSSファイルをインポート
 import GithubLinkButton from "./GithubLinkButton";
+import ArticleImage from "./ArticleImage";
+import ArticleTag from "../../app/components/ui/tag";
 
 interface BlogContentProps {
   blogArticle: any;
@@ -29,6 +31,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
   blogArticle,
   SidebarComponents,
 }) => {
+  console.log("blogArticle", blogArticle);
   return (
     <div className="flex justify-center">
       <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between w-full section-style2">
@@ -37,7 +40,19 @@ const BlogContent: React.FC<BlogContentProps> = ({
             {blogArticle.title}
           </h1>
           <br />
-          <div className="text-gray-600">{blogArticle.date}</div>
+          <ArticleTag
+            text={blogArticle.category}
+            href={`/category/${blogArticle.category}`}
+          />
+          {blogArticle.tags &&
+            blogArticle.tags.map((tag: string, index: number) => (
+              <span key={index}>
+                <ArticleTag text={tag} href={`/tags/${tag}`} />
+              </span>
+            ))}
+          <br />
+          更新日：<span className="text-gray-600">{blogArticle.date}</span>
+          <br />
           <br />
           <link
             rel="stylesheet"
@@ -54,6 +69,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
                   ...codeBlockComponents,
                   Highlight,
                   GithubLinkButton,
+                  ArticleImage,
                 }}
                 options={{
                   mdxOptions: {
