@@ -2,36 +2,22 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="bg-green-700 py-8">
-      <div className="container mx-auto flex justify-between">
-        <h1 className="text-white">
+    <header className="bg-white py-2">
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-green-500 text-4xl font-serif flex items-center">
           <Link href="/">kunst Blog</Link>
         </h1>
-        <ul className="flex gap-6 text-xl h-full">
-          <li className="hover:bg-gray-700 h-full">
-            <Link
-              href="/blog"
-              className="text-white hover:text-gray-500 block h-full"
+        <ul className="flex gap-6 text-xl h-full items-center">
+          {["/blog", "/about", "/contact"].map((path, index) => (
+            <li
+              key={index}
+              className="hover:bg-gray-200 h-full flex items-center p-4"
             >
-              Blog
-            </Link>
-          </li>
-          <li className="hover:bg-gray-700 h-full">
-            <Link
-              href="/about"
-              className="text-white hover:text-gray-500 block h-full"
-            >
-              About
-            </Link>
-          </li>
-          <li className="hover:bg-gray-700 h-full">
-            <Link
-              href="/contact"
-              className="text-white hover:text-gray-500 block h-full"
-            >
-              Contact
-            </Link>
-          </li>
+              <Link href={path} className="hover:text-gray-700 block h-full">
+                {path.substring(1).charAt(0).toUpperCase() + path.substring(2)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </header>

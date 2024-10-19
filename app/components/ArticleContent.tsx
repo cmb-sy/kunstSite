@@ -16,6 +16,7 @@ import GithubLinkButton from "./GithubLinkButton";
 import ArticleImage from "./ArticleImage";
 import ArticleTag from "../../app/components/ui/tag";
 
+import "katex/dist/katex.min.css";
 interface BlogContentProps {
   blogArticle: any;
   SidebarComponents: React.ReactNode[];
