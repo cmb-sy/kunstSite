@@ -1,17 +1,20 @@
-// ------------------
-// 記事の画像を出すためのコンポーネント
-// ------------------
 import Image from "next/image";
 
-interface ArticleImage {
+interface ArticleImageProps {
   path: string;
   alt: string;
 }
 
-const ArticleImage: React.FC<ArticleImage> = ({ path, alt }) => {
+const ArticleImage: React.FC<ArticleImageProps> = ({ path, alt }) => {
   return (
     <div className="relative z-10 flex items-center w-full">
-      <Image src={path} width={800} height={800} alt={alt} />
+      <Image
+        src={path.startsWith("/") ? path : `/${path}`}
+        width={800}
+        height={800}
+        alt={alt}
+        priority
+      />
     </div>
   );
 };
