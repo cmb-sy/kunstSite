@@ -1,12 +1,15 @@
 import Image from "next/image";
 
-interface ArticleImageProps {
+interface ArticleImageGifMovieGifMovieProps {
   path: string;
   alt: string;
 }
 
-const ArticleImage: React.FC<ArticleImageProps> = ({ path, alt }) => {
+const ArticleImageGifMovieGifMovie: React.FC<
+  ArticleImageGifMovieGifMovieProps
+> = ({ path, alt }) => {
   const isVideo = path.endsWith(".mp4");
+  const isGif = path.endsWith(".gif");
 
   return (
     <div className="relative z-10 flex items-center w-full">
@@ -18,6 +21,13 @@ const ArticleImage: React.FC<ArticleImageProps> = ({ path, alt }) => {
           />
           {alt}
         </video>
+      ) : isGif ? (
+        <img
+          src={path.startsWith("/") ? path : `/${path}`}
+          width={800}
+          height={800}
+          alt={alt}
+        />
       ) : (
         <Image
           src={path.startsWith("/") ? path : `/${path}`}
@@ -31,4 +41,4 @@ const ArticleImage: React.FC<ArticleImageProps> = ({ path, alt }) => {
   );
 };
 
-export default ArticleImage;
+export default ArticleImageGifMovieGifMovie;

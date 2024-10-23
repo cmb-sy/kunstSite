@@ -20,6 +20,8 @@ Nadaraya-Watson について語る前に問題設定を書いておきます。
 
 このときに、データセットを学習して$\mathbf{y^{\ast}} \simeq f(\mathbf{x^{\ast}})$となるような滑らかな非線形写像$f$を Nadaraya-Watson は推定します。
 
+<ArticleImageGifMovie path="/posts/machineLearning/ml9-1.jpg" alt="問題設定" />
+
 滑らかな非線形写像$f$を Nadaraya-Watson は推定することで、図の波線部分が推定されます。
 
 ## まずはざっくりと
@@ -170,8 +172,22 @@ Nadaraya-Watson は重み付け関数であるカーネルを用いて局所的�
 
 また、データの端点以降の写像は端点データに収束する特徴があります。
 
-イメージ図
-は次のようになります。曲線が多少歪んで見えるかもしれないですが気にしないでください。
+イメージ図は次のようになります。曲線が多少歪んで見えるかもしれないですが気にしないでください。
+
+<ArticleImageGifMovie
+  path="/posts/machineLearning/ml9-2.jpg"
+  alt="イメージ図1"
+/>
+
+<ArticleImageGifMovie
+  path="/posts/machineLearning/ml9-3.jpg"
+  alt="イメージ図2"
+/>
+
+<ArticleImageGifMovie
+  path="/posts/machineLearning/ml9-4.jpg"
+  alt="イメージ図3"
+/>
 
 局所的に新規のデータと学習データの距離に応じた重みを与えることで写像$f$の推定を行っているのがなんとなくイメージできたと思います。
 Nadaraya-Watson では上記の青点線の組み合わせのような感じです。
@@ -224,7 +240,15 @@ if __name__ == '__main__':
 
 データは$y=sin(x)$に対してガウスノイズを加えたものを使います。
 
+<ArticleImageGifMovie path="/posts/machineLearning/ml9-5.jpg" alt="結果1" />
+
 近傍半径$\sigma=3$、$\sigma=0.8$、$\sigma=0.1$でプロットした結果を貼っていきます。
+
+<ArticleImageGifMovie path="/posts/machineLearning/ml9-6.jpg" alt="結果2" />
+
+<ArticleImageGifMovie path="/posts/machineLearning/ml9-7.jpg" alt="結果3" />
+
+<ArticleImageGifMovie path="/posts/machineLearning/ml9-8.jpg" alt="結果4" />
 
 近傍半径が$0.1$のとき推定値$f(x)$は入力$x$に最も近いデータ$x_i$に対応する$y_i$の値をとるようになっています。
 これは、Nadaraya-Watson に次のことが成り立つからです。
@@ -238,6 +262,8 @@ $$
 近傍半径が小さすぎると、最も近い学習データにのみ影響を受け、その値になるのです。そのため、学習データ間の中間付近ではステップ関数のような挙動が見られるのです。これは、K 近傍法の$k$の数 1 のときの結果と同じです。
 
 最後に、近傍半径を小さくしていくとどうなるのかの動画を載せておきます。
+
+<ArticleImageGifMovie path="/posts/machineLearning/ml9-1.mp4" alt="結果5" />
 
 ## 最後に
 

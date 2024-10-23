@@ -13,7 +13,7 @@ import CodeBlock from "@/app/components/CodeBlock";
 
 import "@/app/components/ArticleContent.css"; // CSSファイルをインポート
 import GithubLinkButton from "./GithubLinkButton";
-import ArticleImage from "./ArticleImage";
+import ArticleImageGifMovie from "./ArticleImageGifMovie";
 import ArticleTag from "../../app/components/ui/tag";
 
 import "katex/dist/katex.min.css";
@@ -71,7 +71,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
                   ...codeBlockComponents,
                   Highlight,
                   GithubLinkButton,
-                  ArticleImage,
+                  ArticleImageGifMovie,
                 }}
                 options={{
                   mdxOptions: {

@@ -37,7 +37,7 @@ print(df_train.head(5))
 
 結果は次のようになります。
 
-<ArticleImage path="./ml4-1.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-1.jpg" alt="result1" />
 
 ## 2. データの可視化
 
@@ -56,7 +56,7 @@ print(df_train.info())
 print(df_test.info())
 ```
 
-<ArticleImage path="./ml4-2.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-2.jpg" alt="result2" />
 
 Object 型が何個かあるのがわかります。Object 型は学習できないので加工する必要があります。少なくとも 5 つのカラムについては消すか加工する必要がありそうです。
 
@@ -78,7 +78,7 @@ Survived はデータが 0 か 1 で表わされます。0 が死亡で 1 が生
 例えば、Age と Survived の関係を可視化すると次のようになります。
 Age のデータの種類（年齢の違い）が多すぎて、何がなんなのかわかりません。
 
-<ArticleImage path="./ml4-3.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-3.jpg" alt="result3" />
 
 そのため、データの種類の少ないと思われる Pclass、Sex、Embarked、Parch、SibSip を一気に可視化したいと思います。
 
@@ -93,7 +93,7 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
  plt.show()
 ```
 
-<ArticleImage path="./ml4-5.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-4.jpg" alt="result4" />
 それぞれのカラムの意味をまとめておきます。
 
 - Pclass – チケットクラス
@@ -144,7 +144,7 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
   plt.show()
 ```
 
-<ArticleImage path="./ml4-6.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-5.jpg" alt="result5" />
 
 それぞれのカラムの意味をまとめておきます。
 
@@ -267,7 +267,7 @@ sns.countplot(x='FamilySize', data = df_train, hue = 'Survived')
 plt.show()
 ```
 
-<ArticleImage path="./ml4-7.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-6.jpg" alt="result6" />
 
 ## 相関関係と相互情報量
 
@@ -296,7 +296,7 @@ plt.ylim(df_spearman.shape[1],0)
 plt.show()
 ```
 
-<ArticleImage path="./ml4-8.jpg" alt="" />
+<ArticleImageGifMovie path="/posts/machineLearning/ml1-7.jpg" alt="result7" />
 
 値が大きいものに着目してまとめると
 
@@ -349,12 +349,12 @@ pridict = random_forest(df_train, df_test, purpose_variable, explanatory_variabl
 
 ```python:
 def change_submit_file(id_name, predict_id_name, test, predict):
-　　id_name = str(id_name)
-　　predict_id_name = str(predict_id_name)
+ id_name = str(id_name)
+ predict_id_name = str(predict_id_name)
 
-submit = pd.DataFrame({id_name: test[id_name],　predict_id_name: predict})
-　　submit.to_csv("submit.csv", header=True, index=False)
-　　print("Your submission was successfully saved!")
+submit = pd.DataFrame({id_name: test[id_name], predict_id_name: predict})
+ submit.to_csv("submit.csv", header=True, index=False)
+ print("Your submission was successfully saved!")
 
 change_submit_file("PassengerId", "Survived", df_test, pridict)
 ```
