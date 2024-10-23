@@ -6,7 +6,9 @@ tags:
   - "教師あり学習"
 ---
 
-1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の１つでもあり、局所線形回帰の兄弟のような関係を持っています。本記事では、そんな Nadaraya-Watson を理解したいをコンセプトに書きました。
+1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の 1 つでもあり、局所線形回帰の兄弟のような関係を持っています。
+
+本記事では、そんな Nadaraya-Watson を理解したいをコンセプトに書きました。
 
 ## 問題設定
 
@@ -30,9 +32,9 @@ Nadaraya-Watson は、局所多項式回帰における第 0 次の局所線形�
 
 非線形写像$f$は下記の式で表されます。
 
-<BlockMath>
-  {`f(x^{\ast})=\frac{\sum_{i=1}^N K_{\sigma}(x^{\ast},x_i)y_i}{\sum_{j=1}^N K_{\sigma}(x^{\ast},x_j)}`}
-</BlockMath>
+$$
+f(x^{\ast})=\frac{\sum_{i=1}^N K_{\sigma}(x^{\ast},x_i)y_i}{\sum_{j=1}^N K_{\sigma}(x^{\ast},x_j)}
+$$
 
 $$
 K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)

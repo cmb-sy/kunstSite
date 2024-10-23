@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["Katex", "rehype", "Taged"]
+  "cSpell.words": ["Katex", "rehype", "Taged"],
+  "markdown.preview.markdown-it-plugins": {
+    "markdown-it-katex": {}
+  },
+  "markdownlint.config": {
+    "MD033": false // LaTeX数式内のエラーチェックを無効にする
+  }
 }

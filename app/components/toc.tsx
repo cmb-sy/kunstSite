@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as tocbot from "tocbot";
 
 export const Toc = () => {
+  const [isFixed, setIsFixed] = useState(false);
+
   useEffect(() => {
     tocbot.init({
       tocSelector: ".toc",
@@ -13,12 +15,28 @@ export const Toc = () => {
       scrollSmoothOffset: -40,
     });
 
-    // 不要となったtocbotインスタンスを削除
-    return () => tocbot.destroy();
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // 不要となったtocbotインスタンスとスクロールイベントリスナーを削除
+    return () => {
+      tocbot.destroy();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <div className="bg-white mt-5 p-4 shadow-lg">
+    <div
+      className={`bg-white mt-5 p-4 shadow-lg ${isFixed ? "fixed top-0" : ""}`}
+    >
       <span className="text-xl font-bold">目次</span>
       <nav className="m-1 p-1 toc" />
     </div>

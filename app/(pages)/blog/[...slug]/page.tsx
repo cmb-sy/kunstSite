@@ -18,9 +18,12 @@ export async function generateStaticParams() {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     const blogData = await res.json();
-    return blogData.map((blog: Post) => ({
-      slug: blog.slug,
+
+    const params = blogData.map((blog: Post) => ({
+      slug: blog.slug.split("/").map(decodeURIComponent),
     }));
+
+    return params;
   } catch (error) {
     console.error("Failed to fetch blog data:", error);
     return [];
@@ -33,18 +36,23 @@ const getBlogArticle = async (slug: string) => {
       cache: "force-cache",
     });
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
+      if (res.status === 404) {
+        throw new Error(`Blog article not found for slug: ${slug}`);
+      } else {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
     }
     const blogArticle = await res.json();
     return blogArticle;
   } catch (error) {
-    console.error(`Failed to fetch blog article for slug ${slug}:`, error);
+    console.error("Failed to fetch blog article:", error);
     return null;
   }
 };
 
-const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
-  const blogArticle = await getBlogArticle(params.slug);
+const BlogArticlePage = async ({ params }: { params: { slug: string[] } }) => {
+  const decodedSlug = params.slug.map(decodeURIComponent).join("/");
+  const blogArticle = await getBlogArticle(decodedSlug);
   if (!blogArticle) {
     return <div>Failed to load blog article.</div>;
   }

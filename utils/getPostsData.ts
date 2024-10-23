@@ -7,6 +7,13 @@ const postsDirectoryPath = path.join(process.cwd(), "posts");
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = path.join(postsDirectoryPath, `${realSlug}.mdx`);
+
+  // ファイルの存在をチェック
+  if (!fs.existsSync(fullPath)) {
+    console.error(`File not found: ${fullPath}`);
+    return null; // または適切なエラーレスポンスを返す
+  }
+
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
   return {
