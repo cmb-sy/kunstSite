@@ -35,7 +35,9 @@ export const Toc = () => {
 
   return (
     <div
-      className={`bg-white mt-5 p-4 shadow-lg ${isFixed ? "fixed top-0" : ""}`}
+      className={`bg-white mt-5 p-4 shadow-lg ${
+        isFixed ? "fixed top-10 lg:w-custom-298 " : ""
+      }`}
     >
       <span className="text-xl font-bold">目次</span>
       <nav className="m-1 p-1 toc" />
