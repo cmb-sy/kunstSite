@@ -1,0 +1,238 @@
+---
+title: "固有値と固有ベクトルについて"
+date: "2022-02-22"
+category: "ai"
+tags:
+  - "数学"
+---
+
+固有値と固有ベクトルについては機械学習の理解をするには必要不可欠なので線形代数などで登場する固有値と固有ベクトルについて書いてみました。
+
+## 行列とベクトルの演算
+
+固有値と固有ベクトルの説明をする前に行列とベクトル演算についてふれておきます。 ２次元ベクトル$(2,1)$が２次元空間上にあるとします。
+この２次元ベクトルに対して 2 行 2 列の正方行列をかけてみます。
+
+$$
+\begin{pmatrix}2 & -5 \\ 5 & -6\end{pmatrix}
+\begin{pmatrix}2 \\ 1\end{pmatrix}=\begin{pmatrix}
+-1 & 4
+\end{pmatrix}
+$$
+
+算出された２次元ベクトルを見てみると、ベクトルの方向が変わっていることがわかります。このように、ベクトルは行列との演算によって並進や回転、拡大などの変換作用がなされます。
+
+<ArticleImageGifMovie path="/posts/machineLearning/ml2-1.jpg" alt="変換作用" />
+
+ベクトルは行列との演算によって並進や回転、拡大などの変換作用がなされるわけですが、ベクトルの方向は全く変わらず大きさだけ変化するケースも存在します。
+例えば、２次元ベクトル$(1,-4)$に対して次の行列演算を行うとします。
+
+$$
+\begin{pmatrix}
+8 & 1 \\
+4 & 5
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+-4
+\end{pmatrix}=\begin{pmatrix}
+4 & -16
+\end{pmatrix}
+$$
+
+算出された２次元ベクトルは全く方向は変わっておらず大きさだけ変化しています。
+
+<ArticleImageGifMovie path="/posts/machineLearning/ml2-2.jpg" alt="変換作用2" />
+
+## 固有値と固有ベクトル
+
+固有値と固有ベクトルの話に戻ってきました。固有値と固有ベクトルを式で表すと次の式になります。
+
+$$
+Ax = \lambda x
+$$
+
+この式の意味は、ベクトル$x$に行列 A を作用されると方向は変わらず$\lambda$倍の大きさになるとうことです。先ほどの行列とベクトルの演算で話したことと同じですね。このときの$x$を固有ベクトル、$\lambda$を固有値といいます。まとめると
+
+## 固有値と固有ベクトルの求め方
+
+固有値と固有ベクトルの求め方はネットにたくさんありますが、この Qiita 記事でも行います。
+次の行列 A の固有値と固有ベクトルを求めます。
+
+$$
+A=\begin{pmatrix}
+8 & 1 \\
+4 & 5
+\end{pmatrix}
+$$
+
+固有値、固有ベクトルの式から変形していきます。
+
+$$
+\begin{align}
+& Ax = \lambda x \\
+\\
+\Leftrightarrow
+& \big| A-\lambda I \big| = 0 \\
+\\
+\Leftrightarrow &
+\left|
+\begin{matrix}
+\left(
+\begin{matrix}
+8 & 1 \\
+4 & 5
+\end{matrix}
+\right) -
+\left(
+\begin{matrix}
+\lambda & 0 \\
+\\
+0 & \lambda
+\end{matrix}
+\right)
+\end{matrix}
+\right| = 0 \\
+\\
+\Leftrightarrow &
+\left|
+\begin{matrix}
+8-\lambda & 1 \\
+1 & 4-\lambda \\
+\end{matrix}
+\right| = 0
+\end{align}
+$$
+
+行列式$ad-bc$より
+
+$$
+\begin{align}
+&; (8-\lambda)(5-\lambda) = 0 \\
+\\
+\Leftrightarrow &; \lambda^2-6\lambda +36 = 0 \\
+\\
+\Leftrightarrow &; (\lambda-4)(\lambda-9)=0
+\end{align}
+$$
+
+これで固有値$\lambda=4,9$が求まりました。各々の固有値に対応する固有ベクトルを求めます。
+
+### λ=4
+
+$\lambda=4$ を $Ax = \lambda x$へ代入します。
+
+$$
+\begin{align}
+&; \begin{pmatrix}
+8-4 & 1 \\
+4 & 5-4
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}=\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}
+\\
+\\
+\Leftrightarrow
+&
+\begin{pmatrix}
+4 & 1 \\
+4 & 1
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}=\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}
+\end{align}
+$$
+
+したがって、$4x_1+x_2=0$なので$t$を任意の実数として
+
+$$
+\left\{
+\begin{array}{ll}
+x_1=t & \\
+x_2=4t &
+\end{array}
+\right.
+$$
+
+となるので固有ベクトルは$t$を任意の実数として次の値になります。
+
+$$
+t\begin{pmatrix}
+1 \\
+4
+\end{pmatrix}
+$$
+
+### λ=9
+
+$\lambda=9$ を $Ax = \lambda x$へ代入します。
+
+$$
+\begin{align}
+& \begin{pmatrix}
+8-9 & 1 \\
+4 & 5-9
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}=\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}
+\\
+\\
+\Leftrightarrow
+&
+\begin{pmatrix}
+-1 & 1 \\
+4 & -4
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}=\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}
+\end{align}
+$$
+
+したがって、$-x_1+x_2=0$なので$t$を任意の実数として
+
+$$
+\left\{
+\begin{array}{ll}
+x_1=t & \\
+x_2=t &
+\end{array}
+\right.
+$$
+
+となります。したがって、固有ベクトルは$t$を任意の実数として次の値になります。
+
+$$
+t\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}
+$$
+
+これで固有値と、それぞれの固有値に対応する固有ベクトルが求まりました。
+
+## 機械学習における固有値と固有ベクトル
+
+ここまで固有値と固有ベクトルについての基本的なことについて述べました。しかし、こういった固有値と固有ベクトルが機械学習の世界でどのように活用されているかがよくわからないと思います。
+
+機械学習の世界では、共分散行列の固有値、固有ベクトルを求めるといった場面によく遭遇します。共分散行列について詳しくは他記事を参考にしてもらうとして、簡単に説明しますと共分散行列はデータの形を定義します。
+共分散行列の固有ベクトルがわかるとデータ全体を説明する方向がわかります。つまり、大きな固有値に対応する固有ベクトルほどデータ全体を説明するのに重要というわけです。
