@@ -54,7 +54,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
                 </span>
               ))}
           <br />
-          更新日：<span className="text-gray-600">{blogArticle.date}</span>
+          <span className="text-gray-400">更新日：{blogArticle.date}</span>
           <br />
           <link
             rel="stylesheet"

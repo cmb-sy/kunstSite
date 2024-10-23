@@ -6,15 +6,27 @@ interface ArticleImageProps {
 }
 
 const ArticleImage: React.FC<ArticleImageProps> = ({ path, alt }) => {
+  const isVideo = path.endsWith(".mp4");
+
   return (
     <div className="relative z-10 flex items-center w-full">
-      <Image
-        src={path.startsWith("/") ? path : `/${path}`}
-        width={800}
-        height={800}
-        alt={alt}
-        priority
-      />
+      {isVideo ? (
+        <video controls width="800" height="800">
+          <source
+            src={path.startsWith("/") ? path : `/${path}`}
+            type="video/mp4"
+          />
+          {alt}
+        </video>
+      ) : (
+        <Image
+          src={path.startsWith("/") ? path : `/${path}`}
+          width={800}
+          height={800}
+          alt={alt}
+          priority
+        />
+      )}
     </div>
   );
 };

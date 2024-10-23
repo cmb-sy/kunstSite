@@ -1,5 +1,5 @@
-import { Toc } from "@/app/components/toc";
 import ArticleContent from "@/app/components/ArticleContent";
+import { Toc } from "@/app/components/toc";
 
 type Post = {
   slug: string;
@@ -8,28 +8,46 @@ type Post = {
   blogContentsHTML: string;
 };
 
-// SSG
+// SSG：サーバ起動中でないとエラーが発生する。
 export async function generateStaticParams() {
-  const res = await fetch("http://localhost:3000/api/blog/", {
-    cache: "force-cache",
-  });
-  const blogData = await res.json();
-  return blogData.map((blog: Post) => ({
-    slug: blog.slug,
-  }));
+  try {
+    const res = await fetch("http://localhost:3000/api/blog/", {
+      cache: "force-cache",
+    });
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const blogData = await res.json();
+    return blogData.map((blog: Post) => ({
+      slug: blog.slug,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch blog data:", error);
+    return [];
+  }
 }
 
 const getBlogArticle = async (slug: string) => {
-  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
-    cache: "force-cache",
-  });
-  const blogArticle = await res.json();
-
-  return blogArticle;
+  try {
+    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+      cache: "force-cache",
+    });
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const blogArticle = await res.json();
+    return blogArticle;
+  } catch (error) {
+    console.error(`Failed to fetch blog article for slug ${slug}:`, error);
+    return null;
+  }
 };
 
 const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   const blogArticle = await getBlogArticle(params.slug);
+  if (!blogArticle) {
+    return <div>Failed to load blog article.</div>;
+  }
 
   return (
     <ArticleContent

@@ -6,19 +6,17 @@ tags:
   - "教師あり学習"
 ---
 
-1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の１つでもあり、局所線形回帰の兄弟のような関係を持っています。本記事では、そんな Nadaraya-Watson を理解した"<strong>い</strong>"をコンセプトに書きました。
+1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の１つでもあり、局所線形回帰の兄弟のような関係を持っています。本記事では、そんな Nadaraya-Watson を理解したいをコンセプトに書きました。
 
 ## 問題設定
 
 Nadaraya-Watson について語る前に問題設定を書いておきます。
 
-データセット$(\mathbf{x}_i,\mathbf{y}_i)_{i=1}^{n}(i=0,1,2,\dots,n$)が与えられているとします。$x$は入力で、$y$は出力です。
+データセット$(\mathbf{x}_i,\mathbf{y}_i)_{i=1}^{n}(i=0,1,2,\dots,n)$が与えられているとします。$x$は入力で、$y$は出力です。
 
 また、$x^{\ast}$を新規の入力データとして、それに対応する出力を$y^{\ast}$とします。
 
 このときに、データセットを学習して$\mathbf{y^{\ast}} \simeq f(\mathbf{x^{\ast}})$となるような滑らかな非線形写像$f$を Nadaraya-Watson は推定します。
-
-![blog placeholder](/src/assets/post/ml9-1.jpg)
 
 滑らかな非線形写像$f$を Nadaraya-Watson は推定することで、図の波線部分が推定されます。
 
@@ -26,15 +24,15 @@ Nadaraya-Watson について語る前に問題設定を書いておきます。
 
 まず、Nadaraya-Watson についてざっくりと書きたいと思います。
 
-Nadaraya-Watson は、局所多項式回帰における第０次の局所線形回帰であり、0 次元カーネル平滑化と言われます。Nadaraya-Watson では、重み付け関数であるカーネルを用いて局所的に新規のデータと学習データの距離に応じた重みを与えます。その重み平均の平均を算出することで、新規の入力$x^{\ast}$に対する出力$y^{\ast}$の推定を行います。
+Nadaraya-Watson は、局所多項式回帰における第 0 次の局所線形回帰であり、0 次元カーネル平滑化と言われます。Nadaraya-Watson では、重み付け関数であるカーネルを用いて局所的に新規のデータと学習データの距離に応じた重みを与えます。その重み平均の平均を算出することで、新規の入力$x^{\ast}$に対する出力$y^{\ast}$の推定を行います。
 
 わかりやすく言うと、重み付き平均における重みの決定にガウス関数を使っているということです。
 
 非線形写像$f$は下記の式で表されます。
 
-$$
-f(x^{\ast})=\frac{\sum_{i=1}^N K_{\sigma}(x^{\ast},x_i)y_i}{\sum_{j=1}^N K_{\sigma}(x^{\ast},x_j)}
-$$
+<BlockMath>
+  {`f(x^{\ast})=\frac{\sum_{i=1}^N K_{\sigma}(x^{\ast},x_i)y_i}{\sum_{j=1}^N K_{\sigma}(x^{\ast},x_j)}`}
+</BlockMath>
 
 $$
 K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)
@@ -42,7 +40,7 @@ $$
 
 $K_{\sigma}(x^{\ast} , x_j)$は任意のカーネル関数であり、上記の式の場合はガウシアンカーネルです。新規のデータ$x^{\ast}$と学習データ$x_i$,$x_j$との距離に応じて重みを決定します。
 
-Nadaraya-Watson は局所多項式回帰における第０次の局所線形回帰ですが、1 次になると局所線形回帰と言われます。第１次の局所線形回帰について詳しくは<a href="https://qiita.com/tanacchi/items/5de94bf6181ddb65cfd0">こちら</a>に詳しく説明されています。
+Nadaraya-Watson は局所多項式回帰における第０次の局所線形回帰ですが、1 次になると局所線形回帰と言われます。第１次の局所線形回帰について詳しくはこちらに詳しく説明されています。
 
 ## Nadaraya-Watson の位置付け
 
@@ -127,7 +125,11 @@ $$
 条件付き確率密度関数は、$f(x)\gt 0$ のときに、次のように定義できます。
 
 $$
-E(Y|X=x)=\int yf(y|x)dy=\int y\frac{f(x,y)}{f(x)}dy\qquad※(f(y|x)dy=\frac{f(x,y)}{f(x)})
+E(Y|X=x)=\int yf(y|x)dy=\int y\frac{f(x,y)}{f(x)}dy
+$$
+
+$$
+f(y|x)dy=\frac{f(x,y)}{f(x)}
 $$
 
 ここで$f(x,y)$は$X$と$Y$の同時分布で、$f(x)$は周辺分布です。これらは以下の式が成り立ちます。
@@ -169,12 +171,6 @@ Nadaraya-Watson は重み付け関数であるカーネルを用いて局所的�
 イメージ図
 は次のようになります。曲線が多少歪んで見えるかもしれないですが気にしないでください。
 
-![blog placeholder](/src/assets/post/ml9-2.jpg)
-
-![blog placeholder](/src/assets/post/ml9-3.jpg)
-
-![blog placeholder](/src/assets/post/ml9-4.jpg)
-
 局所的に新規のデータと学習データの距離に応じた重みを与えることで写像$f$の推定を行っているのがなんとなくイメージできたと思います。
 Nadaraya-Watson では上記の青点線の組み合わせのような感じです。
 
@@ -184,7 +180,7 @@ $$
 K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)
 $$
 
-$\sigma$はカーネル幅と呼ばれる（ハイパー）パラメータです。ざっくり言いますと「新規データに対する近い or 遠いを決める境目」を決めるものです．これを<strong>大きく</strong>するとより<strong>広い範囲</strong>のデータを近傍と見なします．これを究極に大きくすると全てのデータ点に対する平均値しかとりません。
+$\sigma$はカーネル幅と呼ばれる（ハイパー）パラメータです。ざっくり言いますと「新規データに対する近い or 遠いを決める境目」を決めるものです．これを大きくするとより広い範囲のデータを近傍と見なします．これを究極に大きくすると全てのデータ点に対する平均値しかとりません。
 
 ## 実装
 
@@ -226,15 +222,7 @@ if __name__ == '__main__':
 
 データは$y=sin(x)$に対してガウスノイズを加えたものを使います。
 
-![blog placeholder](/src/assets/post/ml9-6.jpg)
-
 近傍半径$\sigma=3$、$\sigma=0.8$、$\sigma=0.1$でプロットした結果を貼っていきます。
-
-![blog placeholder](/src/assets/post/ml9-7.jpg)
-
-![blog placeholder](/src/assets/post/ml9-8.jpg)
-
-![blog placeholder](/src/assets/post/ml9-9.jpg)
 
 近傍半径が$0.1$のとき推定値$f(x)$は入力$x$に最も近いデータ$x_i$に対応する$y_i$の値をとるようになっています。
 これは、Nadaraya-Watson に次のことが成り立つからです。
@@ -249,17 +237,9 @@ $$
 
 最後に、近傍半径を小さくしていくとどうなるのかの動画を載せておきます。
 
-<video autoplay muted="muted" controls plays-inline="true" class="border border-skin-line">
-  <source src="/src/assets/post/ml9-10.mp4" type="video/mp4">
-</video>
-
 ## 最後に
 
 ここまで読んでくださってありがとうございました。 編集リクエストもお待ちしてます。
 
 こちらもオススメです。
 ↓↓↓↓↓↓↓↓↓↓↓↓
-
-<a href="https://qiita.com/tanacchi/items/5de94bf6181ddb65cfd0">
-  局所線形回帰について理解したい
-</a>

@@ -7,9 +7,9 @@ export interface SidebarTypes {
 
 const Sidebar: React.FC<SidebarTypes> = ({ SidebarComponents }) => {
   return (
-    <aside className="hidden lg:block">
+    <aside className="hidden lg:block lg:w-custom-298 ">
       <ProfileCard />
-      <div className="w-full">
+      <div>
         {SidebarComponents!.map((SidebarComponent) => SidebarComponent)}
       </div>
     </aside>

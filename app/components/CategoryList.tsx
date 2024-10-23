@@ -11,11 +11,11 @@ export const Categories = [
 ] as const;
 
 const categoryIcons = {
-  フロントエンド: "/frontend.svg",
-  バックエンド: "/backend.svg",
-  インフラ: "/infra.svg",
-  AI: "/ai.svg",
-  その他: "/other.svg",
+  フロントエンド: "/categoryIcon/frontend.svg",
+  バックエンド: "/categoryIcon/backend.svg",
+  インフラ: "/categoryIcon/infra.svg",
+  AI: "/categoryIcon/ai.svg",
+  その他: "/categoryIcon/other.svg",
 };
 
 const CategoryList = () => {
