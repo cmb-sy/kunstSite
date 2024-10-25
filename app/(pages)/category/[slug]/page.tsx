@@ -5,7 +5,7 @@ import { Post } from "@/types/post";
 
 // SSG
 export async function generateStaticParams() {
-  return Categories.map((category) => ({
+  return Object.keys(Categories).map((category) => ({
     slug: category,
   }));
 }
