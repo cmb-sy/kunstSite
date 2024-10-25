@@ -48,8 +48,8 @@ const BlogContent: React.FC<BlogContentProps> = ({
 }) => {
   return (
     <div className="flex justify-center">
-      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between w-full section-style2">
-        <section className="p-8 section-style bg-white">
+      <div className="mt-20 min-h-screen px-12 flex justify-between w-full section-style2">
+        <section className="p-10 section-style bg-white">
           <h1 className="text-3xl font-bold text-gray-800">
             {blogArticle.title}
           </h1>
@@ -69,7 +69,6 @@ const BlogContent: React.FC<BlogContentProps> = ({
               ))}
           <br />
           <span className="text-gray-400">更新日：{blogArticle.date}</span>
-          <br />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"

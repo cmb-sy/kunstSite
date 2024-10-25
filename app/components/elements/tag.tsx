@@ -23,7 +23,7 @@ const ArticleTopic: React.FC<ArticleTagProps> = ({ text, href }) => {
 
   return (
     <Link href={href}>
-      <span className="inline-block m-1 mb-2 p-2 leading-none text-gray-600 bg-white border border-gray-300 rounded-full">
+      <span className="inline-block mr-1 mb-1 p-2 leading-none text-gray-600 bg-white border border-gray-300 rounded-full">
         {iconSrc && (
           <img src={iconSrc} alt={text} className="inline-block mr-2 w-4 h-4" />
         )}

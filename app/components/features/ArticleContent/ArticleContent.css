@@ -1,6 +1,4 @@
 .section-style {
-  padding: 1rem; /* 内側の余白を設定 */
-  margin: 0 auto; /* 中央揃え */
   max-width: 100%; /* 最大幅を設定 */
   overflow: hidden; /* はみ出た部分を隠す */
   word-wrap: break-word; /* 長い単語を折り返す */
@@ -14,7 +12,7 @@
 
 @media (min-width: 1440px) {
   .section-style {
-    width: 900px;
+    width: 870px;
   }
 }
 /* ------------------------- */
@@ -23,9 +21,10 @@
 
 .section-style h2 {
   border-bottom: 2px solid #043818;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 1.1rem;
   margin-top: 1em;
+  font-weight: bold;
 }
 
 .section-style h3 {
