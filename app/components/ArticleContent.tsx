@@ -12,7 +12,6 @@ import Sidebar from "@/app/components/Sidebar";
 import CodeBlock from "@/app/components/CodeBlock";
 
 import "@/app/components/ArticleContent.css";
-import GithubLinkButton from "./GithubLinkButton";
 import ArticleImageGifMovie from "./ArticleImageGifMovie";
 import ArticleTag from "../../app/components/ui/tag";
 
@@ -82,8 +81,8 @@ const BlogContent: React.FC<BlogContentProps> = ({
               components={{
                 ...codeBlockComponents,
                 Highlight,
-                GithubLinkButton,
                 ArticleImageGifMovie,
+                p: (props) => <div {...props} className="custom-p" />, // pタグの代わりにdivタグを使用
               }}
               options={{
                 mdxOptions: {
