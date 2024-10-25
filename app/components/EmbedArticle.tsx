@@ -75,8 +75,8 @@ const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
             <div className={`${styles.embedArticle_description}`}>
               {ogData.ogDescription}
             </div>
-            {/* <div className={`${styles.embedArticle_meta}`}> */}
-            {/* {faviconUrl && (
+            <div className={`${styles.embedArticle_meta}`}>
+              {faviconUrl && (
                 <Image
                   src={faviconUrl || ""}
                   alt={ogData.ogTitle || "Image"}
@@ -84,9 +84,9 @@ const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
                   height={14}
                   className={`${styles.embedArticle_favicon}`}
                 />
-              )} */}
-            {/* {srcUrl} */}
-            {/* </div> */}
+              )}
+              {srcUrl}
+            </div>
           </div>
           <div className={`${styles.embedArticle_img}`}>
             {ogImageUrl && (

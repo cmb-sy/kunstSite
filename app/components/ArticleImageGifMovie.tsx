@@ -12,7 +12,7 @@ const ArticleImageGifMovieGifMovie: React.FC<
   const isGif = path.endsWith(".gif");
 
   return (
-    <div className="relative z-10 flex items-center w-full">
+    <div className="relative z-10 flex items-center w-full mt-10">
       {isVideo ? (
         <video controls width="800" height="800">
           <source

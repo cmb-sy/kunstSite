@@ -11,7 +11,7 @@ import Highlight from "@/app/components/HighRight";
 import Sidebar from "@/app/components/Sidebar";
 import CodeBlock from "@/app/components/CodeBlock";
 
-import "@/app/components/ArticleContent.css"; // CSSファイルをインポート
+import "@/app/components/ArticleContent.css";
 import GithubLinkButton from "./GithubLinkButton";
 import ArticleImageGifMovie from "./ArticleImageGifMovie";
 import ArticleTag from "../../app/components/ui/tag";
@@ -77,23 +77,21 @@ const BlogContent: React.FC<BlogContentProps> = ({
           />
           {/* 目次表示に必要 */}
           <div className="target-toc">
-            <div>
-              <MDXRemote
-                source={blogArticle.content}
-                components={{
-                  ...codeBlockComponents,
-                  Highlight,
-                  GithubLinkButton,
-                  ArticleImageGifMovie,
-                }}
-                options={{
-                  mdxOptions: {
-                    remarkPlugins: [remarkGfm, remarkMath],
-                    rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
-                  },
-                }}
-              />
-            </div>
+            <MDXRemote
+              source={blogArticle.content}
+              components={{
+                ...codeBlockComponents,
+                Highlight,
+                GithubLinkButton,
+                ArticleImageGifMovie,
+              }}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm, remarkMath],
+                  rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
+                },
+              }}
+            />
           </div>
         </section>
         <Sidebar SidebarComponents={[SidebarComponents]} />

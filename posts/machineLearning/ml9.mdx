@@ -6,6 +6,8 @@ tags:
   - "教師あり学習"
 ---
 
+## はじめに
+
 1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の 1 つでもあり、局所線形回帰の兄弟のような関係を持っています。
 
 本記事では、そんな Nadaraya-Watson を理解したいをコンセプトに書きました。
@@ -149,7 +151,7 @@ $$
 したがって、これらを代入して変形していくと Nadaraya-Watson の式が導出されます。
 
 $$
-\begin{equation*}\begin{split}E(Y|X=x)&amp;= \int \frac{y\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^nK_{\sigma}(x^{\ast}, x_j)}dy\\&amp;=\frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast},x_i) \int y K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast}, x_j)}dy \\ &amp;= \frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)y_i}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast},x_j)}\end{split}\end{equation*}
+\begin{equation*}\begin{split}E(Y|X=x)&= \int \frac{y\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^nK_{\sigma}(x^{\ast}, x_j)}dy\\&=\frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast},x_i) \int y K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast}, x_j)}dy \\ &= \frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)y_i}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast},x_j)}\end{split}\end{equation*}
 $$
 
 二変量の同時分布$f(x,y)$をカーネル密度推定で推定した時、条件付き分布$f(y|x)$の平均値は Nadaraya-Watson と一致します。
@@ -271,3 +273,4 @@ $$
 
 こちらもオススメです。
 ↓↓↓↓↓↓↓↓↓↓↓↓
+https://qiita.com/tanacchi/items/5de94bf6181ddb65cfd0

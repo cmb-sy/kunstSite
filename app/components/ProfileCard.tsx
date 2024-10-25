@@ -17,12 +17,12 @@ const ProfileCard = () => {
         <div className="ml-4">
           <p className="font-semibold text-gray-800 text-lg">kunst</p>
           <div className="flex justify-center mt-4 space-x-4">
-            <Link href="https://twitter.com/yourprofile">
+            <Link href="https://x.com/kunst_sy_">
               <div className="text-gray-600 hover:text-blue-500">
                 <FaTwitter size={24} />
               </div>
             </Link>
-            <Link href="https://github.com/yourprofile">
+            <Link href="https://github.com/cmb-sy">
               <div className="text-gray-600 hover:text-black">
                 <FaGithub size={24} />
               </div>
