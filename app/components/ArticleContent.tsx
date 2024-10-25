@@ -17,6 +17,7 @@ import ArticleImageGifMovie from "./ArticleImageGifMovie";
 import ArticleTag from "../../app/components/ui/tag";
 
 import "katex/dist/katex.min.css";
+import EmbedArticle from "./EmbedArticle";
 interface BlogContentProps {
   blogArticle: any;
   SidebarComponents: React.ReactNode[];
@@ -26,6 +27,18 @@ const codeBlockComponents = {
   code: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
     <CodeBlock {...props} />
   ),
+  p: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
+    <div {...props} />
+  ),
+  a: (
+    props: JSX.IntrinsicAttributes & { href?: string; children?: ReactNode }
+  ) => {
+    const { href, children } = props;
+    if (href && href.startsWith("http")) {
+      return <EmbedArticle url={href} />;
+    }
+    return <a {...props}>{children}</a>;
+  },
 };
 
 const BlogContent: React.FC<BlogContentProps> = ({
