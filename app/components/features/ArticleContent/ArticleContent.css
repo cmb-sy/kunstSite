@@ -1,10 +1,22 @@
-/* section内のスタイル */
 .section-style {
-  padding: 2rem;
-  background-color: white;
-  margin-bottom: 2rem;
+  padding: 1rem; /* 内側の余白を設定 */
+  margin: 0 auto; /* 中央揃え */
+  max-width: 100%; /* 最大幅を設定 */
+  overflow: hidden; /* はみ出た部分を隠す */
+  word-wrap: break-word; /* 長い単語を折り返す */
 }
 
+@media (min-width: 1024px) {
+  .section-style {
+    width: 620px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-style {
+    width: 900px;
+  }
+}
 /* ------------------------- */
 /* 見出し */
 /* ------------------------- */
@@ -28,7 +40,7 @@
 /* ------------------------- */
 
 .custom-p {
-  margin: 16px 0;
+  margin: 14px 0;
   font-size: 16px;
   line-height: 1.9;
   color: #070707d1;

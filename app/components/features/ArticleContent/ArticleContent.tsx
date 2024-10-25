@@ -11,12 +11,14 @@ import Highlight from "@/app/components/features/MdxEmbedComponent/HighRight";
 import Sidebar from "@/app/components/features/SidebarItems/Sidebar";
 import CodeBlock from "@/app/components/features/MdxEmbedComponent/CodeBlock";
 
-import "@/app/components/ArticleContent.css";
 import ArticleImageGifMovie from "../MdxEmbedComponent/ArticleImageGifMovie";
 import ArticleTopic from "../../elements/tag";
 
+import "./ArticleContent.css";
+
 import "katex/dist/katex.min.css";
-import EmbedArticle from "../MdxEmbedComponent/EmbedArticle";
+import EmbedArticle from "@/app/components/features/MdxEmbedComponent/EmbedArticle";
+
 interface BlogContentProps {
   blogArticle: any;
   SidebarComponents: React.ReactNode[];
@@ -76,21 +78,23 @@ const BlogContent: React.FC<BlogContentProps> = ({
           />
           {/* 目次表示に必要 */}
           <div className="target-toc">
-            <MDXRemote
-              source={blogArticle.content}
-              components={{
-                ...codeBlockComponents,
-                Highlight,
-                ArticleImageGifMovie,
-                p: (props) => <div {...props} className="custom-p" />, // pタグの代わりにdivタグを使用
-              }}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm, remarkMath],
-                  rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
-                },
-              }}
-            />
+            <div className="section-style">
+              <MDXRemote
+                source={blogArticle.content}
+                components={{
+                  ...codeBlockComponents,
+                  Highlight,
+                  ArticleImageGifMovie,
+                  p: (props) => <p {...props} className="custom-p" />, // pタグにカスタムクラスを追加
+                }}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm, remarkMath],
+                    rehypePlugins: [rehypePrism, rehypeKatex, rehypeSlug],
+                  },
+                }}
+              />
+            </div>
           </div>
         </section>
         <Sidebar SidebarComponents={[SidebarComponents]} />

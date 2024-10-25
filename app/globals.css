@@ -22,23 +22,6 @@
   }
 }
 
-/* 記事section */
-.section-style {
-  width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .section-style {
-    width: 620px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .section-style {
-    width: 900px;
-  }
-}
-
 /* ------------------------- */
 /* ホームページ */
 /* ------------------------- */
