@@ -22,6 +22,7 @@ const ArticleImageGifMovieGifMovie: React.FC<
           {alt}
         </video>
       ) : isGif ? (
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={path.startsWith("/") ? path : `/${path}`}
           width={800}

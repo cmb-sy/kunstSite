@@ -13,7 +13,7 @@ import CodeBlock from "@/app/components/CodeBlock";
 
 import "@/app/components/ArticleContent.css";
 import ArticleImageGifMovie from "./ArticleImageGifMovie";
-import ArticleTag from "../../app/components/ui/tag";
+import ArticleTopic from "./ui/tag";
 
 import "katex/dist/katex.min.css";
 import EmbedArticle from "./EmbedArticle";
@@ -52,7 +52,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
             {blogArticle.title}
           </h1>
           <br />
-          <ArticleTag
+          <ArticleTopic
             text={blogArticle.category}
             href={`/category/${blogArticle.category}`}
           />
@@ -62,7 +62,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
               .filter((tag: string) => tag.trim() !== "")
               .map((tag: string, index: number) => (
                 <span key={index}>
-                  <ArticleTag text={tag} href={`/tags/${tag}`} />
+                  <ArticleTopic text={tag} href={`/tags/${tag}`} />
                 </span>
               ))}
           <br />

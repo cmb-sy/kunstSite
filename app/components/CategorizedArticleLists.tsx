@@ -1,5 +1,4 @@
 import ArticleLists from "@/app/components/ArticleLists";
-import { Categories } from "@/types/categories";
 
 interface BlogContentProps {
   blogArticle: any;

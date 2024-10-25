@@ -1,10 +1,10 @@
-export const Categories = [
-  "フロントエンド",
-  "バックエンド",
-  "インフラ",
-  "AI",
-  "その他",
-] as const;
+export const Categories: { [key: string]: string } = {
+  フロントエンド: "/categoryIcon/frontend.svg",
+  バックエンド: "/categoryIcon/backend.svg",
+  インフラ: "/categoryIcon/infra.svg",
+  AI: "/categoryIcon/ai.svg",
+  その他: "/categoryIcon/other.svg",
+};
 
 // Category 型は Categories 配列のいずれかの要素のみを許可
-export type Category = (typeof Categories)[number];
+export type Category = keyof typeof Categories;

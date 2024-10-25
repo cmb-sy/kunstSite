@@ -14,7 +14,7 @@ const stripMarkdown = async (markdown: string): Promise<string> => {
 
 interface ArticleListsProps {
   blogData: any;
-  label: typeof Categories | string[] | undefined | string;
+  label: string | string[] | undefined;
 }
 
 const ArticleLists: React.FC<ArticleListsProps> = async ({
