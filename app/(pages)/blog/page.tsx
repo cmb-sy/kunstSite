@@ -1,4 +1,4 @@
-import BlogGrid from "@/app/components/ArticleLists";
+import BlogGrid from "@/app/components/features/ArticleContent/ArticleLists";
 
 const getBlogData = async () => {
   try {

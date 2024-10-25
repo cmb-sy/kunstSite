@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "@/app/components/features/SidebarItems/ProfileCard";
 
 export interface SidebarTypes {
   SidebarComponents?: React.ReactNode[];

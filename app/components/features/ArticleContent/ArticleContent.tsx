@@ -7,16 +7,16 @@ import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism";
 import rehypeSlug from "rehype-slug";
 
-import Highlight from "@/app/components/HighRight";
-import Sidebar from "@/app/components/Sidebar";
-import CodeBlock from "@/app/components/CodeBlock";
+import Highlight from "@/app/components/features/MdxEmbedComponent/HighRight";
+import Sidebar from "@/app/components/features/SidebarItems/Sidebar";
+import CodeBlock from "@/app/components/features/MdxEmbedComponent/CodeBlock";
 
 import "@/app/components/ArticleContent.css";
-import ArticleImageGifMovie from "./ArticleImageGifMovie";
-import ArticleTopic from "./ui/tag";
+import ArticleImageGifMovie from "../MdxEmbedComponent/ArticleImageGifMovie";
+import ArticleTopic from "../../elements/tag";
 
 import "katex/dist/katex.min.css";
-import EmbedArticle from "./EmbedArticle";
+import EmbedArticle from "../MdxEmbedComponent/EmbedArticle";
 interface BlogContentProps {
   blogArticle: any;
   SidebarComponents: React.ReactNode[];

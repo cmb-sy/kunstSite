@@ -2,12 +2,9 @@ import path from "path";
 import fs from "fs/promises";
 import matter from "gray-matter";
 
-import ArticleContent from "@/app/components/ArticleContent";
+import ArticleContent from "@/app/components/features/ArticleContent/ArticleContent";
 
-import "prismjs/components/prism-python.js";
-import "prismjs/themes/prism-tomorrow.css";
-
-import { Toc } from "@/app/components/toc";
+import { Toc } from "@/app/components/features/SidebarItems/toc";
 
 async function getPrivacyPolicyArticleBySlug(slug: string) {
   const aboutDirectoryPath = path.join(

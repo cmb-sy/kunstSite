@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Sidebar from "./Sidebar";
+import Sidebar from "../SidebarItems/Sidebar";
 // import SearchBar from "./SearchBar";
-import SideBarCategoryLists from "./CategoryList";
-import SideBarTagLists from "./TagsList";
+import SideBarCategoryLists from "../Category/CategoryList";
+import SideBarTagLists from "../Tags/TagsList";
 import NotArticle from "@/app/not-article";
 import type { Categories } from "@/types/categories";
 import { marked } from "marked";

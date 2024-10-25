@@ -1,7 +1,7 @@
 import type { Post } from "@/types/post";
 import { Tags } from "@/types/tags";
 import type { Tag } from "@/types/tags";
-import TagedArticleLists from "@/app/components/TagedArticleLists";
+import TagedArticleLists from "@/app/components/features/Tags/TagedArticleLists";
 
 export async function generateStaticParams() {
   const params = Tags.map((tag) => ({

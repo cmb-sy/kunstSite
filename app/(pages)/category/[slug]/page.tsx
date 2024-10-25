@@ -1,6 +1,6 @@
 import { Categories } from "@/types/categories";
 import { Category } from "@/types/categories";
-import CategorizedArticleLists from "@/app/components/CategorizedArticleLists";
+import CategorizedArticleLists from "@/app/components/features/Category/CategorizedArticleLists";
 import { Post } from "@/types/post";
 
 // SSG

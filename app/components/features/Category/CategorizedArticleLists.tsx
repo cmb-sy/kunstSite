@@ -1,4 +1,4 @@
-import ArticleLists from "@/app/components/ArticleLists";
+import ArticleLists from "@/app/components/features/ArticleContent/ArticleLists";
 
 interface BlogContentProps {
   blogArticle: any;

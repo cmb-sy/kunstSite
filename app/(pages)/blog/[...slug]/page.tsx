@@ -1,12 +1,7 @@
-import ArticleContent from "@/app/components/ArticleContent";
-import { Toc } from "@/app/components/toc";
+import ArticleContent from "@/app/components/features/ArticleContent/ArticleContent";
 
-type Post = {
-  slug: string;
-  title: string;
-  date: string;
-  blogContentsHTML: string;
-};
+import { Toc } from "@/app/components/features/SidebarItems/toc";
+import { Post } from "@/types/post";
 
 // SSG：サーバ起動中でないとエラーが発生する。
 export async function generateStaticParams() {
@@ -20,6 +15,7 @@ export async function generateStaticParams() {
     const blogData = await res.json();
 
     const params = blogData.map((blog: Post) => ({
+      // blog.slug をスラッシュで分割し、各部分をデコードして配列に変換
       slug: blog.slug.split("/").map(decodeURIComponent),
     }));
 
@@ -51,6 +47,7 @@ const getBlogArticle = async (slug: string) => {
 };
 
 const BlogArticlePage = async ({ params }: { params: { slug: string[] } }) => {
+  // 配列を / で結合
   const decodedSlug = params.slug.map(decodeURIComponent).join("/");
   const blogArticle = await getBlogArticle(decodedSlug);
   if (!blogArticle) {

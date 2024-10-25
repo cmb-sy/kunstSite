@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "./components/ui/button";
+import Button from "./components/elements/button";
 const Home = async () => {
   const buttonClass =
     "text-lg md:text-xl lg:text-2xl py-4 md:py-6 lg:py-8 px-6 md:px-8 lg:px-12 w-full md:w-64 lg:w-80"; // レスポンシブクラスを追加

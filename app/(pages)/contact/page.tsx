@@ -5,7 +5,7 @@ const Form: React.FC = () => {
     <form
       action="https://ssgform.com/s/0ti4DfBGxgrh"
       method="post"
-      className="min-h-screen max-w-2xl mx-auto p-8 pb-20 bg-white shadow-md rounded-lg mt-10"
+      className="min-h-screen max-w-2xl mx-auto p-8 pb-20 bg-white shadow-md rounded-lg mt-10 mb-10"
     >
       <div className="mb-4">
         <label
