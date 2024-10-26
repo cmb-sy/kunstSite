@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 import styles from "./EmbedArticle.module.css";
@@ -56,52 +57,45 @@ const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
     ? ogData.ogImage[0].url
     : ogData.ogImage?.url;
 
-  console.log("Open Graph data in EmbedArticle:", ogData);
-  console.log("favicon:", faviconUrl);
-
   return (
-    <>
-      <div className={`${styles.embedArticle_container}`}>
-        <a
-          href={srcUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${styles.embedArticleCard_link}`}
-        >
-          <div className={`${styles.embedArticle_main}`}>
-            <div className={`${styles.embedArticle_title}`}>
-              {ogData.ogTitle}
-            </div>
-            <div className={`${styles.embedArticle_description}`}>
-              {ogData.ogDescription}
-            </div>
-            <div className={`${styles.embedArticle_meta}`}>
-              {faviconUrl && (
-                <Image
-                  src={faviconUrl || ""}
-                  alt={ogData.ogTitle || "Image"}
-                  width={14}
-                  height={14}
-                  className={`${styles.embedArticle_favicon}`}
-                />
-              )}
-              {srcUrl}
-            </div>
+    <div className={`${styles.embedArticle_container}`}>
+      <Link
+        href={srcUrl || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${styles.embedArticleCard_link}`}
+      >
+        <div className={`${styles.embedArticle_main}`}>
+          <div className={`${styles.embedArticle_title}`}>{ogData.ogTitle}</div>
+          <div className={`${styles.embedArticle_description}`}>
+            {ogData.ogDescription}
           </div>
-          <div className={`${styles.embedArticle_img}`}>
-            {ogImageUrl && (
+          <div className={`${styles.embedArticle_meta}`}>
+            {faviconUrl && (
               <Image
-                src={ogImageUrl}
+                src={faviconUrl || ""}
                 alt={ogData.ogTitle || "Image"}
-                width={230}
-                height={120}
-                className={`${styles.embedArticle_img}`}
+                width={14}
+                height={14}
+                className={`${styles.embedArticle_favicon}`}
               />
             )}
+            {srcUrl}
           </div>
-        </a>
-      </div>
-    </>
+        </div>
+        <div className={`${styles.embedArticle_img}`}>
+          {ogImageUrl && (
+            <Image
+              src={ogImageUrl}
+              alt={ogData.ogTitle || "Image"}
+              width={230}
+              height={120}
+              className={`${styles.embedArticle_img}`}
+            />
+          )}
+        </div>
+      </Link>
+    </div>
   );
 };
 

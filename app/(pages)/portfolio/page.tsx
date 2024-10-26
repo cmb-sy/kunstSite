@@ -1,7 +1,5 @@
-import React from "react";
+const Portfolio = async ({ params }: { params: { slug: string } }) => {
+  return <>dddd</>;
+};
 
-function page() {
-  return <div>page</div>;
-}
-
-export default page;
+export default Portfolio;
