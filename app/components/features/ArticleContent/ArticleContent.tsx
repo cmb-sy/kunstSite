@@ -11,7 +11,7 @@ import Highlight from "@/app/components/features/MdxEmbedComponent/HighRight";
 import Sidebar from "@/app/components/features/SidebarItems/Sidebar";
 import CodeBlock from "@/app/components/features/MdxEmbedComponent/CodeBlock";
 
-import ArticleImageGifMovie from "../MdxEmbedComponent/ArticleImageGifMovie";
+import ArticleImageGifMovie from "@/app/components/features/MdxEmbedComponent/ArticleImageGifMovie";
 import ArticleTopic from "../../elements/tag";
 
 import "./ArticleContent.css";
@@ -84,6 +84,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
                   ...codeBlockComponents,
                   Highlight,
                   ArticleImageGifMovie,
+                  EmbedArticle,
                   p: (props) => <p {...props} className="custom-p" />, // pタグにカスタムクラスを追加
                 }}
                 options={{
