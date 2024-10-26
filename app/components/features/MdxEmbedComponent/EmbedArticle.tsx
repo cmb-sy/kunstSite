@@ -36,7 +36,6 @@ const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
         );
         const data = await response.json();
         setOgData(data);
-        console.log("Open Graph data:", data);
       } catch (error) {
         console.error("Failed to fetch Open Graph data", error);
       }

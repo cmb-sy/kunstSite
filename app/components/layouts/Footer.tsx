@@ -10,10 +10,20 @@ const Footer = () => {
           <div className="text-s mb-4">
             Welcome to our blog! Stay updated with the latest posts.
           </div>
-          <div className="text-sm mb-4">
-            <Link href="/privacyPolicy" className="hover:underline">
-              プライバシーポリシー
-            </Link>
+          <div className="flex space-x-4 text-sm mb-4">
+            <div className="flex space-x-4 text-sm mb-4">
+              <div>
+                <Link href="/privacyPolicy" className="hover:underline">
+                  プライバシーポリシー
+                </Link>
+              </div>
+              <span>|</span>
+              <div>
+                <Link href="/aboutBlog" className="hover:underline">
+                  当サイトについて
+                </Link>
+              </div>
+            </div>
           </div>
           <div className="text-xs text-gray-500 mb-4">
             Copyright © 2024 kunstBlog

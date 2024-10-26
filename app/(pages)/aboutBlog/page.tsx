@@ -8,7 +8,7 @@ import ArticleContent from "@/app/components/features/ArticleContent/ArticleCont
 import { Toc } from "@/app/components/features/SidebarItems/toc";
 
 async function getAboutArticleBySlug(slug: string) {
-  const aboutDirectoryPath = path.join(process.cwd(), "/app/(pages)/about");
+  const aboutDirectoryPath = path.join(process.cwd(), "/app/(pages)/aboutBlog");
   const cleanSlug = slug.replace(/\.mdx$/, "");
   const articlePath = path.join(aboutDirectoryPath, `${cleanSlug}.mdx`);
   const articleContents = await fs.readFile(articlePath, "utf8");

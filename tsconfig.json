@@ -26,7 +26,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/(pages)/about/aboutBlog.mdx",
+    "app/(pages)/aboutBlog/aboutBlog.mdx",
     "node_modules/page.tsx",
     "posts/ml5/ml5.mdx"
   ],
