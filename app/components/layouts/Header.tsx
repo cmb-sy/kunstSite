@@ -8,7 +8,7 @@ const Header = () => {
           <Link href="/">kunst Blog</Link>
         </h1>
         <ul className="flex gap-6 text-xl h-full items-center">
-          {["/blog", "/portfolio", "/contact"].map((path, index) => (
+          {["/aboutBlog", "/contact"].map((path, index) => (
             <li
               key={index}
               className="hover:bg-gray-200 h-full flex items-center p-4"
