@@ -13,6 +13,9 @@ const Form: React.FC = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
         >
           お名前
+          <span className="ml-2 bg-red-500 text-white font-bold px-2 py-1 rounded">
+            必須
+          </span>
         </label>
         <input
           type="text"
@@ -28,6 +31,9 @@ const Form: React.FC = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
         >
           メールアドレス
+          <span className="ml-2 bg-red-500 text-white font-bold px-2 py-1 rounded">
+            必須
+          </span>
         </label>
         <input
           type="email"
@@ -43,6 +49,9 @@ const Form: React.FC = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
         >
           お問い合わせ内容
+          <span className="ml-2 bg-red-500 text-white font-bold px-2 py-1 rounded">
+            必須
+          </span>
         </label>
         <textarea
           name="お問い合わせ内容"
