@@ -41,4 +41,13 @@ export const works: Work[] = [
     imageUrl: Omikuzi,
     sourceUrl: "https://github.com/cmb-sy/Omikuji",
   },
+  {
+    id: 4,
+    title: "kunst portfolio",
+    description:
+      "自身のポートフォリオです。現在は当サイトのkunst siteへ移しました。",
+    tags: ["Typescript", "Nextjs"],
+    imageUrl: Omikuzi,
+    sourceUrl: "https://github.com/cmb-sy/portfolio",
+  },
 ];
