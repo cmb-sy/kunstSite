@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <Header />
+        <div className="relative z-10">
+          <Header />
+        </div>
         <div className="flex flex-col min-h-screen bg-gray-100">
           <div className="flex-grow flex">
             <link
@@ -25,7 +27,9 @@ export default function RootLayout({
             />
             <main className="flex-grow bg-gray-100">{children}</main>
           </div>
-          <Footer />
+          <div className="relative z-10">
+            <Footer />
+          </div>
         </div>
       </body>
     </html>
