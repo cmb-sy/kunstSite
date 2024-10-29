@@ -5,7 +5,9 @@ const Header = () => {
     <header className="bg-white py-2">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-green-500 text-4xl font-serif flex items-center">
-          <Link href="/">kunst Blog</Link>
+          <Link href="/">
+            <strong>kunst Site</strong>
+          </Link>
         </h1>
         <ul className="flex gap-6 text-xl h-full items-center">
           {["/blog", "/aboutBlog", "/portfolio", "/contact"].map(
@@ -15,8 +17,10 @@ const Header = () => {
                 className="hover:bg-gray-200 h-full flex items-center p-4"
               >
                 <Link href={path} className="hover:text-gray-700 block h-full">
-                  {path.substring(1).charAt(0).toUpperCase() +
-                    path.substring(2)}
+                  <strong>
+                    {path.substring(1).charAt(0).toUpperCase() +
+                      path.substring(2)}
+                  </strong>
                 </Link>
               </li>
             )

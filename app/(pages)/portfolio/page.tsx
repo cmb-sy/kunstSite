@@ -2,7 +2,6 @@ import AboutMe from "@/app/components/features/Portfolio/AboutMe";
 import Career from "@/app/components/features/Portfolio/Career/Career";
 import Works from "@/app/components/features/Portfolio/Work/Works";
 import Skills from "@/app/components/features/Portfolio/Skill/Skills";
-import NavigationBar from "@/app/components/features/Portfolio/NavigationBar/Navigationbar";
 
 function portfolio() {
   const sections = [
@@ -38,7 +37,6 @@ function portfolio() {
 
   return (
     <>
-      <NavigationBar />
       <div className="flex flex-col">
         <div className="flex-1">
           {sections.map((section, index) => (
@@ -47,11 +45,14 @@ function portfolio() {
               id={section.id}
               className={`${section.bgColor} py-24`}
             >
+              <div className="flex justify-center items-center text-gray-300">
+                <div>aboutMe / skill / work / career</div>
+              </div>
               <div className="mx-auto max-w-screen-lg">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center text-black-500">
                   {section.title}
                 </h1>
-                <p className="text-sm mb-4 text-center text-gray-500">
+                <p className="text-md mb-4 text-center text-gray-900">
                   {section.comment}
                 </p>
                 {section.component}
