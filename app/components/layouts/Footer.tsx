@@ -8,19 +8,19 @@ const Footer = () => {
         <div className="mb-4 lg:mb-0">
           <h1 className="text-2xl font-bold mb-2">kunstBlog</h1>{" "}
           <div className="text-s mb-4">
-            Welcome to our blog! Stay updated with the latest posts.
+            Welcome to kunst Site. Stay updated with the latest posts.
           </div>
           <div className="flex space-x-4 text-sm mb-4">
             <div className="flex space-x-4 text-sm mb-4">
               <div>
                 <Link href="/privacyPolicy" className="hover:underline">
-                  プライバシーポリシー
+                  Privacy Policy
                 </Link>
               </div>
               <span>|</span>
               <div>
                 <Link href="/aboutBlog" className="hover:underline">
-                  当サイトについて
+                  About Blog
                 </Link>
               </div>
             </div>
