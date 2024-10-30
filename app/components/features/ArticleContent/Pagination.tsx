@@ -25,41 +25,50 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
   }
 
   return (
-    <ul className="pagination justify-content-center">
+    <ul className="flex justify-center space-x-2 mt-4">
       {startPage > 1 && (
         <>
-          <li className="page-item">
-            <Link href={`/${type}/1`} className="page-link">
-              1
+          <li>
+            <Link href={`/${type}/1`}>
+              <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+                1
+              </div>
             </Link>
           </li>
           {startPage > 2 && (
-            <li className="page-item disabled">
-              <span className="page-link">...</span>
+            <li>
+              <span className="px-3 py-1 border rounded">...</span>
             </li>
           )}
         </>
       )}
       {paginationRange.map((page) => (
-        <li className="page-item" key={page}>
-          <Link
-            href={`/${type}/${page}`}
-            className={`page-link ${currentPage == page ? "active" : ""}`}
-          >
-            {page}
+        <li key={page}>
+          <Link href={`/${type}/${page}`}>
+            <div
+              className={`px-3 py-1 border rounded cursor-pointer ${
+                currentPage == page
+                  ? "bg-blue-500 text-white"
+                  : "hover:bg-gray-200"
+              }`}
+            >
+              {page}
+            </div>
           </Link>
         </li>
       ))}
       {endPage < totalPages && (
         <>
           {endPage < totalPages - 1 && (
-            <li className="page-item disabled">
-              <span className="page-link">...</span>
+            <li>
+              <span className="px-3 py-1 border rounded">...</span>
             </li>
           )}
-          <li className="page-item">
-            <Link href={`/${type}/${totalPages}`} className="page-link">
-              {totalPages}
+          <li>
+            <Link href={`/${type}/${totalPages}`}>
+              <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+                {totalPages}
+              </div>
             </Link>
           </li>
         </>

@@ -1,7 +1,7 @@
 import ArticleContent from "@/app/components/features/ArticleContent/ArticleContent";
 
 import { Toc } from "@/app/components/features/SidebarItems/toc";
-import { Post } from "@/types/post";
+import { Post } from "@/app/lib/types/post";
 
 // SSG：サーバ起動中でないとエラーが発生する。
 export async function generateStaticParams() {

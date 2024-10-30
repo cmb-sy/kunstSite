@@ -4,8 +4,9 @@ import Sidebar from "../SidebarItems/Sidebar";
 import SideBarCategoryLists from "../Category/CategoryList";
 import SideBarTagLists from "../Tags/TagsList";
 import NotArticle from "@/app/not-article";
-import type { Categories } from "@/types/categories";
 import { marked } from "marked";
+import Pagination from "./Pagination";
+
 const stripMarkdown = async (markdown: string): Promise<string> => {
   const html = await marked(markdown);
   const text = html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
@@ -15,15 +16,17 @@ const stripMarkdown = async (markdown: string): Promise<string> => {
 interface ArticleListsProps {
   blogData: any;
   label: string | string[] | undefined;
+  pageData: any;
 }
 
 const ArticleLists: React.FC<ArticleListsProps> = async ({
   blogData,
   label,
+  pageData,
 }) => {
   // カテゴリー内の記事がない場合はレイアウトが崩れるので、別ページへ遷移
-  if (blogData.length === 0) {
-    return <NotArticle />;
+  if (!Array.isArray(blogData) || blogData.length === 0) {
+    return 2;
   }
 
   return (
@@ -69,6 +72,13 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
               );
             })
           )}
+        </div>
+        <div className="mb-3">
+          <Pagination
+            type="blog"
+            pages={pageData.pages}
+            currentPage={pageData.currentPage}
+          />
         </div>
       </section>
       <div className="mt-20">

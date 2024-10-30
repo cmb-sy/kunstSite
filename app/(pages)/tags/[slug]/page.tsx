@@ -1,6 +1,6 @@
-import type { Post } from "@/types/post";
-import { Tags } from "@/types/tags";
-import type { Tag } from "@/types/tags";
+import type { Post } from "@/app/lib/types/post";
+import { Tags } from "@/app/lib/types/tags";
+import type { Tag } from "@/app/lib/types/tags";
 import TagedArticleLists from "@/app/components/features/Tags/TagedArticleLists";
 
 export async function generateStaticParams() {

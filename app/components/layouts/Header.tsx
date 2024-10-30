@@ -37,7 +37,7 @@ const Header = () => {
             menuOpen ? "block" : "hidden"
           } md:flex gap-6 text-xl h-full items-center`}
         >
-          {["/blog", "/aboutBlog", "/portfolio", "/contact"].map(
+          {["/blog/1", "/aboutBlog", "/portfolio", "/contact"].map(
             (path, index) => (
               <li
                 key={index}

@@ -1,7 +1,7 @@
-import { Categories } from "@/types/categories";
-import { Category } from "@/types/categories";
+import { Categories } from "@/app/lib/types/categories";
+import { Category } from "@/app/lib/types/categories";
 import CategorizedArticleLists from "@/app/components/features/Category/CategorizedArticleLists";
-import { Post } from "@/types/post";
+import { Post } from "@/app/lib/types/post";
 
 // SSG
 export async function generateStaticParams() {

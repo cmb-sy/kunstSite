@@ -1,5 +1,5 @@
 import ArticleLists from "@/app/components/features/ArticleContent/ArticleLists";
-import type { Tag } from "@/types/tags";
+import type { Tag } from "@/app/lib/types/tags";
 
 interface BlogContentProps {
   blogArticle: any;

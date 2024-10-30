@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Tags } from "@/types/tags";
+import { Tags } from "@/app/lib/types/tags";
 
 const TagLists = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
