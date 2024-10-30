@@ -17,16 +17,18 @@ interface ArticleListsProps {
   blogData: any;
   label: string | string[] | undefined;
   pageData: any;
+  pageType: string;
 }
 
 const ArticleLists: React.FC<ArticleListsProps> = async ({
   blogData,
   label,
   pageData,
+  pageType,
 }) => {
   // カテゴリー内の記事がない場合はレイアウトが崩れるので、別ページへ遷移
   if (!Array.isArray(blogData) || blogData.length === 0) {
-    return 2;
+    return <NotArticle />;
   }
 
   return (
@@ -75,7 +77,7 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
         </div>
         <div className="mb-3">
           <Pagination
-            type="blog"
+            type={pageType}
             pages={pageData.pages}
             currentPage={pageData.currentPage}
           />

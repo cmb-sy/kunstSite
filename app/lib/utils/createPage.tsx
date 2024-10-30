@@ -1,4 +1,4 @@
-import { POSTS_PER_PAGE } from "../contants";
+import { POSTS_PER_PAGE } from "@/app/lib/contants";
 
 type PageData = {
   currentPage: number;

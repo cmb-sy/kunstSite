@@ -2,7 +2,7 @@ export const Categories: { [key: string]: string } = {
   フロントエンド: "/categoryIcon/frontend.svg",
   バックエンド: "/categoryIcon/backend.svg",
   インフラ: "/categoryIcon/infra.svg",
-  AI: "/categoryIcon/ai.svg",
+  データサイエンス: "/categoryIcon/ai.svg",
   その他: "/categoryIcon/other.svg",
 };
 

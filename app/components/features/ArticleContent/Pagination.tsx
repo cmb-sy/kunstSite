@@ -26,12 +26,21 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
 
   return (
     <ul className="flex justify-center space-x-2 mt-4">
+      {currentPage > 1 && (
+        <li>
+          <Link href={`/${type}/${currentPage - 1}`}>
+            <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+              前のページ
+            </div>
+          </Link>
+        </li>
+      )}
       {startPage > 1 && (
         <>
           <li>
             <Link href={`/${type}/1`}>
               <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
-                1
+                最初のページ
               </div>
             </Link>
           </li>
@@ -67,11 +76,20 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
           <li>
             <Link href={`/${type}/${totalPages}`}>
               <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
-                {totalPages}
+                最後のページ
               </div>
             </Link>
           </li>
         </>
+      )}
+      {currentPage < totalPages && (
+        <li>
+          <Link href={`/${type}/${currentPage + 1}`}>
+            <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+              次のページ
+            </div>
+          </Link>
+        </li>
       )}
     </ul>
   );
