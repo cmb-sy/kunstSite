@@ -9,6 +9,7 @@ const getBlogData = async () => {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     const blogData = await res.json();
+    console.log(blogData.length);
     return blogData;
   } catch (error) {
     console.error("Failed to fetch blog article:", error);
@@ -19,6 +20,7 @@ const getBlogData = async () => {
 const Blog = async () => {
   const blogData = await getBlogData();
   if (!blogData) {
+    // TODO 専用画面を用意したい
     return <div>ブログ記事の取得に失敗しました。</div>;
   }
   return (
