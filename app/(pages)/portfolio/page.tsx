@@ -2,9 +2,10 @@ import AboutMe from "@/app/components/features/Portfolio/AboutMe";
 import Career from "@/app/components/features/Portfolio/Career/Career";
 import Works from "@/app/components/features/Portfolio/Work/Works";
 import Skills from "@/app/components/features/Portfolio/Skill/Skills";
+import NavLinks from "@/app/components/features/Portfolio/NavLinks"; // 新しいコンポーネントをインポート
 
 function portfolio() {
-  const sections = [
+  const portfolioItems = [
     {
       id: "about-me",
       title: "About Me",
@@ -39,23 +40,21 @@ function portfolio() {
     <>
       <div className="flex flex-col">
         <div className="flex-1">
-          {sections.map((section, index) => (
+          {portfolioItems.map((portfolioItem, index) => (
             <div
               key={index}
-              id={section.id}
-              className={`${section.bgColor} py-24`}
+              id={portfolioItem.id}
+              className={`${portfolioItem.bgColor} py-24`}
             >
-              <div className="flex justify-center items-center text-gray-300">
-                <div>aboutMe / skill / work / career</div>
-              </div>
+              <NavLinks portfolioItems={portfolioItems} />
               <div className="mx-auto max-w-screen-lg">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center text-black-500">
-                  {section.title}
+                <h1 className="sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 mt-2 text-center text-black-500">
+                  {portfolioItem.title}
                 </h1>
                 <p className="text-md mb-4 text-center text-gray-900">
-                  {section.comment}
+                  {portfolioItem.comment}
                 </p>
-                {section.component}
+                {portfolioItem.component}
               </div>
             </div>
           ))}
@@ -64,4 +63,5 @@ function portfolio() {
     </>
   );
 }
+
 export default portfolio;

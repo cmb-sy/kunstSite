@@ -19,11 +19,10 @@ const AboutMe: React.FC = () => (
         {[
           { label: "氏名", value: "Kunst" },
           {
-            label: "ブログ",
+            label: "X",
             value: "https://x.com/kunst_sy_",
             link: "https://x.com/kunst_sy_",
           },
-          { label: "X:", value: "kunst", link: "https://x.com/kunst_sy_" },
           {
             label: "Github",
             value: "https://github.com/cmb-sy",
