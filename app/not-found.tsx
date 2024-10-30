@@ -2,7 +2,7 @@ const NotFound = () => {
   return (
     <div
       className="container mx-auto py-[50px] flex flex-col items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/path/to/your/background.jpg')" }}
+      // style={{ backgroundImage: "url('/path/to/your/background.jpg')" }}
     >
       <h1 className="text-[50px] text-center text-black drop-shadow-lg">
         ページが見つかりませんでした。

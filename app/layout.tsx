@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-const noto = Noto_Sans_JP({ subsets: ["latin"] });
+import Header from "@/app/components/layouts/Header";
+import Footer from "@/app/components/layouts/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,8 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={noto.className}>
-        <Header />
+      <body>
+        <div className="relative z-10">
+          <Header />
+        </div>
         <div className="flex flex-col min-h-screen bg-gray-100">
           <div className="flex-grow flex">
             <link
@@ -27,7 +27,9 @@ export default function RootLayout({
             />
             <main className="flex-grow bg-gray-100">{children}</main>
           </div>
-          <Footer />
+          <div className="relative z-10">
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

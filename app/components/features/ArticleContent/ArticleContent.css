@@ -1,0 +1,99 @@
+.section-style {
+  max-width: 100%; /* 最大幅を設定 */
+  overflow: hidden; /* はみ出た部分を隠す */
+  word-wrap: break-word; /* 長い単語を折り返す */
+}
+
+@media (min-width: 1024px) {
+  .section-style {
+    width: 620px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-style {
+    width: 870px;
+  }
+}
+/* ------------------------- */
+/* 見出し */
+/* ------------------------- */
+
+.section-style h2 {
+  border-bottom: 2px solid #043818;
+  font-size: 1.3em;
+  margin-bottom: 1.1rem;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.section-style h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 1.1rem;
+  margin-top: 1em;
+}
+
+/* ------------------------- */
+/* 文字関係 */
+/* ------------------------- */
+
+.custom-p {
+  margin: 14px 0;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #070707d1;
+}
+
+.section-style ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-style li {
+  margin-bottom: 0.5rem;
+  color: #4b5563; /* text-gray-600 */
+}
+
+.section-style ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-style ol li {
+  margin-bottom: 0.5rem;
+  color: #4b5563; /* text-gray-600 */
+}
+
+.section-style code {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+/* ------------------------- */
+/* 表 */
+/* ------------------------- */
+.section-style table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.section-style th,
+.section-style td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.section-style th {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.section-style tr:nth-child(even) {
+  background-color: #f9fafb;
+}
