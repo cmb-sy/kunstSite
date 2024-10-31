@@ -1,5 +1,5 @@
-import TopPage from "@/app/components/features/HomePage/TopPage";
-import MessageBoard from "@/app/components/features/HomePage/MessageBoard";
+import TopPage from "@/app/components/features/HomePage/TopPage/TopPage";
+import MessageBoard from "@/app/components/features/HomePage/MessageBoard/MessageBoard";
 
 const Home = async () => {
   return (

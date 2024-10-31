@@ -6,15 +6,6 @@ interface AnimatedTextProps {
 }
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
-  const scrollToAboutMe = () => {
-    const aboutMeSection = document.getElementById("about-me");
-    if (aboutMeSection) {
-      const yOffset = -50; // 遷移後の調整値
-      const y = aboutMeSection.getBoundingClientRect().top + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
     const style = document.createElement("style");
     style.innerHTML = `
@@ -74,24 +65,6 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
           </div>
         );
       })}
-      <div className="flex justify-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">
-        <button
-          onClick={scrollToAboutMe}
-          className="bounce-button bg-gray-800 rounded-full p-2 sm:p-3 md:p-4 lg:p-5"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 48 48"
-            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
-          >
-            <path
-              d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z"
-              fill="white"
-            ></path>
-          </svg>
-        </button>
-      </div>
     </div>
   );
 };
