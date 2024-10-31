@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllPosts } from "@/utils/getPostsData";
+import { getAllPosts } from "@/app/lib/utils/getPostsData";
 
 const GET = async () => {
   try {

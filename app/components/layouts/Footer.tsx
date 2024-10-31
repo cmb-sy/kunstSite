@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-[#3a3c3c] text-white p-8">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
         <div className="mb-4 lg:mb-0">
-          <h1 className="text-2xl font-bold mb-2">kunstBlog</h1>{" "}
+          <h1 className="text-2xl font-bold mb-2">kunst Site</h1>{" "}
           <div className="text-s mb-4">
             Welcome to kunst Site. Stay updated with the latest posts.
           </div>
@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-xs text-gray-500 mb-4">
-            Copyright © 2024 kunstBlog
+            Copyright © 2024 kunst Site
           </div>
         </div>
         <div className="flex justify-center lg:justify-end space-x-4">

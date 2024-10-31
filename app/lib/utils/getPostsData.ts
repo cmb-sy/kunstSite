@@ -61,3 +61,19 @@ export async function getAllPosts() {
   );
   return posts;
 }
+
+export const getBlogData = async () => {
+  try {
+    const res = await fetch("http://localhost:3001/api/blog/", {
+      cache: "force-cache",
+    });
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const blogData = await res.json();
+    return blogData;
+  } catch (error) {
+    console.error("Failed to fetch blog article:", error);
+    return null;
+  }
+};

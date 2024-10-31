@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPostBySlug } from "@/utils/getPostsData";
+import { getPostBySlug } from "@/app/lib/utils/getPostsData";
 
 const GET = async (
   req: NextRequest,

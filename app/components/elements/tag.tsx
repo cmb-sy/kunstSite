@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Categories } from "@/types/categories";
+import { Categories } from "@/app/lib/types/categories";
 
 interface ArticleTagProps {
   text: string;

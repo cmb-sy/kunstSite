@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Tags } from "@/types/tags";
+import { Tags } from "@/app/lib/types/tags";
 
 const TagLists = () => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [_, setSelectedTag] = useState<string | null>(null);
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const tag = e.target.value;
     setSelectedTag(tag);
-    router.push(`/tags/${tag}`);
+    router.push(`/tags/${tag}/1`);
   };
 
   return (

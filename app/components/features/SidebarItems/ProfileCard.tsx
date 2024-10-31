@@ -35,13 +35,6 @@ const ProfileCard = () => {
         <br />
         最近は山登りにハマっています。
       </p>
-      <div className="mt-3">
-        <Link href="https://cmb-sy.github.io/portfolio/">
-          <div className="text-blue-500 hover:underline">
-            kunstについて詳しく
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };

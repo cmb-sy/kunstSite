@@ -56,7 +56,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
           <br />
           <ArticleTopic
             text={blogArticle.category}
-            href={`/category/${blogArticle.category}`}
+            href={`/category/${blogArticle.category}/1`}
           />
           {blogArticle.tags &&
             blogArticle.tags
