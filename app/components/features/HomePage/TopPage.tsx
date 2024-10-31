@@ -1,13 +1,13 @@
 import React from "react";
-import AnimatedText from "../features/Portfolio/animationTitle";
-import ParticleBackground from "../features/Portfolio/ParticlesBackground";
+import AnimatedText from "./animationTitle";
+import ParticleBackground from "./ParticlesBackground";
 
 const TopPage: React.FC = () => {
   const title = "kunst Site";
 
   return (
     <>
-      <div className="relative w-full h-screen" id="top-page">
+      <div className="relative w-full h-screen">
         {/* 背景としてParticlesコンポーネントを配置 */}
         <div className="absolute inset-0 z-0">
           <ParticleBackground />
