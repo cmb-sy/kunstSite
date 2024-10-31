@@ -186,12 +186,6 @@ export const ProgrammingSkills: skillTable[] = [
         description: "機械学習の知識を得るために取得しました。",
       },
       {
-        name: "E資格",
-        imagePass: DL,
-        level: "",
-        description: "機械学習の知識を得るために取得しました。",
-      },
-      {
         name: "簿記検定:3級",
         imagePass: Bookkeeping,
         level: "",
