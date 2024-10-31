@@ -38,7 +38,7 @@ const CategorizedArticleListPage = async ({
   const decodedSlug = decodeURIComponent(params.slug);
 
   const [category, pageNumber] = decodedSlug.split(",");
-  const res = await fetch("http://localhost:3001/api/blog/", {
+  const res = await fetch("http://localhost:3000/api/blog/", {
     cache: "force-cache",
   });
   const posts = await res.json();

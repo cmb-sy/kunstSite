@@ -39,7 +39,7 @@ const TagsFilteredArticleListPage = async ({
     throw new Error("Invalid tag");
   }
 
-  const res = await fetch("http://localhost:3001/api/blog/", {
+  const res = await fetch("http://localhost:3000/api/blog/", {
     cache: "force-cache",
   });
   const blogData = await res.json();

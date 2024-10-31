@@ -6,7 +6,7 @@ import { Post } from "@/app/lib/types/post";
 // SSG：サーバ起動中でないとエラーが発生する。
 export async function generateStaticParams() {
   try {
-    const res = await fetch("http://localhost:3001/api/blog/", {
+    const res = await fetch("http://localhost:3000/api/blog/", {
       cache: "force-cache",
     });
     if (!res.ok) {
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
 
 const getBlogArticle = async (slug: string) => {
   try {
-    const res = await fetch(`http://localhost:3001/api/blog/${slug}`, {
+    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
       cache: "force-cache",
     });
     if (!res.ok) {
