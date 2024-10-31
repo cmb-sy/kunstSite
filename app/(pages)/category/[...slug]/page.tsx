@@ -17,13 +17,14 @@ export async function generateStaticParams() {
     return Array.from({ length: totalPages }, (_, i) => {
       // memo : slugは/繋ぎでは上手く動かないのでblog/[...slug]同様、[...slug]にしてslugに配列を渡しすことでパスが生成される。
       // slug以外を返り値しても意味はない。slugに対しパスにしたい値のみしかダメ。
-      const url = `/category/${decodeURIComponent(category)}/${i + 1}`;
+      const url = `/category/${category}/${i + 1}`;
       const slugURL = url.split("/");
       return {
         slug: slugURL,
       };
     });
   });
+  console.log("slug", params);
 
   return params;
 }
@@ -40,18 +41,17 @@ const CategorizedArticleListPage = async ({
   const res = await fetch("http://localhost:3001/api/blog/", {
     cache: "force-cache",
   });
-  const blogData = await res.json();
+  const posts = await res.json();
 
   // slug値(カテゴリー)でblogDataをフィルタリング
-  const filteredData = blogData.filter(
-    (blog: Post) => blog.category === category
-  );
+  const filteredData = posts.filter((blog: Post) => blog.category === category);
   const pageData: PageData = createPageData(
     Number(pageNumber),
     filteredData.length
   );
   // これを渡さないと全ての記事がページネーションに関係なく表示される
   const slicedPosts = filteredData.slice(pageData.start, pageData.end);
+  console.log("slicedPosts", slicedPosts);
 
   return (
     <CategorizedArticleLists
