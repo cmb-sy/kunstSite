@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { announcements } from "./MessageData";
 
 const MessageBoard = () => {
@@ -17,22 +18,21 @@ const MessageBoard = () => {
               index === 0 ? "border-t" : ""
             }`}
           >
-            <a
-              href="#"
-              className="flex flex-wrap md:flex-nowrap text-gray-800 no-underline border-b border-gray-300 p-6 hover:text-blue-600"
-            >
-              <p className="m-0 min-w-[160px] text-xl text-gray-600 pr-6">
-                {announcement.date}
-              </p>
-              <p className="m-0 min-w-[160px] pr-6">
-                <span className="bg-gray-600 text-white text-center inline-block px-6 py-2 text-sm leading-none">
-                  {announcement.category}
-                </span>
-              </p>
-              <p className="m-0 w-full md:mt-0 mt-3 text-lg">
-                {announcement.title}
-              </p>
-            </a>
+            <Link href="#">
+              <div className="flex flex-wrap md:flex-nowrap text-gray-800 no-underline border-b border-gray-300 p-6 hover:text-blue-600 cursor-pointer">
+                <p className="m-0 min-w-[160px] text-xl text-gray-600 pr-6">
+                  {announcement.date}
+                </p>
+                <p className="m-0 min-w-[160px] pr-6">
+                  <span className="bg-gray-600 text-white text-center inline-block px-6 py-2 text-sm leading-none">
+                    {announcement.category}
+                  </span>
+                </p>
+                <p className="m-0 w-full md:mt-0 mt-3 text-lg">
+                  {announcement.title}
+                </p>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

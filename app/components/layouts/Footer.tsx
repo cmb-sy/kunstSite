@@ -1,5 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaInstagram, FaArrowUp } from "react-icons/fa";
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const Footer = () => {
   return (
@@ -39,6 +45,15 @@ const Footer = () => {
           <Link href="https://instagram.com" aria-label="Instagram">
             <FaInstagram className="text-2xl hover:text-gray-400" />
           </Link>
+        </div>
+        <div className="mt-4">
+          <button
+            onClick={scrollToTop}
+            className="bg-gray-700 p-2 rounded-full hover:bg-gray-600"
+            aria-label="Scroll to top"
+          >
+            <FaArrowUp className="text-2xl text-white" />
+          </button>
         </div>
       </div>
     </footer>
