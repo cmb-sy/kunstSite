@@ -8,8 +8,7 @@ const MessageBoard = () => {
   }
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-10">最近のお知らせ</h1>
+    <div className="p-4">
       <ul className="list-none m-0 p-0">
         {announcements.map((announcement, index) => (
           <li
@@ -19,16 +18,16 @@ const MessageBoard = () => {
             }`}
           >
             <Link href="#">
-              <div className="flex flex-wrap md:flex-nowrap text-gray-800 no-underline border-b border-gray-300 p-6 hover:text-blue-600 cursor-pointer">
-                <p className="m-0 min-w-[160px] text-xl text-gray-600 pr-6">
+              <div className="flex flex-wrap md:flex-nowrap text-gray-800 no-underline border-b border-gray-300 p-4 hover:text-blue-600 cursor-pointer">
+                <p className="m-0 min-w-[120px] text-sm text-gray-600 pr-4">
                   {announcement.date}
                 </p>
-                <p className="m-0 min-w-[160px] pr-6">
-                  <span className="bg-gray-600 text-white text-center inline-block px-6 py-2 text-sm leading-none">
+                <p className="m-0 min-w-[120px] pr-4">
+                  <span className="bg-gray-600 text-white text-center inline-block px-4 py-1 text-xs leading-none">
                     {announcement.category}
                   </span>
                 </p>
-                <p className="m-0 w-full md:mt-0 mt-3 text-lg">
+                <p className="m-0 w-full md:mt-0 mt-2 text-base">
                   {announcement.title}
                 </p>
               </div>

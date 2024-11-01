@@ -3,21 +3,21 @@ import React from "react";
 const sampleData = [
   {
     id: 1,
-    title: "タイトル1",
+    title: "ブログ",
     description:
       "これは非常に長い説明文です。もっともっと長くして、内容を充実させます。説明文1",
     buttonText: "ボタン1",
   },
   {
     id: 2,
-    title: "タイトル2",
+    title: "ポートフォリオ",
     description:
       "これは非常に長い説明文です。もっともっと長くして、内容を充実させます。説明文2",
     buttonText: "ボタン2",
   },
   {
     id: 3,
-    title: "タイトル3",
+    title: "当サイトについて",
     description:
       "これは非常に長い説明文です。もっともっと長くして、内容を充実させます。説明文3",
     buttonText: "ボタン3",

@@ -15,21 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body>
+      <body className="flex flex-col min-h-screen bg-gray-100">
         <div className="relative z-10">
           <Header />
         </div>
-        <div className="flex flex-col min-h-screen bg-gray-100">
-          <div className="flex-grow flex">
-            <link
-              rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.25.0/tocbot.css"
-            />
-            <main className="flex-grow bg-gray-100">{children}</main>
-          </div>
-          <div className="relative z-10">
-            <Footer />
-          </div>
+        <main className="flex-grow">{children}</main>
+        <div className="relative z-10">
+          <Footer />
         </div>
       </body>
     </html>

@@ -1,7 +1,12 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
 
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
+// ヘッダーリンク
 const links = [
   { path: "/blog/1", labelEn: "Blog", labelJa: "ブログ" },
   { path: "/aboutBlog", labelEn: "About Site", labelJa: "当サイトについて" },
@@ -10,52 +15,71 @@ const links = [
 ];
 
 const Header = () => {
+  // ハンバーガーメニューの開閉
   const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const pathname = usePathname();
+  const isMainPage = pathname === "/";
+
+  useEffect(() => {
+    // ページ遷移後にスクロール位置をトップにリセット
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // ページ遷移時にメニューを閉じる
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
-    <header className="bg-white py-2">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-gray-800 text-4xl font-serif flex items-center">
-          <Link href="/">
-            <strong>kunst Site</strong>
-          </Link>
-        </h1>
-        <button
-          className="block md:hidden p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+    <header
+      className={`
+            left-0 top-0 z-20 w-full
+            ${!isMainPage ? "bg-main-white" : "bg-transparent"}
+        `}
+    >
+      <div className="container mx-auto flex flex-col py-6 md:flex-row">
+        <div className="z-50 flex animate-fade-in-up items-center px-4">
+          {/* ハンバーガーボタン（スマホ画面でのみ表示） */}
+          {/* タイトルボタン（トップページ以外で表示） */}
+          {!isMainPage && (
+            <Link className="dm-sans text-2xl font-bold" href={"/"}>
+              <span>Kunst Site</span>
+            </Link>
+          )}
+          {/* ハンバーガーボタン（スマホ画面でのみ表示） */}
+          <button
+            className="ml-auto flex size-12 items-center justify-center rounded-full bg-white text-2xl md:hidden"
+            onClick={toggleMenu}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-        <ul
-          className={`${
-            menuOpen ? "block" : "hidden"
-          } md:flex gap-6 text-xl h-full items-center`}
-        >
-          {links.map(({ path, labelEn, labelJa }, index) => (
-            <li
-              key={index}
-              className="hover:bg-gray-200 h-full flex items-center p-4"
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+          </button>
+        </div>
+
+        <div className="flex md:ml-auto md:justify-end">
+          {
+            <nav
+              className={`
+            item-left fixed right-0 top-0 flex
+            h-full flex-col flex-wrap bg-white transition-transform duration-300 ease-in-out md:flex-row
+            ${menuOpen ? "translate-x-0" : "translate-x-full"} w-full px-4 pt-32
+            md:relative md:translate-x-0 md:bg-transparent md:p-0
+          `}
             >
-              <Link href={path} className="hover:text-gray-700 block h-full">
-                <strong>{labelEn}</strong>
-                <span className="text-sm block ">{labelJa}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+              {links.map((link, index) => (
+                <Link
+                  key={index}
+                  className="mt-8 flex animate-fade-in-up items-center hover:opacity-50 md:mr-10 md:mt-0"
+                  href={link.path}
+                >
+                  <span className="noto-sans-jp text-lg font-bold md:text-base">
+                    {link.labelEn}
+                  </span>
+                </Link>
+              ))}
+            </nav>
+          }
+        </div>
       </div>
     </header>
   );
