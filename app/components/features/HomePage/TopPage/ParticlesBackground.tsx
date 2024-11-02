@@ -318,7 +318,7 @@ const ParticleBackground = () => {
             mode: "delete",
             value: 0,
           },
-          value: 200,
+          value: 100,
         },
         opacity: {
           value: 0.5,

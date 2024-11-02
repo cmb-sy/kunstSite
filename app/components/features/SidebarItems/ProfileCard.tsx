@@ -1,4 +1,4 @@
-import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 

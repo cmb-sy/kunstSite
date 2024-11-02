@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <header
       className={`
-            left-0 top-0 z-20 w-full
+            left-0 top-0 z-10 w-full
             ${!isMainPage ? "bg-main-white" : "bg-transparent"}
         `}
     >
@@ -69,12 +69,13 @@ const Header = () => {
               {links.map((link, index) => (
                 <Link
                   key={index}
-                  className="mt-8 flex animate-fade-in-up items-center hover:opacity-50 md:mr-10 md:mt-0"
+                  className="hover:bg-gray-200 h-full flex items-center p-4"
                   href={link.path}
                 >
-                  <span className="noto-sans-jp text-lg font-bold md:text-base">
-                    {link.labelEn}
-                  </span>
+                  <div className="hover:text-gray-700 block h-full">
+                    <strong>{link.labelEn}</strong>
+                    <span className="text-xs block">{link.labelJa}</span>
+                  </div>
                 </Link>
               ))}
             </nav>
