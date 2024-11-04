@@ -2,7 +2,7 @@ import AboutMe from "@/app/components/features/Portfolio/AboutMe";
 import Career from "@/app/components/features/Portfolio/Career/Career";
 import Works from "@/app/components/features/Portfolio/Work/Works";
 import Skills from "@/app/components/features/Portfolio/Skill/Skills";
-import NavLinks from "@/app/components/features/Portfolio/NavLinks"; // 新しいコンポーネントをインポート
+import NavLinks from "@/app/components/features/Portfolio/NavLinks";
 
 function portfolio() {
   const portfolioItems = [

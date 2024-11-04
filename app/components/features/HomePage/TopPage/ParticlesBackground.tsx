@@ -60,7 +60,7 @@ const ParticleBackground = () => {
         detectsOn: "window",
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "push",
           },
           onDiv: {
@@ -70,7 +70,7 @@ const ParticleBackground = () => {
             type: "circle",
           },
           onHover: {
-            enable: true,
+            enable: false,
             mode: "slow",
             parallax: {
               enable: false,
@@ -318,7 +318,7 @@ const ParticleBackground = () => {
             mode: "delete",
             value: 0,
           },
-          value: 100,
+          value: 200,
         },
         opacity: {
           value: 0.5,

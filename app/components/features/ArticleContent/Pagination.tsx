@@ -25,7 +25,7 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
   }
 
   return (
-    <ul className="flex justify-center space-x-2 mt-4">
+    <ul className="flex justify-center space-x-2 my-10">
       {currentPage > 1 && (
         <li>
           <Link href={`/${type}/${currentPage - 1}`}>

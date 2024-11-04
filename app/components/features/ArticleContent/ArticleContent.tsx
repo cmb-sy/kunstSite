@@ -49,7 +49,10 @@ const BlogContent: React.FC<BlogContentProps> = ({
   return (
     <div className="flex justify-center">
       <div className="mt-20 min-h-screen px-10 flex justify-between w-full section-style2">
-        <section className="p-10 section-style bg-white">
+        <section
+          className="p-10 section-style bg-white"
+          style={{ height: "calc(100% - 24px)" }}
+        >
           <h1 className="text-3xl font-bold text-gray-800">
             {blogArticle.title}
           </h1>

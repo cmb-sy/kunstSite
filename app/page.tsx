@@ -1,13 +1,13 @@
 import MessageBoard from "@/app/components/features/HomePage/MessageBoard/MessageBoard";
 import HomePageMenu from "@/app/components/features/HomePage/HomePageMenu/HomePageMenu";
-import Contact from "./components/features/Portfolio/Contact";
+import Contact from "./components/features/HomePage/Contact";
 import TopPage from "./components/features/HomePage/TopPage/TopPage";
 
 const sections = [
   {
     id: "1",
     component: <MessageBoard />,
-    bgColor: "bg-slate-50",
+    bgColor: "bg-topPageBackgroundColor",
   },
   {
     id: "2",
@@ -17,7 +17,7 @@ const sections = [
   {
     id: "3",
     component: <Contact />,
-    bgColor: "bg-slate-50",
+    bgColor: "bg-topPageBackgroundColor",
   },
 ];
 

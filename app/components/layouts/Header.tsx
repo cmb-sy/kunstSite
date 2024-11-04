@@ -5,19 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
-// ヘッダーリンク
-const links = [
-  { path: "/blog/1", labelEn: "Blog", labelJa: "ブログ" },
-  { path: "/aboutBlog", labelEn: "About Site", labelJa: "当サイトについて" },
-  { path: "/portfolio", labelEn: "Portfolio", labelJa: "ポートフォリオ" },
-  { path: "/contact", labelEn: "Contact", labelJa: "問い合わせ" },
-];
+import { linkDatasets } from "./HeaderFooterCommonData";
 
 const Header = () => {
   // ハンバーガーメニューの開閉
   const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    if (!menuOpen) {
+      window.scrollTo(0, 0); // メニューを開いたときに画面を上から表示
+    }
+  };
   const pathname = usePathname();
   const isMainPage = pathname === "/";
 
@@ -34,22 +32,20 @@ const Header = () => {
   return (
     <header
       className={`
-            left-0 top-0 z-10 w-full
-            ${!isMainPage ? "bg-main-white" : "bg-transparent"}
-        `}
+        left-0 top-0 z-10 w-full
+        ${!isMainPage ? "bg-main-white" : "bg-transparent"}
+      `}
     >
-      <div className="container mx-auto flex flex-col py-6 md:flex-row">
-        <div className="z-50 flex animate-fade-in-up items-center px-4">
+      <div className="container mx-auto flex flex-col md:flex-row md:py-2">
+        <div className={`flex items-center px-4 ${menuOpen ? "bg-white" : ""}`}>
           {/* ハンバーガーボタン（スマホ画面でのみ表示） */}
-          {/* タイトルボタン（トップページ以外で表示） */}
           {!isMainPage && (
-            <Link className="dm-sans text-2xl font-bold" href={"/"}>
+            <Link className="text-4xl font-bold font-serif" href={"/"}>
               <span>Kunst Site</span>
             </Link>
           )}
-          {/* ハンバーガーボタン（スマホ画面でのみ表示） */}
           <button
-            className="ml-auto flex size-12 items-center justify-center rounded-full bg-white text-2xl md:hidden"
+            className="ml-auto flex size-12 items-center justify-center rounded-full bg-white text-2xl md:hidden "
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
@@ -57,29 +53,32 @@ const Header = () => {
         </div>
 
         <div className="flex md:ml-auto md:justify-end">
-          {
-            <nav
-              className={`
-            item-left fixed right-0 top-0 flex
-            h-full flex-col flex-wrap bg-white transition-transform duration-300 ease-in-out md:flex-row
-            ${menuOpen ? "translate-x-0" : "translate-x-full"} w-full px-4 pt-32
-            md:relative md:translate-x-0 md:bg-transparent md:p-0
-          `}
-            >
-              {links.map((link, index) => (
-                <Link
-                  key={index}
-                  className="hover:bg-gray-200 h-full flex items-center p-4"
-                  href={link.path}
-                >
-                  <div className="hover:text-gray-700 block h-full">
-                    <strong>{link.labelEn}</strong>
-                    <span className="text-xs block">{link.labelJa}</span>
-                  </div>
-                </Link>
-              ))}
-            </nav>
-          }
+          <nav
+            className={`
+              fixed right-0 top-0 flex
+              h-full flex-col bg-white bg-opacity-90 transition-transform duration-300 ease-in-out
+              ${menuOpen ? "translate-x-0 relative" : "translate-x-full"}
+              w-full px-4
+              md:relative md:translate-x-0 md:bg-transparent md:p-0 md:flex-row
+            `}
+          >
+            {linkDatasets.map((linkDataset, index) => (
+              <Link
+                key={index}
+                className="hover:bg-gray-200 flex items-center p-4"
+                href={linkDataset.path}
+              >
+                <div className="block">
+                  <strong className="block text-lg hover:text-gray-700">
+                    {linkDataset.labelEn}
+                  </strong>
+                  <span className="block text-sm hover:text-gray-700">
+                    {linkDataset.labelJa}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </header>
