@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const AboutMe: React.FC = () => (
-  <div className="container mx-auto p-4 sm:p-6 md:p-8 max-w-screen-lg text-base sm:text-lg md:text-xl leading-relaxed">
+  <div className="container mx-auto max-w-screen-lg text-base sm:text-lg md:text-xl leading-relaxed">
     <div className="mt-12 flex flex-col items-center md:flex-row md:justify-center gap-8">
       <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 relative">
         <Image

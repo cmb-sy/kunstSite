@@ -26,7 +26,7 @@ const Blog = async ({ params }: { params: { page: number } }) => {
   return (
     <>
       <div className="flex justify-center">
-        <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between section-style4">
+        <div className="mt-20 mx-6 flex gap-0 lg:gap-6">
           <ArticleLists
             blogData={slicedPosts}
             label={"最新記事"}

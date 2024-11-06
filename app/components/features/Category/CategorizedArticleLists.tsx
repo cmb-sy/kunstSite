@@ -17,7 +17,7 @@ const CategorizedArticleLists: React.FC<BlogContentProps> = async ({
 
   return (
     <div className="flex justify-center">
-      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between section-style4">
+      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between">
         <ArticleLists
           blogData={blogArticle}
           label={categoryLabel}

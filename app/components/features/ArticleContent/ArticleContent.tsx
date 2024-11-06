@@ -47,12 +47,10 @@ const BlogContent: React.FC<BlogContentProps> = ({
   SidebarComponents,
 }) => {
   return (
-    <div className="flex justify-center">
-      <div className="mt-20 min-h-screen px-10 flex justify-between w-full section-style2">
-        <section
-          className="p-10 section-style bg-white"
-          style={{ height: "calc(100% - 24px)" }}
-        >
+    <section className="flex justify-center">
+      <div className="article-sidebar-area gap-0 lg:gap-6">
+        {/* gapはArticleListと合わせる */}
+        <div className="article-area">
           <h1 className="text-3xl font-bold text-gray-800">
             {blogArticle.title}
           </h1>
@@ -80,7 +78,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
           />
           {/* 目次表示に必要 */}
           <div className="target-toc">
-            <div className="section-style">
+            <div className="article-element">
               <MDXRemote
                 source={blogArticle.content}
                 components={{
@@ -99,10 +97,10 @@ const BlogContent: React.FC<BlogContentProps> = ({
               />
             </div>
           </div>
-        </section>
+        </div>
         <Sidebar SidebarComponents={[SidebarComponents]} />
       </div>
-    </div>
+    </section>
   );
 };
 
