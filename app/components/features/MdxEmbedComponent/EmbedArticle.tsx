@@ -1,14 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-
 import styles from "./EmbedArticle.module.css";
-
-interface EmbedArticleProps {
-  url: string;
-}
+import React, { useEffect, useState } from "react";
 
 interface OpenGraphData {
   ogTitle?: string;
@@ -19,82 +13,97 @@ interface OpenGraphData {
   favicon?: string;
 }
 
-const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
-  const [ogData, setOgData] = useState<OpenGraphData | null>(null);
+interface OpenGraphFetcherProps {
+  url: string;
+  onFetch: (data: OpenGraphData | null) => void;
+}
 
+interface EmbedArticleProps {
+  url: string;
+}
+
+const OpenGraphFetcher: React.FC<OpenGraphFetcherProps> = ({
+  url,
+  onFetch,
+}) => {
   useEffect(() => {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
-    console.log("API URL in EmbedArticle:", apiUrl); // 環境変数をコンソールに出力
     const fetchOgData = async () => {
+      const apiUrl =
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/blog";
+
       try {
         const response = await fetch(
-          `${apiUrl}/blog/og-fetch?url=${encodeURIComponent(url)}`,
-          {
-            cache: "force-cache",
-          }
+          `${apiUrl}/og-fetch?url=${encodeURIComponent(url)}`
         );
         const data = await response.json();
-        setOgData(data);
+        onFetch(data);
       } catch (error) {
         console.error("Failed to fetch Open Graph data", error);
+        onFetch(null);
       }
     };
 
     fetchOgData();
-  }, [url]);
+  }, [url, onFetch]);
 
-  if (!ogData) {
-    return <div>Loading...</div>;
-  }
+  return null;
+};
 
-  const srcUrl = ogData.ogUrl || ogData.requestUrl;
-  const faviconUrl = ogData.favicon
+const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
+  const [ogData, setOgData] = useState<OpenGraphData | null>(null);
+
+  const srcUrl = ogData?.ogUrl || ogData?.requestUrl;
+  const faviconUrl = ogData?.favicon
     ? new URL(ogData.favicon, srcUrl).toString()
     : null;
-  const ogImageUrl = Array.isArray(ogData.ogImage)
-    ? ogData.ogImage[0].url
-    : ogData.ogImage?.url;
+  const ogImageUrl = Array.isArray(ogData?.ogImage)
+    ? ogData?.ogImage[0].url
+    : ogData?.ogImage?.url;
 
   return (
-    <div className={`${styles.embedArticle_container}`}>
-      <Link
-        href={srcUrl || "#"}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${styles.embedArticleCard_link}`}
-      >
-        <div className={`${styles.embedArticle_main}`}>
-          <div className={`${styles.embedArticle_title}`}>{ogData.ogTitle}</div>
-          <div className={`${styles.embedArticle_description}`}>
-            {ogData.ogDescription}
+    <>
+      <OpenGraphFetcher url={url} onFetch={setOgData} />
+      <div className={`${styles.embedArticle_container}`}>
+        <a
+          href={srcUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.embedArticleCard_link}`}
+        >
+          <div className={`${styles.embedArticle_main}`}>
+            <div className={`${styles.embedArticle_title}`}>
+              {ogData?.ogTitle}
+            </div>
+            <div className={`${styles.embedArticle_description}`}>
+              {ogData?.ogDescription}
+            </div>
+            <div className={`${styles.embedArticle_meta}`}>
+              {faviconUrl && (
+                <Image
+                  src={faviconUrl || ""}
+                  alt={ogData?.ogTitle || "Image"}
+                  width={14}
+                  height={14}
+                  className={`${styles.embedArticle_favicon}`}
+                />
+              )}
+              {srcUrl}
+            </div>
           </div>
-          <div className={`${styles.embedArticle_meta}`}>
-            {faviconUrl && (
+          <div className={`${styles.embedArticle_img}`}>
+            {ogImageUrl && (
               <Image
-                src={faviconUrl || ""}
-                alt={ogData.ogTitle || "Image"}
-                width={14}
-                height={14}
-                className={`${styles.embedArticle_favicon}`}
+                src={ogImageUrl}
+                alt={ogData?.ogTitle || "Image"}
+                width={230}
+                height={120}
+                className={`${styles.embedArticle_img}`}
               />
             )}
-            {srcUrl}
           </div>
-        </div>
-        <div className={`${styles.embedArticle_img}`}>
-          {ogImageUrl && (
-            <Image
-              src={ogImageUrl}
-              alt={ogData.ogTitle || "Image"}
-              width={230}
-              height={120}
-              className={`${styles.embedArticle_img}`}
-            />
-          )}
-        </div>
-      </Link>
-    </div>
+        </a>
+      </div>
+    </>
   );
 };
 

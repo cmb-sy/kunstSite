@@ -18,6 +18,7 @@ import "./ArticleContent.css";
 
 import "katex/dist/katex.min.css";
 import EmbedArticle from "@/app/components/features/MdxEmbedComponent/EmbedArticle";
+import React from "react";
 
 interface BlogContentProps {
   blogArticle: any;
@@ -29,7 +30,7 @@ const codeBlockComponents = {
     <CodeBlock {...props} />
   ),
   p: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
-    <div {...props} />
+    <div {...props} /> //Hydration failedのため　p→divへ変更
   ),
   a: (
     props: JSX.IntrinsicAttributes & { href?: string; children?: ReactNode }
@@ -86,7 +87,17 @@ const BlogContent: React.FC<BlogContentProps> = ({
                   Highlight,
                   ArticleImageGifMovie,
                   EmbedArticle,
-                  p: (props) => <p {...props} className="custom-p" />, // pタグにカスタムクラスを追加
+                  p: (props) => {
+                    // README:Hydration failedを避けるため、EmbedArticleはdivで囲むようにする。
+                    if (
+                      React.isValidElement(props.children) &&
+                      props.children.props.href &&
+                      props.children.props.href.includes("https")
+                    ) {
+                      return <div {...props} />;
+                    }
+                    return <p {...props} className="custom-p" />;
+                  },
                 }}
                 options={{
                   mdxOptions: {

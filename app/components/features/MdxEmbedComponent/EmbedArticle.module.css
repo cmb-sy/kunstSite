@@ -1,14 +1,16 @@
 .embedArticle_container {
-  border: 1px solid rgba(92, 147, 187, 0.2);
-  border-radius: 10px;
+  border: 0.5px solid rgba(92, 147, 187, 0.5);
+  border-radius: 0.5rem;
   overflow: hidden;
+  margin: 1em 0;
+  position: relative;
 }
 
 .embedArticleCard_link {
   display: flex;
   aling-items: center;
   font-size: 1em;
-  height: 120px;
+  height: 140px;
   line-height: 1.5;
   transition-behavior: normal;
   transition-duration: 0.2s;
@@ -22,12 +24,12 @@
 }
 
 .embedArticleCard_link:hover {
-  background: rgba(224, 242, 241, 0.4);
+  background: rgba(246, 246, 246, 0.8);
 }
 
 .embedArticle_main {
   flex: 1 1;
-  padding: 0.8em 1.2em;
+  padding: 0.6em 1.2em;
   min-width: 0;
 }
 
@@ -69,6 +71,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  position: absolute; /* 固定 */
+  bottom: 0; /* 親要素の下に固定 */
+  left: 0;
+  right: 0;
+  padding: 1.2em;
 }
 
 .embedArticle_favicon {
