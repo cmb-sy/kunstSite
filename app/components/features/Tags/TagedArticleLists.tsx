@@ -16,7 +16,7 @@ const TagedArticleLists: React.FC<BlogContentProps> = async ({
 }) => {
   return (
     <div className="flex justify-center">
-      <div className="mt-20 min-h-screen pl-9 pr-9 flex justify-between">
+      <div className="mt-20 mx-6 flex gap-0 lg:gap-6">
         <ArticleLists
           blogData={blogArticle}
           label={tags}

@@ -39,6 +39,7 @@
     "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
     "remark-math": "^6.0.0",
+    "terser-webpack-plugin": "^5.3.10",
     "tocbot": "^4.29.0"
   },
   "devDependencies": {

@@ -62,7 +62,7 @@ export async function getAllPosts() {
   return posts;
 }
 
-export const getBlogData = async () => {
+export const getPostsData = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/blog/", {
       cache: "force-cache",
@@ -73,7 +73,10 @@ export const getBlogData = async () => {
     const blogData = await res.json();
     return blogData;
   } catch (error) {
-    console.error("Failed to fetch blog article:", error);
-    return null;
+    console.error(
+      "Failed to fetch blog article(lib/utils/getPostsData.ts):",
+      error
+    );
+    return [];
   }
 };

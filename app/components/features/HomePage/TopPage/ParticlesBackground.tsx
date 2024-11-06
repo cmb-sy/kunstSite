@@ -19,10 +19,6 @@ const ParticleBackground = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
-  };
-
   const options: ISourceOptions = useMemo(
     () => ({
       autoPlay: true,
@@ -551,7 +547,6 @@ const ParticleBackground = () => {
     <>
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded}
         options={options}
         style={{
           position: "absolute",

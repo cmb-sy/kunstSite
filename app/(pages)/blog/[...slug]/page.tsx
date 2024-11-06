@@ -21,7 +21,10 @@ export async function generateStaticParams() {
 
     return params;
   } catch (error) {
-    console.error("Failed to fetch blog data:", error);
+    console.error(
+      "Failed to fetch blog data(app/(pages)/blog/[...slug]/page.tsx):",
+      error
+    );
     return [];
   }
 }

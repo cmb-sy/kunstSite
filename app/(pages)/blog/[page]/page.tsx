@@ -1,11 +1,20 @@
 import ArticleLists from "@/app/components/features/ArticleContent/ArticleLists";
 import { POSTS_PER_PAGE } from "@/app/lib/contants";
 import { createPageData, PageData } from "@/app/lib/utils/createPage";
-import { getBlogData } from "@/app/lib/utils/getPostsData";
+import { getPostsData } from "@/app/lib/utils/getPostsData";
 
-// 静的ルートの作成
 export async function generateStaticParams() {
-  const posts = await getBlogData();
+  let posts;
+  try {
+    posts = await getPostsData();
+  } catch (error) {
+    console.error("Failed to fetch blog data:", error);
+    posts = [];
+  }
+
+  if (!posts || posts.length === 0) {
+    return [];
+  }
 
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 
@@ -18,8 +27,14 @@ export async function generateStaticParams() {
 }
 
 const Blog = async ({ params }: { params: { page: number } }) => {
-  // TODO 以下はページネーションを使う部分で共通なので関数してもよい
-  const allPosts = await getBlogData();
+  let allPosts;
+  try {
+    allPosts = await getPostsData();
+  } catch (error) {
+    console.error("Failed to fetch blog data:", error);
+    allPosts = [];
+  }
+
   const pageData: PageData = createPageData(params.page, allPosts.length);
   const slicedPosts = allPosts.slice(pageData.start, pageData.end);
 

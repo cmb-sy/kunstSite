@@ -30,8 +30,7 @@ $$
 
 ## 使用データ
 
-iris のデータを使用します。iris データとは、アヤメという花の 3 つの種類である stosa、versicolor、virginica の萼の長さ(sepal
-length)、 萼の幅(sepal width)、花弁の長さ(petal length)、花弁の幅(petal width)のことを言います。
+iris のデータを使用します。iris データとは、アヤメという花の 3 つの種類である stosa、versicolor、virginica の萼の長さ(sepallength)、 萼の幅(sepal width)、花弁の長さ(petal length)、花弁の幅(petal width)のことを言います。
 
 <ArticleImageGifMovie
   path="/posts/machineLearning/ml13-1.jpg"
@@ -40,7 +39,7 @@ length)、 萼の幅(sepal width)、花弁の長さ(petal length)、花弁の幅
 
 これら全てのデータが下記のコードの変数 X にあります。上の図は変数 X を print 文で出力した結果です。
 
-````python:
+```python:
 # データの準備
 from sklearn.datasets import load_iris
 import pandas as pd
@@ -48,8 +47,8 @@ dataset = load_iris()
 iris = load_iris()
 X = pd.DataFrame(iris.data,
 columns=iris.feature_names)
-#X.shape : (150,4)```
-````
+#X.shape : (150,4)
+```
 
 ## 中心化
 
@@ -188,9 +187,7 @@ $$
 実際に実装で見てみます。
 
 ```python:
-#寄与率
 cont = L / np.sum(L) * 100
-#累積寄与率
 comCont = [np.sum(cont[:i+1]) for i in range (len(L))]
 ```
 

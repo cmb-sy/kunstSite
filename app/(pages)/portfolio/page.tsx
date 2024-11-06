@@ -48,7 +48,7 @@ function portfolio() {
             >
               <NavLinks portfolioItems={portfolioItems} />
               <div className="mx-auto max-w-screen-lg">
-                <h1 className="sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 mt-2 text-center text-black-500">
+                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 mt-2 text-center text-black-500">
                   {portfolioItem.title}
                 </h1>
                 <p className="text-md mb-4 text-center text-gray-900">
