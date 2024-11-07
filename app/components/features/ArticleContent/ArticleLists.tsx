@@ -33,7 +33,7 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
 
   return (
     <>
-      <section className="container mx-auto section-style3">
+      <section className="max-w-screen-md">
         <div className="flex justify-center items-center p-4">
           <span className="text-3xl font-medium px-4 pt-1 pb-2 text-black rounded">
             {label}

@@ -17,43 +17,43 @@ tags:
 線形回帰モデルは基底関数による特徴ベクトル$\varphi(x)$を用いることで複雑な関数を表現します。
 
 $$
-f(x)=w_1\varphi_2(x)+w_2\varphi_2(x)+\dots+w_m\varphi_m(x)=\sum_{i}^{m}w_{i}\varphi_{i}(x)
+f(x)=w_1\varphi_2(x)+w_2\varphi_2(x)+\dots+w_m\varphi_m(x)=\sum_{i=1}^{m}w_{i}\varphi_{i}(x)
 $$
 
 基底関数$\varphi(x)$と重み$w$について行列で表すと次のように変形できます。
 
 $$
-\mathbf{w}=\left(\begin{array}{ccccc} w_{1} \\ w_{2} \\ \vdots \\ w_m\end{array}\right)\,\,\,\,\,\,\,\,\,\, \boldsymbol \varphi(x)=\left(\begin{array}{ccccc} \varphi_{1}(x) \\ \varphi_{2}(x) \\ \vdots \\ \varphi_{m}(x) \end{array} \right)
+\mathbf{w}=\left(\begin{array}{c} w_{1} \\ w_{2} \\ \vdots \\ w_{m}\end{array}\right)\,\,\,\,\,\,\,\,\,\, \boldsymbol \varphi(x)=\left(\begin{array}{c} \varphi_{1}(x) \\ \varphi_{2}(x) \\ \vdots \\ \varphi_{m}(x) \end{array} \right)
 $$
 
 $$
-f(x)=\mathbf{w}^T \boldsymbol \phi(x)
+f(x)=\mathbf{w}^T \boldsymbol \varphi(x)
 $$
 
-この式では、$x$を$m$次元の特徴ベクトルに変換していていると考えることができます。(線形問題)
+この式では、$x$を$m$次元の特徴ベクトルに変換していると考えることができます。(線形問題)
 
-例えば、基底関数を$\phi_i(x) = x^i$とすると多項式の形になります。
+例えば、基底関数を$\varphi_i(x) = x^i$とすると多項式の形になります。
 
 ## 問題設定
 
 学習データセット$D=(x_1,y_1),\dots,(x_n,y_n)$が与えられるとき、線形回帰モデルでは次のように表現できます。
 
 $$
-\mathbf{y}=\left(\begin{array}{ccccc} y_{1} \\ y_{2} \\ \vdots \\ y_m\end{array}\right)
+\mathbf{y}=\left(\begin{array}{c} y_{1} \\ y_{2} \\ \vdots \\ y_{m}\end{array}\right)
 $$
 
 $$
-\Phi=\left(\begin{array}{ccccc} \boldsymbol \varphi^T(x_1) \\ \boldsymbol \varphi^T(x_2) \\ \vdots \\ \boldsymbol \varphi^T(x_m)\end{array}\right)=\left( \begin{array}{ccccc} \varphi^T_1(x_1) & \cdots & \varphi^T_M(x_1) & \\ \vdots & \ddots  \\ \varphi^T_1(x_n) & \cdots & \varphi^T_M(x_n)\end{array}\right)
+\Phi=\left(\begin{array}{c} \boldsymbol \varphi^T(x_1) \\ \boldsymbol \varphi^T(x_2) \\ \vdots \\ \boldsymbol \varphi^T(x_m)\end{array}\right)=\left( \begin{array}{ccc} \varphi^T_1(x_1) & \cdots & \varphi^T_M(x_1) \\ \vdots & \ddots & \vdots \\ \varphi^T_1(x_n) & \cdots & \varphi^T_M(x_n)\end{array}\right)
 $$
 
 $\mathbf{y}\approx\Phi\mathbf{w}$となるような$\mathbf{w}$を求めたいのが線形回帰モデルです。
 
 ## 線形回帰モデルを解く
 
-$\Phi$を求めるためには、下記の目的関数が最小になるような$\Phi$を求めればいいです。
+$\mathbf{w}$を求めるためには、下記の目的関数が最小になるようにします。
 
 $$
-E = \frac{1}{2}\sum_{i=1}^n(\mathbf{w}^T\boldsymbol \varphi(x_i)-y_i)=\frac{1}{2}\sum_{i=1}^n||\boldsymbol\Phi\mathbf{w}-\mathbf{y}||^2+\frac{\lambda}{2}||\mathbf{w}||^2
+E = \frac{1}{2}\sum_{i=1}^n(\mathbf{w}^T\boldsymbol \varphi(x_i)-y_i)^2+\frac{\lambda}{2}||\mathbf{w}||^2
 $$
 
 この目的関数には正則化項を付けています。これにより、過学習を防ぐことができます。
@@ -78,12 +78,12 @@ $$
 \mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T\mathbf{y}
 $$
 
-$$\mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T\mathbf{y}$$の双対を導く</h2>
+## $$\mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T\mathbf{y}$$の双対を導く
 
-いま、$$A=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)\boldsymbol \Phi^T$$とするとき次のように変形できる。
+いま、$$A=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)\boldsymbol \Phi^T$$とするとき次のように変形できます。
 
 $$
-\begin{equation*}\begin{split}A=(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)\boldsymbol \Phi^T=(\boldsymbol \Phi^T \boldsymbol \Phi \boldsymbol \Phi^T + \lambda \boldsymbol \Phi^T )=\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I) \end{split}\end{equation*}
+A=(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)\boldsymbol \Phi^T=(\boldsymbol \Phi^T \boldsymbol \Phi \boldsymbol \Phi^T + \lambda \boldsymbol \Phi^T )=\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)
 $$
 
 $\boldsymbol \Phi^T$を右からかけて、左からくくり出しています。
@@ -91,7 +91,7 @@ $\boldsymbol \Phi^T$を右からかけて、左からくくり出しています
 $A$に左から$(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}$、右から$(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1} $をかけます。
 
 $$
-\begin{equation*}\begin{split}(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}A(\boldsymbol \Phi \boldsymbol \Phi^T+ \lambda I)^{-1} & =\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1}\\ & =(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}\boldsymbol \Phi^T \end{split}\end{equation*}
+(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}A(\boldsymbol \Phi \boldsymbol \Phi^T+ \lambda I)^{-1} =\boldsymbol \Phi^T(\boldsymbol \ Phi \boldsymbol \Phi^T + \lambda I)^{-1} =(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}\boldsymbol \Phi^T
 $$
 
 したがって、$\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1}=(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}\boldsymbol \Phi^T$なので
@@ -107,7 +107,7 @@ $$
 グラム行列は次のような形をしています。
 
 $$
-K=\mathbf{X}\mathbf{X}^T=\left( \begin{array}{ccccc} \mathbf{x_1}^T\mathbf{x_1} &amp; \cdots &amp; \mathbf{x_1}^T\mathbf{x_N} \\ \vdots &amp; \ddots &amp; \vdots &amp; \\  \mathbf{x_N}^T\mathbf{x_1} &amp; \cdots &amp; \mathbf{x_N}^T\mathbf{x_N} \end{array} \right)
+K=\mathbf{X}\mathbf{X}^T=\left( \begin{array}{ccc} \mathbf{x_1}^T\mathbf{x_1} & \cdots & \mathbf{x_1}^T\mathbf{x_N} \\ \vdots & \ddots & \vdots \\  \mathbf{x_N}^T\mathbf{x_1} & \cdots & \mathbf{x_N}^T\mathbf{x_N} \end{array} \right)
 $$
 
 $K$の$ij$成分は$i$番目のベクトルと$j$番目のベクトルの内積を表しています。
@@ -125,20 +125,20 @@ $$
 $(AB)^T=B^TA^T\,\,\,\,,(A^{-1})^{T}=(A^T)^{-1}$なので
 
 $$
-f(x^{\ast})=y^T(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})
+f(x^{\ast})=y^T(\boldsymbol \ Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})
 $$
 
-$k(x,x^{\prime})=\boldsymbol \varphi(x)^T\boldsymbol \varphi(x^{\prime})$とするとき、$\boldsymbol \Phi^T \boldsymbol \Phi$,$\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})$はそれぞれ次のように変形できます。
+$k(x,x^{\prime})=\boldsymbol \varphi(x)^T\boldsymbol \varphi(x^{\prime})$とするとき、$\boldsymbol \ Phi^T \boldsymbol \ Phi$,$\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})$はそれぞれ次のように変形できます。
 
 $$
-K=\boldsymbol \Phi^T \boldsymbol \Phi=\left( \begin{array}{ccccc}
+K=\boldsymbol \ Phi^T \boldsymbol \ Phi=\left( \begin{array}{ccc}
 \boldsymbol \varphi(x_1)^T \boldsymbol \varphi(x_1^{\prime}) & \cdots & \boldsymbol\varphi(x_1)^T\boldsymbol \varphi(x_n^{\prime}) \\
 \vdots & \ddots & \vdots\\
- \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x_1^{\prime}) & \cdots & \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x_n^{\prime})  \end{array} \right)=\left( \begin{array}{ccccc} k(x_1,x_1^{\prime}) & \cdots & k(x_1,x_n^{\prime}) \\ \vdots & \ddots & \vdots \\  k(x_n,x_1^{\prime}) & \cdots & k(x_n,x_n^{\prime})\end{array} \right)
+ \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x_1^{\prime}) & \cdots & \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x_n^{\prime})  \end{array} \right)=\left( \begin{array}{ccc} k(x_1,x_1^{\prime}) & \cdots & k(x_1,x_n^{\prime}) \\ \vdots & \ddots & \vdots \\  k(x_n,x_1^{\prime}) & \cdots & k(x_n,x_n^{\prime})\end{array} \right)
 $$
 
 $$
-k(x^{\ast})=\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})=\left[ \begin{array}{ccccc} \boldsymbol \varphi(x_1)^T\boldsymbol \varphi(x)^{\ast} \\ \vdots \\  \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x)^{\ast} \end{array} \right]=\left[ \begin{array}{ccccc} k(x_1,x^{\ast}) \\ \vdots \\  k(x_n,x^{\ast}) \ \end{array} \right]
+k(x^{\ast})=\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})=\left[ \begin{array}{c} \boldsymbol \varphi(x_1)^T\boldsymbol \varphi(x)^{\ast} \\ \vdots \\  \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x)^{\ast} \end{array} \right]=\left[ \begin{array}{c} k(x_1,x^{\ast}) \\ \vdots \\  k(x_n,x^{\ast}) \ \end{array} \ right]
 $$
 
 よって、
@@ -150,7 +150,7 @@ $$
 したがって、線形回帰モデルでは次の２つの Dual な表現ができます。
 
 $$
-f(x^{\ast})=\mathbf{w}^T\boldsymbol \varphi(x)\,\,\,\,\,,\mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\mathbf{y}
+f(x^{\ast})=\mathbf{w}^T\boldsymbol \varphi(x)\,\,\,\,\,,\mathbf{w}=(\boldsymbol \ Phi^T \boldsymbol \ Phi+ \lambda I)^{-1}\mathbf{y}
 $$
 
 入力$x^{\ast}$に対しての出力$f$を特徴ベクトルを使って表した表現です。
@@ -182,7 +182,7 @@ $$
 - カーネル関数は 2 つの入力がどれくらい似ているかを表す
 - カーネル関数は半正定値対称関数である
 - 被らない任意の個数$x$があるときカーネル関数は$x\times x$の正定値対称行列になる。ここで被ってもいいとすれば半正定値称行列になる
-- $\boldsymbol \phi(x)$は知らなくても問題ない性質。これは、$\boldsymbol \phi(x)$がわかれば$k(x,x^{\prime})$がわかるというものでした。もし$k(x,x^{\prime})$が半正定値対称関数であれば、それに対応する基底関数は存在するので、機械学習では基底関数は使いません。したがって、もはや$\boldsymbol \phi(x)$は知らなくてもいいですよという性質があります。これはデータ数だけで決まるので基底関数が無限個でも No problem です。
+- $\boldsymbol \varphi(x)$は知らなくても問題ない性質。これは、$\boldsymbol \varphi(x)$がわかれば$k(x,x^{\prime})$がわかるというものでした。もし$k(x,x^{\prime})$が半正定値対称関数であれば、それに対応する基底関数は存在するので、機械学習では基底関数は使いません。したがって、もはや$\boldsymbol \varphi(x)$は知らなくてもいいですよという性質があります。これはデータ数だけで決まるので基底関数が無限個でも No problem です。
 
 ここまでのカーネルことをまとめると
 

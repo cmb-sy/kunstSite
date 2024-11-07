@@ -1,33 +1,55 @@
-.section-style {
-  max-width: 100%; /* 最大幅を設定 */
-  overflow: hidden; /* はみ出た部分を隠す */
-  word-wrap: break-word; /* 長い単語を折り返す */
+/* ------------------------- */
+/* 記事とサイドバーを合わせた領域 */
+/* ------------------------- */
+.article-sidebar-area {
+  display: flex;
+  justify-content: space-between;
+  margin: 10% 20px;
+  flex-wrap: wrap; /* 追加 */
 }
 
-@media (min-width: 1024px) {
-  .section-style {
-    width: 620px;
+/* ------------------------- */
+/* 記事の領域 */
+/* ------------------------- */
+.article-area {
+  overflow: hidden;
+  word-wrap: break-word;
+  background-color: white;
+  padding: 40px;
+  max-width: 825px;
+  flex: 1; /* 追加 */
+}
+
+@media (max-width: 1440px) {
+  .article-area {
+    max-width: 800px;
   }
 }
 
-@media (min-width: 1440px) {
-  .section-style {
-    width: 870px;
+@media (max-width: 1024px) {
+  .article-area {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 425px) {
+  .article-area {
+    /* README：320pxでflexの余白を対応できる */
+    max-width: 320px;
   }
 }
 /* ------------------------- */
 /* 見出し */
 /* ------------------------- */
-
-.section-style h2 {
+.article-element h2 {
   border-bottom: 2px solid #043818;
-  font-size: 1.3em;
+  font-size: 1.7em;
   margin-bottom: 1.1rem;
-  margin-top: 1em;
+  margin-top: 3em;
   font-weight: bold;
 }
 
-.section-style h3 {
+.article-element h3 {
   font-size: 1.25em;
   font-weight: bold;
   margin-bottom: 1.1rem;
@@ -40,34 +62,34 @@
 
 .custom-p {
   margin: 14px 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.9;
   color: #070707d1;
 }
 
-.section-style ul {
+.article-element ul {
   list-style-type: disc;
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.section-style li {
+.article-element li {
   margin-bottom: 0.5rem;
   color: #4b5563; /* text-gray-600 */
 }
 
-.section-style ol {
+.article-element ol {
   list-style-type: decimal;
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.section-style ol li {
+.article-element ol li {
   margin-bottom: 0.5rem;
   color: #4b5563; /* text-gray-600 */
 }
 
-.section-style code {
+.article-element code {
   background-color: #f3f4f6; /* bg-gray-100 */
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
@@ -76,24 +98,24 @@
 /* ------------------------- */
 /* 表 */
 /* ------------------------- */
-.section-style table {
+.article-element table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1rem;
 }
 
-.section-style th,
-.section-style td {
+.article-element th,
+.article-element td {
   border: 1px solid #ddd;
   padding: 0.5rem;
   text-align: left;
 }
 
-.section-style th {
+.article-element th {
   background-color: #f3f4f6;
   color: #4b5563;
 }
 
-.section-style tr:nth-child(even) {
+.article-element tr:nth-child(even) {
   background-color: #f9fafb;
 }

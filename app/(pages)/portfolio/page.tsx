@@ -2,7 +2,7 @@ import AboutMe from "@/app/components/features/Portfolio/AboutMe";
 import Career from "@/app/components/features/Portfolio/Career/Career";
 import Works from "@/app/components/features/Portfolio/Work/Works";
 import Skills from "@/app/components/features/Portfolio/Skill/Skills";
-import NavLinks from "@/app/components/features/Portfolio/NavLinks"; // 新しいコンポーネントをインポート
+import NavLinks from "@/app/components/features/Portfolio/NavLinks";
 
 function portfolio() {
   const portfolioItems = [
@@ -48,7 +48,7 @@ function portfolio() {
             >
               <NavLinks portfolioItems={portfolioItems} />
               <div className="mx-auto max-w-screen-lg">
-                <h1 className="sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 mt-2 text-center text-black-500">
+                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 mt-2 text-center text-black-500">
                   {portfolioItem.title}
                 </h1>
                 <p className="text-md mb-4 text-center text-gray-900">

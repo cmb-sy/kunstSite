@@ -1,4 +1,4 @@
-import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import { BsTwitterX, BsGithub } from "react-icons/bs";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,12 +19,12 @@ const ProfileCard = () => {
           <div className="flex justify-center mt-4 space-x-4">
             <Link href="https://x.com/kunst_sy_">
               <div className="text-gray-600 hover:text-blue-500">
-                <FaTwitter size={24} />
+                <BsTwitterX size={24} />
               </div>
             </Link>
             <Link href="https://github.com/cmb-sy">
               <div className="text-gray-600 hover:text-black">
-                <FaGithub size={24} />
+                <BsGithub size={24} />
               </div>
             </Link>
           </div>

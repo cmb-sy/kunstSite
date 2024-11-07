@@ -1,14 +1,38 @@
-import TopPage from "@/app/components/features/HomePage/TopPage/TopPage";
 import MessageBoard from "@/app/components/features/HomePage/MessageBoard/MessageBoard";
+import HomePageMenu from "@/app/components/features/HomePage/HomePageMenu/HomePageMenu";
+import Contact from "./components/features/Portfolio/Contact";
+import TopPage from "./components/features/HomePage/TopPage/TopPage";
 
-const Home = async () => {
+const sections = [
+  {
+    id: "1",
+    component: <MessageBoard />,
+    bgColor: "bg-topPageBackgroundColor",
+  },
+  {
+    id: "2",
+    component: <HomePageMenu />,
+    bgColor: "bg-white",
+  },
+  {
+    id: "3",
+    component: <Contact />,
+    bgColor: "bg-topPageBackgroundColor",
+  },
+];
+
+const Home = () => {
   return (
-    <div>
+    <>
       <TopPage />
-      <div className="relative z-20 bg-white flex flex-col items-center justify-center w-full h-full px-4 w-full h-screen">
-        <MessageBoard />
+      <div className="flex-1 relative z-10">
+        {sections.map((section, index) => (
+          <div key={index} id={section.id} className={section.bgColor}>
+            <div className="max-w-screen-lg">{section.component}</div>
+          </div>
+        ))}
       </div>
-    </div>
+    </>
   );
 };
 

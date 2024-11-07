@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 import nyanko from "/public/portfolio/Works/nyankoGenerator.png";
 import Omikuzi from "/public/portfolio/Works/omikuzi.png";
 import taskManage from "/public/portfolio/Works/taskManage.png";
+import kunstPortfolio from "/public/portfolio/Works/kunstPortfolio.png";
 
 export interface Work {
   id: number;
@@ -47,7 +48,7 @@ export const works: Work[] = [
     description:
       "自身のポートフォリオです。現在は当サイトのkunst siteへ移しました。",
     tags: ["Typescript", "Nextjs"],
-    imageUrl: Omikuzi,
+    imageUrl: kunstPortfolio,
     sourceUrl: "https://github.com/cmb-sy/portfolio",
   },
 ];

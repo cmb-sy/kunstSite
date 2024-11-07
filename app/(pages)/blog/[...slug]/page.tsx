@@ -6,11 +6,13 @@ import { Post } from "@/app/lib/types/post";
 // SSG：サーバ起動中でないとエラーが発生する。
 export async function generateStaticParams() {
   try {
-    const res = await fetch("http://localhost:3001/api/blog/", {
+    const res = await fetch("http://localhost:3000/api/blog/", {
       cache: "force-cache",
     });
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
+      throw new Error(
+        `HTTP error! status in app/(pages)/blog/[...slug]/page.tsx: ${res.status}`
+      );
     }
     const blogData = await res.json();
 
@@ -21,14 +23,17 @@ export async function generateStaticParams() {
 
     return params;
   } catch (error) {
-    console.error("Failed to fetch blog data:", error);
+    console.error(
+      "Failed to fetch blog data in app/(pages)/blog/[...slug]/page.tsx:",
+      error
+    );
     return [];
   }
 }
 
 const getBlogArticle = async (slug: string) => {
   try {
-    const res = await fetch(`http://localhost:3001/api/blog/${slug}`, {
+    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
       cache: "force-cache",
     });
     if (!res.ok) {
@@ -41,7 +46,7 @@ const getBlogArticle = async (slug: string) => {
     const blogArticle = await res.json();
     return blogArticle;
   } catch (error) {
-    console.error("Failed to fetch blog article:", error);
+    console.error("Failed to fetch blog [slug] article:", error);
     return null;
   }
 };

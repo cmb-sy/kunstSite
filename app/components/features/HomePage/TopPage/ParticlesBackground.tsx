@@ -19,10 +19,6 @@ const ParticleBackground = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
-  };
-
   const options: ISourceOptions = useMemo(
     () => ({
       autoPlay: true,
@@ -40,7 +36,7 @@ const ParticleBackground = () => {
         composite: "destination-out",
         cover: {
           color: {
-            value: "#000000",
+            value: "#656565",
           },
           opacity: 1,
         },
@@ -60,7 +56,7 @@ const ParticleBackground = () => {
         detectsOn: "window",
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "push",
           },
           onDiv: {
@@ -70,7 +66,7 @@ const ParticleBackground = () => {
             type: "circle",
           },
           onHover: {
-            enable: true,
+            enable: false,
             mode: "slow",
             parallax: {
               enable: false,
@@ -161,17 +157,17 @@ const ParticleBackground = () => {
             area: {
               gradient: {
                 start: {
-                  value: "#000000",
+                  value: "#656565",
                 },
                 stop: {
-                  value: "#000000",
+                  value: "#656565",
                 },
               },
               radius: 1000,
             },
             shadow: {
               color: {
-                value: "#000000",
+                value: "#656565",
               },
               length: 2000,
             },
@@ -209,7 +205,7 @@ const ParticleBackground = () => {
           },
         },
         color: {
-          value: "#000000",
+          value: "#656565",
           animation: {
             h: {
               count: 0,
@@ -318,7 +314,7 @@ const ParticleBackground = () => {
             mode: "delete",
             value: 0,
           },
-          value: 80,
+          value: 200,
         },
         opacity: {
           value: 0.5,
@@ -338,7 +334,7 @@ const ParticleBackground = () => {
         shadow: {
           blur: 0,
           color: {
-            value: "#000",
+            value: "#656565",
           },
           enable: false,
           offset: {
@@ -530,28 +526,27 @@ const ParticleBackground = () => {
     []
   );
 
-  if (!init || loading) {
-    return (
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div>Loading...</div>
-      </div>
-    );
-  }
+  //   if (!init || loading) {
+  //     return (
+  //       <div
+  //         style={{
+  //           position: "relative",
+  //           width: "100%",
+  //           height: "100vh",
+  //           display: "flex",
+  //           justifyContent: "center",
+  //           alignItems: "center",
+  //         }}
+  //       >
+  //         <div>Loading...</div>
+  //       </div>
+  //     );
+  //   }
 
   return (
     <>
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded}
         options={options}
         style={{
           position: "absolute",

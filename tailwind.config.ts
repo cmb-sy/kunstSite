@@ -16,6 +16,9 @@ const config: Config = {
       width: {
         "custom-298": "298px",
       },
+      backgroundColor: {
+        topPageBackgroundColor: "#F9F9F9",
+      },
     },
   },
   // plugins: [],

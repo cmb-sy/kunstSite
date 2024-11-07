@@ -5,8 +5,26 @@ import * as tocbot from "tocbot";
 
 export const Toc = () => {
   const [isFixed, setIsFixed] = useState(false);
+  const [initialOffset, setInitialOffset] = useState(0);
 
   useEffect(() => {
+    const tocElement = document.querySelector(".toc");
+    if (tocElement) {
+      setInitialOffset((tocElement as HTMLElement).offsetTop);
+    }
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > initialOffset) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    // 初期レンダリング時に現在のスクロール位置を取得
+    handleScroll();
+
     tocbot.init({
       tocSelector: ".toc",
       contentSelector: ".target-toc",
@@ -15,32 +33,20 @@ export const Toc = () => {
       scrollSmoothOffset: -40,
     });
 
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
 
-    // 不要となったtocbotインスタンスとスクロールイベントリスナーを削除
     return () => {
-      tocbot.destroy();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [initialOffset]);
 
   return (
     <div
-      className={`bg-white mt-5 p-4 shadow-lg ${
-        isFixed ? "fixed top-10 lg:w-custom-298 " : ""
-      }`}
+      className={`toc ${
+        isFixed ? "fixed top-0" : ""
+      } bg-white mt-5 p-4 lg:w-custom-298 shadow-lg`}
     >
-      <span className="text-xl font-bold">目次</span>
-      <nav className="m-1 p-1 toc" />
+      {/* 目次の内容 */}
     </div>
   );
 };
