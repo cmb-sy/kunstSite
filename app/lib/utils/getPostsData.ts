@@ -63,8 +63,10 @@ export async function getAllPosts() {
 }
 
 export const getPostsData = async () => {
+  const apiUrl =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/";
   try {
-    const res = await fetch("http://localhost:3000/api/blog/", {
+    const res = await fetch(`${apiUrl}/blog/`, {
       cache: "force-cache",
     });
     if (!res.ok) {

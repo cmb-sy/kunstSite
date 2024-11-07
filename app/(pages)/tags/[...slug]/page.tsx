@@ -40,8 +40,9 @@ const TagsFilteredArticleListPage = async ({
   if (!["教師あり学習", "kaggle", "数学", "教師なし学習"].includes(tag)) {
     throw new Error("Invalid tag");
   }
-
-  const res = await fetch("http://localhost:3000/api/blog/", {
+  const apiUrl =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/";
+  const res = await fetch(`${apiUrl}/blog/`, {
     cache: "force-cache",
   });
   if (!res.ok) {

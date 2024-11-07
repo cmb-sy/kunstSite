@@ -5,15 +5,19 @@ import { Post } from "@/app/lib/types/post";
 
 // SSG：サーバ起動中でないとエラーが発生する。
 export async function generateStaticParams() {
+  const apiUrl =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/";
   try {
-    const res = await fetch("http://localhost:3000/api/blog/", {
+    const res = await fetch(`${apiUrl}/blog/`, {
       cache: "force-cache",
     });
     if (!res.ok) {
+      const errorText = await res.text();
       throw new Error(
-        `HTTP error! status in app/(pages)/blog/[...slug]/page.tsx: ${res.status}`
+        `Failed to fetch data from ${apiUrl}/blog/: ${errorText}`
       );
     }
+
     const blogData = await res.json();
 
     const params = blogData.map((blog: Post) => ({
@@ -32,8 +36,10 @@ export async function generateStaticParams() {
 }
 
 const getBlogArticle = async (slug: string) => {
+  const apiUrl =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/";
   try {
-    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+    const res = await fetch(`${apiUrl}/blog/${slug}`, {
       cache: "force-cache",
     });
     if (!res.ok) {
