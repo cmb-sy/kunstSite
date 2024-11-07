@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <header
       className={`
-        left-0 top-0 z-10 w-full
+        left-0 top-0 w-full
         ${!isMainPage ? "bg-main-white" : "bg-transparent"}
       `}
     >
@@ -55,7 +55,7 @@ const Header = () => {
         <div className="flex md:ml-auto md:justify-end">
           <nav
             className={`
-              fixed right-0 top-0 flex
+              fixed right-0 top-0 mt-12 flex
               h-full flex-col bg-white bg-opacity-90 transition-transform duration-300 ease-in-out
               ${menuOpen ? "translate-x-0 relative" : "translate-x-full"}
               w-full px-4
