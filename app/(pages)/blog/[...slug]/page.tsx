@@ -32,7 +32,6 @@ export async function generateStaticParams() {
 }
 
 const getBlogArticle = async (slug: string) => {
-  console.log("slug", slug);
   try {
     const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
       cache: "force-cache",
