@@ -5,6 +5,7 @@ const GET = async (
   req: NextRequest,
   { params }: { params: { slug: string[] } }
 ) => {
+  console.log("params.slug", params.slug);
   try {
     // posts内の記事をディレクトリ管理する場合、slugが配列でくるため。
     const slug = params.slug.join("/");
@@ -16,7 +17,7 @@ const GET = async (
 
     return new NextResponse(JSON.stringify(blogArticle), { status: 200 });
   } catch (error) {
-    console.error("Failed to fetch blog article:", error);
+    console.error("Failed to fetch blog article(route):", error);
     return new NextResponse(null, { status: 500 });
   }
 };

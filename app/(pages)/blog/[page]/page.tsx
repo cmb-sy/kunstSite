@@ -23,6 +23,7 @@ export async function generateStaticParams() {
       page: `${i + 1}`,
     };
   });
+  //  e.g.pages=[ { page: '1' }, { page: '2' } ]がディレクトリ[page]に格納され、パスが生成される。
   return pages;
 }
 

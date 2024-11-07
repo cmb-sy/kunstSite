@@ -10,7 +10,9 @@ export async function generateStaticParams() {
       cache: "force-cache",
     });
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
+      throw new Error(
+        `HTTP error! status in app/(pages)/blog/[...slug]/page.tsx: ${res.status}`
+      );
     }
     const blogData = await res.json();
 
@@ -22,7 +24,7 @@ export async function generateStaticParams() {
     return params;
   } catch (error) {
     console.error(
-      "Failed to fetch blog data(app/(pages)/blog/[...slug]/page.tsx):",
+      "Failed to fetch blog data in app/(pages)/blog/[...slug]/page.tsx:",
       error
     );
     return [];
@@ -30,6 +32,7 @@ export async function generateStaticParams() {
 }
 
 const getBlogArticle = async (slug: string) => {
+  console.log("slug", slug);
   try {
     const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
       cache: "force-cache",
@@ -44,7 +47,7 @@ const getBlogArticle = async (slug: string) => {
     const blogArticle = await res.json();
     return blogArticle;
   } catch (error) {
-    console.error("Failed to fetch blog article:", error);
+    console.error("Failed to fetch blog [slug] article:", error);
     return null;
   }
 };
