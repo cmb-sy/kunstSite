@@ -8,8 +8,8 @@ const MessageBoard = () => {
   }
 
   return (
-    <div className="mx-20 py-16">
-      <h1 className="sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-black-500">
+    <div className="mx-4 sm:mx-20 py-16">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-black-500">
         最近のお知らせ
       </h1>
       <ul className="list-none m-0 p-0">
@@ -22,10 +22,10 @@ const MessageBoard = () => {
           >
             <Link href="#">
               <div className="flex flex-wrap md:flex-nowrap text-gray-800 no-underline border-b border-gray-300 p-4">
-                <p className="m-0 min-w-[120px] text-sm text-gray-600 pr-4">
+                <p className="m-0 min-w-[80px] text-sm text-gray-600">
                   {announcement.date}
                 </p>
-                <p className="m-0 min-w-[120px] pr-4">
+                <p className="m-0 min-w-[120px]">
                   <span className="bg-gray-600 text-white text-center inline-block px-4 py-1 text-xs leading-none">
                     {announcement.category}
                   </span>
