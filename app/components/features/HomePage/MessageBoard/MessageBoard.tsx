@@ -9,7 +9,7 @@ const MessageBoard = () => {
 
   return (
     <div className="mx-4 sm:mx-20 py-16">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-black-500">
+      <h1 className="text-3xl md:text-4xl font-bold mb-10 text-black-500">
         最近のお知らせ
       </h1>
       <ul className="list-none m-0 p-0">
