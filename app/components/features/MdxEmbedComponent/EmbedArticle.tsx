@@ -28,12 +28,17 @@ const OpenGraphFetcher: React.FC<OpenGraphFetcherProps> = ({
 }) => {
   useEffect(() => {
     const fetchOgData = async () => {
-      const apiUrl =
-        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/blog";
+      // process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/";
+      // try {
+      //   const res = await fetch(`${apiUrl}/blog/${slug}`, {
+      //     cache: "force-cache",
+      //   });
 
+      const apiUrl =
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/";
       try {
         const response = await fetch(
-          `${apiUrl}/og-fetch?url=${encodeURIComponent(url)}`
+          `blog/${apiUrl}/og-fetch?url=${encodeURIComponent(url)}`
         );
         const data = await response.json();
         onFetch(data);
