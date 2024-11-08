@@ -1,8 +1,3 @@
-# outline
-
-☀️ My Blog : https:/...<br>
-This technical blog is intended to output our daily learning and thoughts.
-
 # getting started
 
 Follow these steps to get started with this project.
