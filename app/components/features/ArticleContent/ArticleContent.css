@@ -4,7 +4,6 @@
 .article-sidebar-area {
   display: flex;
   justify-content: space-between;
-  margin: 10% 20px;
   flex-wrap: wrap; /* 追加 */
 }
 
@@ -54,6 +53,16 @@
   font-weight: bold;
   margin-bottom: 1.1rem;
   margin-top: 1em;
+}
+
+@media (max-width: 600px) {
+  .article-element h2 {
+    font-size: 1.4em;
+  }
+
+  .article-element h3 {
+    font-size: 1em;
+  }
 }
 
 /* ------------------------- */

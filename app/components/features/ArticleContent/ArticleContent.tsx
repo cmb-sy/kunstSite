@@ -48,11 +48,11 @@ const BlogContent: React.FC<BlogContentProps> = ({
   SidebarComponents,
 }) => {
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center m-10">
       <div className="article-sidebar-area gap-0 lg:gap-6">
         {/* gapはArticleListと合わせる */}
         <div className="article-area">
-          <h1 className="text-3xl font-bold text-gray-800">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
             {blogArticle.title}
           </h1>
           <br />
