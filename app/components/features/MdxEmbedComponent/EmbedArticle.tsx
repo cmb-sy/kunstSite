@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./EmbedArticle.module.css";
 import React, { useEffect, useState } from "react";
 
@@ -66,8 +67,8 @@ const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
     <>
       <OpenGraphFetcher url={url} onFetch={setOgData} />
       <div className={`${styles.embedArticle_container}`}>
-        <a
-          href={srcUrl}
+        <Link
+          href={srcUrl || ""}
           target="_blank"
           rel="noopener noreferrer"
           className={`${styles.embedArticleCard_link}`}
@@ -103,7 +104,7 @@ const EmbedArticle: React.FC<EmbedArticleProps> = ({ url }) => {
               />
             )}
           </div>
-        </a>
+        </Link>
       </div>
     </>
   );
