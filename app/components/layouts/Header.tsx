@@ -1,7 +1,6 @@
 "use client";
 
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -37,7 +36,7 @@ const Header = () => {
       `}
     >
       <div className="container mx-auto flex flex-col md:flex-row md:py-2">
-        <div className={`flex items-center px-4 ${menuOpen ? "bg-white" : ""}`}>
+        <div className={"flex items-center px-4 pt-4"}>
           {/* ハンバーガーボタン（スマホ画面でのみ表示） */}
           {!isMainPage && (
             <Link className="text-4xl font-bold font-serif" href={"/"}>
@@ -45,10 +44,10 @@ const Header = () => {
             </Link>
           )}
           <button
-            className="ml-auto flex size-12 items-center justify-center rounded-full bg-white text-2xl md:hidden "
+            className="ml-auto flex size-12 items-center justify-center rounded-full bg-white text-2xl md:hidden relative z-20" // z−２０でハンバーガーメニューより上に表示されるように制御
             onClick={toggleMenu}
           >
-            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
 
@@ -56,8 +55,8 @@ const Header = () => {
           <nav
             className={`
               fixed right-0 top-0 flex
-              h-full flex-col bg-white bg-opacity-90 transition-transform duration-300 ease-in-out
-              ${menuOpen ? "translate-x-0 relative mt-12" : "translate-x-full"}
+              h-full flex-col bg-white bg-opacity-95 transition-transform duration-300 ease-in-out
+              ${menuOpen ? "translate-x-0 relative z-10" : "translate-x-full"}
               w-full px-4
               md:relative md:translate-x-0 md:bg-transparent md:p-0 md:flex-row
             `}
