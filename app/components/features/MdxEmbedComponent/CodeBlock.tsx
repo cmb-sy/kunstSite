@@ -52,8 +52,7 @@ const CodeBlock: React.FC<Props> = ({ className, children = "" }: Props) => {
       <style jsx>{`
         .code-block-wrapper {
           position: relative;
-          font-size: 0.9rem;
-          margin-bottom: 2rem;
+          font-size: 13px;
         }
         .code-block-title {
           display: inline-block;
@@ -62,7 +61,7 @@ const CodeBlock: React.FC<Props> = ({ className, children = "" }: Props) => {
           padding: 0.55rem 1rem;
           margin-top: 15px;
           color: white;
-          font-size: 0.8rem;
+          font-size: 0.1rem;
           font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier,
             monospace;
         }
@@ -103,7 +102,7 @@ const CodeBlock: React.FC<Props> = ({ className, children = "" }: Props) => {
         }
         .code-block-with-title {
           border-radius: 0 0.3rem 0.3rem 0.3rem !important;
-          padding: 1.5rem !important;
+          padding: 1rem !important;
           margin-top: 0 !important;
         }
       `}</style>
