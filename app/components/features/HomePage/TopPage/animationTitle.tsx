@@ -48,7 +48,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
   const lines = text.split("\n");
 
   return (
-    <div className="text-black text-center font-bold md:text-6xl lg:text-8xl xl:text-10xl leading-relaxed font-sans">
+    <div className="text-black text-center font-bold text-4xl md:text-6xl lg:text-8xl xl:text-10xl leading-relaxed font-sans">
       {lines.map((line, lineIndex) => {
         const lineDelay = lineIndex * 1.5;
         return (
