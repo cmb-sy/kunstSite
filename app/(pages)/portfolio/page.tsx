@@ -44,14 +44,14 @@ function portfolio() {
             <div
               key={index}
               id={portfolioItem.id}
-              className={`${portfolioItem.bgColor} py-24`}
+              className={`${portfolioItem.bgColor} py-10 md:py-24`}
             >
               <NavLinks portfolioItems={portfolioItems} />
               <div className="mx-auto max-w-screen-lg">
-                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 mt-2 text-center text-black-500">
+                <h1 className="text-3xl md:text-5xl font-bold my-2 text-center text-black-500">
                   {portfolioItem.title}
                 </h1>
-                <p className="text-md mb-4 text-center text-gray-900">
+                <p className="text-md mb-4 text-center text-gray-400">
                   {portfolioItem.comment}
                 </p>
                 {portfolioItem.component}
