@@ -54,7 +54,7 @@ const Header = () => {
         <div className="flex md:ml-auto md:justify-end">
           <nav
             className={`
-              fixed right-0 top-0 flex
+              fixed right-0 top-0 pt-16 flex
               h-full flex-col bg-white bg-opacity-95 transition-transform duration-300 ease-in-out
               ${menuOpen ? "translate-x-0 relative z-10" : "translate-x-full"}
               w-full px-4

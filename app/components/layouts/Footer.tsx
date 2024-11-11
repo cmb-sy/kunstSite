@@ -14,7 +14,9 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-12 relative">
       <div className="container mx-auto gap-8">
         <div className="text-center md:text-left">
-          <h1 className="text-3xl font-bold mb-4">kunst Site</h1>
+          <Link href="/" aria-label="HomePage">
+            <h1 className="text-3xl font-bold mb-4">kunst Site</h1>
+          </Link>
           <p className="text-sm mb-4">
             Welcome to kunst Site. Stay updated with the latest posts.
           </p>
