@@ -84,7 +84,7 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
       )}
       {currentPage < totalPages && (
         <li>
-          <Link href={`/${type}/${currentPage}`+1}>
+          <Link href={`/${type}/${Number(currentPage) + 1}`}>
             <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
               次のページ
             </div>
