@@ -1,5 +1,4 @@
 import MessageBoard from "@/app/components/features/HomePage/MessageBoard/MessageBoard";
-import HomePageMenu from "@/app/components/features/HomePage/HomePageMenu/HomePageMenu";
 import Contact from "./components/features/HomePage/Contact";
 import TopPage from "./components/features/HomePage/TopPage/TopPage";
 
@@ -11,13 +10,8 @@ const sections = [
   },
   {
     id: "2",
-    component: <HomePageMenu />,
-    bgColor: "bg-white",
-  },
-  {
-    id: "3",
     component: <Contact />,
-    bgColor: "bg-topPageBackgroundColor",
+    bgColor: "bg-white",
   },
 ];
 
