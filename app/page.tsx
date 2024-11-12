@@ -1,6 +1,6 @@
 import MessageBoard from "@/app/components/features/HomePage/MessageBoard/MessageBoard";
 import HomePageMenu from "@/app/components/features/HomePage/HomePageMenu/HomePageMenu";
-import Contact from "./components/features/Portfolio/Contact";
+import Contact from "./components/features/HomePage/Contact";
 import TopPage from "./components/features/HomePage/TopPage/TopPage";
 
 const sections = [
