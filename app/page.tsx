@@ -1,16 +1,14 @@
-import MessageBoard from "@/app/components/features/HomePage/MessageBoard/MessageBoard";
-import Contact from "./components/features/HomePage/Contact";
-import TopPage from "./components/features/HomePage/TopPage/TopPage";
+import * as Homepage from "@/app/components/features/HomePage/index";
 
 const sections = [
   {
     id: "1",
-    component: <MessageBoard />,
+    component: <Homepage.MessageBoard />,
     bgColor: "bg-topPageBackgroundColor",
   },
   {
     id: "2",
-    component: <Contact />,
+    component: <Homepage.Contact />,
     bgColor: "bg-white",
   },
 ];
@@ -18,7 +16,7 @@ const sections = [
 const Home = () => {
   return (
     <>
-      <TopPage />
+      <Homepage.TopPage />
       <div className="flex-1 relative z-10">
         {sections.map((section, index) => (
           <div key={index} id={section.id} className={section.bgColor}>
