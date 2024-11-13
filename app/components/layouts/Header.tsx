@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { linkDatasets } from "./HeaderFooterCommonData";
+import { ThemeSwitch } from "@/app/components/elements/theme-switch";
 
 const Header = () => {
   // ハンバーガーメニューの開閉
@@ -77,6 +78,7 @@ const Header = () => {
                 </div>
               </Link>
             ))}
+            <ThemeSwitch />
           </nav>
         </div>
       </div>
