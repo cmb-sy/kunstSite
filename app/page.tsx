@@ -4,12 +4,12 @@ const sections = [
   {
     id: "1",
     component: <Homepage.MessageBoard />,
-    bgColor: "bg-topPageBackgroundColor",
+    bgColor: "bg-topPageBackgroundColor dark:bg-black",
   },
   {
     id: "2",
     component: <Homepage.Contact />,
-    bgColor: "bg-white",
+    bgColor: "bg-white dark:bg-black",
   },
 ];
 

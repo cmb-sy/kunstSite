@@ -45,7 +45,7 @@ const Header = () => {
             </Link>
           )}
           <button
-            className="ml-auto flex size-12 items-center justify-center rounded-full bg-white text-2xl md:hidden relative z-20" // z−２０でハンバーガーメニューより上に表示されるように制御
+            className="ml-auto flex size-12 items-center justify-center rounded-full text-2xl md:hidden relative z-20" // z−２０でハンバーガーメニューより上に表示されるように制御
             onClick={toggleMenu}
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
@@ -56,23 +56,23 @@ const Header = () => {
           <nav
             className={`
               fixed right-0 top-0 pt-16 flex
-              h-full flex-col bg-white bg-opacity-95 transition-transform duration-300 ease-in-out
+              h-full flex-col bg-white dark:bg-gray-800 bg-opacity-95 transition-transform duration-300 ease-in-out
               ${menuOpen ? "translate-x-0 relative z-10" : "translate-x-full"}
               w-full px-4
-              md:relative md:translate-x-0 md:bg-transparent md:p-0 md:flex-row
+              md:relative md:translate-x-0 md:bg-transparent md:dark:bg-transparent md:p-0 md:flex-row
             `}
           >
             {linkDatasets.map((linkDataset, index) => (
               <Link
                 key={index}
-                className="hover:bg-gray-200 flex items-center p-4"
+                className="hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center p-4"
                 href={linkDataset.path}
               >
                 <div className="block">
-                  <strong className="block text-lg hover:text-gray-700">
+                  <strong className="block text-lg hover:text-gray-700 dark:hover:text-gray-300">
                     {linkDataset.labelEn}
                   </strong>
-                  <span className="block text-sm hover:text-gray-700">
+                  <span className="block text-sm hover:text-gray-700 dark:hover:text-gray-300">
                     {linkDataset.labelJa}
                   </span>
                 </div>
