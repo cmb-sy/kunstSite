@@ -7,9 +7,7 @@ const Contact = () => {
       : "http://localhost:3000/contact";
   return (
     <div className="flex flex-col items-center justify-center w-screen p-20">
-      <h1 className="sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-black-500">
-        Contact
-      </h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-black-500">Contact</h1>
       <span className="mt-2 text-xs text-gray-800">お問い合わせ</span>
       <span className="text-center my-10">
         記事内容内容の誤り / 当サイトコンテンツに関すること
