@@ -29,7 +29,7 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
       {currentPage > 1 && (
         <li>
           <Link href={`/${type}/${currentPage - 1}`}>
-            <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+            <div className="px-3 py-1 border dark:border-none rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer bg-darkModeItemBg">
               前のページ
             </div>
           </Link>
@@ -39,14 +39,16 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
         <>
           <li>
             <Link href={`/${type}/1`}>
-              <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+              <div className="px-3 py-1 border dark:border-none rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer bg-darkModeItemBg">
                 最初のページ
               </div>
             </Link>
           </li>
           {startPage > 2 && (
             <li>
-              <span className="px-3 py-1 border rounded">...</span>
+              <span className="px-3 py-1 border dark:border-none rounded bg-darkModeItemBg">
+                ...
+              </span>
             </li>
           )}
         </>
@@ -55,10 +57,10 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
         <li key={page}>
           <Link href={`/${type}/${page}`}>
             <div
-              className={`px-3 py-1 border rounded cursor-pointer ${
+              className={`px-3 py-1 rounded cursor-pointer ${
                 currentPage == page
-                  ? "bg-blue-500 text-white"
-                  : "hover:bg-gray-200"
+                  ? "text-black dark:text-darkModeFontColor"
+                  : "border dark:border-none bg-white hover:bg-green-100 cursor-pointer"
               }`}
             >
               {page}
@@ -70,12 +72,14 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
         <>
           {endPage < totalPages - 1 && (
             <li>
-              <span className="px-3 py-1 border rounded">...</span>
+              <span className="px-3 py-1 border dark:border-none rounded bg-darkModeItemBg">
+                ...
+              </span>
             </li>
           )}
           <li>
             <Link href={`/${type}/${totalPages}`}>
-              <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+              <div className="px-3 py-1 border dark:border-none bg-white rounded cursor-pointer">
                 最後のページ
               </div>
             </Link>
@@ -85,7 +89,7 @@ const Pagination = ({ type, pages, currentPage = 1 }: PageProps) => {
       {currentPage < totalPages && (
         <li>
           <Link href={`/${type}/${Number(currentPage) + 1}`}>
-            <div className="px-3 py-1 border rounded hover:bg-gray-200 cursor-pointer">
+            <div className="px-3 py-1 border dark:border-none bg-white rounded cursor-pointer">
               次のページ
             </div>
           </Link>
