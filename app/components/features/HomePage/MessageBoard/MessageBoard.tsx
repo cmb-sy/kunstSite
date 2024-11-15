@@ -9,24 +9,24 @@ const MessageBoard = () => {
 
   return (
     <div className="mx-4 sm:mx-20 py-16">
-      <h1 className="text-3xl md:text-4xl font-bold mb-10 text-black-500">
+      <h1 className="text-3xl md:text-4xl font-bold mb-10 text-black-500 dark:text-white">
         最近のお知らせ
       </h1>
       <ul className="list-none m-0 p-0">
         {announcements.map((announcement, index) => (
           <li
             key={index}
-            className={`border-b border-gray-300 ${
+            className={`border-b border-gray-300 dark:border-gray-700 ${
               index === 0 ? "border-t" : ""
             }`}
           >
             <Link href="#">
-              <div className="flex flex-wrap md:flex-nowrap text-gray-800 no-underline border-b border-gray-300 p-4">
-                <p className="m-0 min-w-[80px] text-sm text-gray-600">
+              <div className="flex flex-wrap md:flex-nowrap text-gray-800 dark:text-gray-200 no-underline border-b border-gray-300 dark:border-gray-700 p-4">
+                <p className="m-0 min-w-[80px] text-sm text-gray-600 dark:text-gray-400">
                   {announcement.date}
                 </p>
                 <p className="m-0 min-w-[120px]">
-                  <span className="bg-gray-600 text-white text-center inline-block px-4 py-1 text-xs leading-none">
+                  <span className="bg-gray-600 dark:bg-gray-800 text-white text-center inline-block px-4 py-1 text-xs leading-none">
                     {announcement.category}
                   </span>
                 </p>

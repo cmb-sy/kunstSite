@@ -84,9 +84,9 @@ export const ThemeSwitch: React.FC = () => {
       className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90 mx-10"
     >
       {currentTheme === "dark" ? (
-        <FiSun className="h-[32px] w-[32px] text-[#D4D4D4]" />
+        <FiMoon className="h-[32px] w-[32px] text-[#D4D4D4]" />
       ) : (
-        <FiMoon className="h-[32px] w-[32px] text-[#1c1c1c]" />
+        <FiSun className="h-[32px] w-[32px] text-[#1c1c1c]" />
       )}
     </button>
   );
