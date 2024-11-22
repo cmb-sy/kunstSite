@@ -6,11 +6,6 @@ const sections = [
     component: <Homepage.MessageBoard />,
     bgColor: "bg-topPageBackgroundColor dark:bg-gray-900",
   },
-  {
-    id: "2",
-    component: <Homepage.Contact />,
-    bgColor: "bg-white dark:bg-darkModeBg",
-  },
 ];
 
 const Home = () => {

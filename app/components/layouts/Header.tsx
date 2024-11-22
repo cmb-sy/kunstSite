@@ -65,16 +65,14 @@ const Header = () => {
             {linkDatasets.map((linkDataset, index) => (
               <Link
                 key={index}
-                className="hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center p-4"
+                className="hover:text-lime-700 dark:hover:text-lime-500 flex items-center p-4"
                 href={linkDataset.path}
               >
                 <div className="block">
-                  <strong className="block text-lg hover:text-gray-700 dark:hover:text-gray-300">
+                  <strong className="block text-lg">
                     {linkDataset.labelEn}
                   </strong>
-                  <span className="block text-sm hover:text-gray-700 dark:hover:text-gray-300">
-                    {linkDataset.labelJa}
-                  </span>
+                  <span className="block text-sm">{linkDataset.labelJa}</span>
                 </div>
               </Link>
             ))}
