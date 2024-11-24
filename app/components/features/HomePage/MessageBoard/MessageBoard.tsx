@@ -10,8 +10,9 @@ const MessageBoard = () => {
   return (
     <div className="mx-4 sm:mx-20 py-16">
       <h1 className="text-3xl md:text-4xl font-bold mb-10 text-black-500 dark:text-white">
-        最近のお知らせ
+        News
       </h1>
+      <span>ss</span>
       <ul className="list-none m-0 p-0">
         {announcements.map((announcement, index) => (
           <li
@@ -26,7 +27,7 @@ const MessageBoard = () => {
                   {announcement.date}
                 </p>
                 <p className="m-0 min-w-[120px] flex items-center">
-                  <span className="bg-lime-600 dark:bg-gray-800 text-white text-center inline-block px-4 py-1 text-xs leading-none">
+                  <span className="bg-lime-600 text-white text-center inline-block px-4 py-1 text-xs leading-none">
                     {announcement.category}
                   </span>
                 </p>

@@ -19,6 +19,7 @@ const config: Config = {
       },
       backgroundColor: {
         topPageBackgroundColor: "#F9F9F9",
+        topPageDarkBackgroundColor: "#121712",
         darkModeBg: "black",
         darkModeItemBg: "#424242",
       },

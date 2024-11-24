@@ -1,40 +1,32 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Categories } from "@/app/lib/types/categories";
+import { CiShoppingTag } from "react-icons/ci";
 
 interface ArticleTagProps {
   text: string;
   href: string;
 }
 
-const getCategoryIcon = (category: string): string | undefined => {
+const getCategoryIcon = (category: string): React.ComponentType | undefined => {
   return Categories[category];
 };
 
 const ArticleTopic: React.FC<ArticleTagProps> = ({ text, href }) => {
-  let iconSrc = "/tag.svg";
+  let IconComponent: React.ComponentType = CiShoppingTag;
 
   for (const key in Categories) {
     if (Categories.hasOwnProperty(key) && key.includes(text)) {
-      iconSrc = getCategoryIcon(key) || "/tag.svg";
+      IconComponent = getCategoryIcon(key) || CiShoppingTag;
       break; // 一致するカテゴリが見つかったらループを抜ける
     }
   }
 
   return (
     <Link href={href}>
-      <span className="inline-block mr-1 mb-1 p-2 leading-none text-gray-600 bg-white border border-gray-300 rounded-full">
-        {iconSrc && (
-          <Image
-            src={iconSrc}
-            alt={text}
-            className="inline-block mr-2 w-4 h-4"
-            width={16}
-            height={16}
-          />
-        )}
-        <span>{text}</span>
+      <span className="inline-flex items-center mr-1 mb-1 px-3 py-2 leading-none text-gray-600 bg-white border border-gray-300 rounded-full">
+        <IconComponent />
+        <span className="ml-2">{text}</span>
       </span>
     </Link>
   );

@@ -60,7 +60,7 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
                         (tag: string, tagIndex: number) => (
                           <span
                             key={tagIndex}
-                            className="inline-block bg-gray-100 text-xs dark:bg-gray-800 font-semibold mr-2 px-2.5 py-0.5 rounded"
+                            className="inline-block bg-lime-600 text-white text-xs mr-2 px-2.5 py-0.5 rounded"
                           >
                             {tag}
                           </span>

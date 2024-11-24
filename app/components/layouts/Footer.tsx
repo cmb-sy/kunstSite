@@ -11,7 +11,7 @@ const scrollToTop = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12 relative">
+    <footer className="bg-topPageDarkBackgroundColor text-white py-12 relative">
       <div className="container mx-auto gap-8">
         <div className="text-center md:text-left">
           <Link href="/" aria-label="HomePage">

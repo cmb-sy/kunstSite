@@ -10,14 +10,8 @@ const CategoryList = () => {
       {Object.keys(Categories).map((category: string, index: number) => (
         <Link key={index} href={`/category/${category}/1`}>
           <button className="w-full max-w-md p-2 border-b border-gray-200 text-left text-black dark:text-darkModeFontColor flex items-center">
-            <Image
-              src={Categories[category]}
-              alt={`${category} Icon`}
-              width={20}
-              height={20}
-              className="mr-2 opacity-70 dark:bg-darkModeFontColor"
-            />
-            {category}
+            {React.createElement(Categories[category])}
+            <span className="ml-2">{category}</span>
           </button>
         </Link>
       ))}
