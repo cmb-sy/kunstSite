@@ -24,7 +24,7 @@ const ArticleTopic: React.FC<ArticleTagProps> = ({ text, href }) => {
 
   return (
     <Link href={href}>
-      <span className="inline-flex items-center mr-2 mb-1 p-2 leading-none text-gray-600 border border-gray-300 dark:text-darkModeFontColor">
+      <span className="inline-flex items-center mr-2 mb-1 p-2 leading-none text-gray-600 border border-gray-300 dark:text-darkModeFontColor hover:bg-lime-700 hover:text-white">
         <IconComponent />
         <span className="ml-2">{text}</span>
       </span>
