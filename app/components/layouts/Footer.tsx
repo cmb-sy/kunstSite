@@ -11,7 +11,7 @@ const scrollToTop = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-topPageDarkBackgroundColor text-white py-12 relative">
+    <footer className="bg-FooterDarkBackgroundColor text-white py-12">
       <div className="container mx-auto gap-8">
         <div className="text-center md:text-left">
           <Link href="/" aria-label="HomePage">
@@ -51,13 +51,13 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-1 right-1 md:bottom-5 md:right-5">
+      <div className="absolute bottom-1 right-1 md:bottom-5 md:right-5 group">
         <button
           onClick={scrollToTop}
-          className="bg-lime-600 p-3 hover:bg-lime-800 transition duration-300 w-12 h-12 flex items-center justify-center"
+          className="bg-lime-700 p-3 w-12 h-12 flex items-center justify-center group-hover:bg-white"
           aria-label="Scroll to top"
         >
-          <FaArrowUp className="text-2xl text-white" />
+          <FaArrowUp className="text-2xl text-white group-hover:text-lime-700" />
         </button>
       </div>
     </footer>

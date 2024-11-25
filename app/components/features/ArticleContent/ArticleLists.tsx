@@ -49,10 +49,12 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
               return (
                 <div
                   key={index}
-                  className="p-5 border dark:border-none rounded shadow-lg bg-white dark:bg-darkModeItemBg relative transform transition-transform duration-300 hover:scale-105 max-w-lg mx-auto"
+                  className="group p-5 border shadow-xl dark:border-none rounded bg-white dark:bg-darkModeItemBg"
                 >
                   <Link href={`/blog/${post.slug}`}>
-                    <h1 className="text-xl font-bold mb-2">{post.title}</h1>
+                    <h1 className="text-xl font-bold mb-2 group-hover:text-lime-700">
+                      {post.title}
+                    </h1>
                     <div className="flex items-center space-x-2 text-gray-500 dark:text-darkModeFontColor text-sm mb-2">
                       <span>{post.date}</span>
                       {/* タグがない場合でも対応できるようにする */}

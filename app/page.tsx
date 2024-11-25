@@ -4,7 +4,7 @@ const sections = [
   {
     id: "1",
     component: <Homepage.MessageBoard />,
-    bgColor: "bg-topPageBackgroundColor dark:bg-gray-900",
+    bgColor: "bg-MessageBackgroundColor dark:bg-MessageDarkBackgroundColor",
   },
 ];
 

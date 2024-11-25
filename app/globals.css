@@ -40,6 +40,11 @@
 
 .toc-list-item {
   @apply list-none w-full rounded-md py-0 my-0;
+  :hover {
+    color: #84cc16;
+    border-bottom: 1px solid #84cc16;
+    border-radius: 0; /* 下線部分の角を丸くしない */
+  }
 }
 
 .is-active-link {

@@ -9,10 +9,12 @@ const MessageBoard = () => {
 
   return (
     <div className="mx-4 sm:mx-20 py-16">
-      <h1 className="text-3xl md:text-4xl font-bold mb-10 text-black-500 dark:text-white">
-        News
-      </h1>
-      <span>ss</span>
+      <div className="mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold mb-1 text-black-500 dark:text-white">
+          News
+        </h1>
+        <span className="text-sm text-lime-700">お知らせ</span>
+      </div>
       <ul className="list-none m-0 p-0">
         {announcements.map((announcement, index) => (
           <li

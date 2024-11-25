@@ -70,19 +70,26 @@
   font-weight: bold;
 }
 
+.dark .article-element-h1 {
+  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+}
+
 .article-element h2 {
-  border-bottom: 1px solid #b4b4b4;
   font-size: 1.5em;
+  padding: 0.4em 0.5em;
+  border-left: solid 5px #4d7c0f;
+  border-bottom: solid 1px #4d7c0f;
   margin-bottom: 1.1rem;
   margin-top: 2.5em;
   font-weight: bold;
 }
 
 .article-element h3 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 1.1rem;
   margin-top: 1em;
+  border-bottom: solid 1px #4d7c0f;
 }
 
 @media (max-width: 600px) {
@@ -106,8 +113,13 @@
 .custom-p {
   margin: 14px 0;
   font-size: 16px;
-  line-height: 1.8;
-  color: #070707d1;
+  font-family: Inter;
+  line-height: 1.9;
+  color: #000000d1;
+}
+
+.dark .custom-p {
+  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
 }
 
 .article-element ul {
@@ -121,6 +133,10 @@
   color: #4b5563; /* text-gray-600 */
 }
 
+.dark .article-element li {
+  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+}
+
 .article-element ol {
   list-style-type: decimal;
   padding-left: 1.5rem;
@@ -130,6 +146,10 @@
 .article-element ol li {
   margin-bottom: 0.5rem;
   color: #4b5563; /* text-gray-600 */
+}
+
+.dark .article-element ol li {
+  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
 }
 
 /* ------------------------- */
@@ -153,6 +173,15 @@
   color: #4b5563;
 }
 
+.dark .article-element th {
+  background-color: #333; /* ダークモード時の背景色 */
+  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+}
+
 .article-element tr:nth-child(even) {
   background-color: #f9fafb;
+}
+
+.dark .article-element tr:nth-child(even) {
+  background-color: #2a2a2a; /* ダークモード時の背景色 */
 }
