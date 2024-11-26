@@ -21,18 +21,24 @@ const Footer = () => {
             Welcome to kunst Site. Stay updated with the latest posts.
           </p>
           <div className="flex flex-col md:flex-row justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4 mt-10">
-            <Link href="/privacyPolicy" className="hover:underline">
+            <Link
+              href="/privacyPolicy"
+              className="hover:underline hover:text-lime-700"
+            >
               Privacy Policy
             </Link>
-            <Link href="/aboutBlog" className="hover:underline">
+            <Link
+              href="/aboutBlog"
+              className="hover:underline hover:text-lime-700"
+            >
               About Blog
             </Link>
-            <span className="hidden md:inline">|</span>
+            <span className="hidden md:inline hover:text-lime-700">|</span>
             {linkDatasets.map((linkDataset, index) => (
               <Link
                 key={index}
                 href={linkDataset.path}
-                className="hover:underline transition duration-300"
+                className="hover:underline transition duration-300 hover:text-lime-700"
               >
                 {linkDataset.labelEn}
               </Link>
@@ -40,13 +46,13 @@ const Footer = () => {
           </div>
           <div className="flex justify-center md:justify-start space-x-6 mt-10">
             <Link href="https://twitter.com" aria-label="Twitter">
-              <BsTwitterX className="text-3xl hover:text-gray-400 transition duration-300" />
+              <BsTwitterX className="text-3xl hover:text-gray-400 transition duration-300 hover:text-lime-700" />
             </Link>
             <Link href="https://facebook.com" aria-label="Facebook">
-              <FaFacebook className="text-3xl hover:text-gray-400 transition duration-300" />
+              <FaFacebook className="text-3xl hover:text-gray-400 transition duration-300 hover:text-lime-700" />
             </Link>
           </div>
-          <p className="text-xs text-gray-500 mt-20">
+          <p className="text-xs text-gray-500 mt-20 hover:text-lime-700">
             Copyright © 2024 kunst Site
           </p>
         </div>

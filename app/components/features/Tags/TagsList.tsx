@@ -16,12 +16,12 @@ const TagLists = () => {
 
   return (
     <select
-      className="w-full max-w-md px-4 py-2 border border-gray-300 rounded bg-white text-gray-800 mt-5"
+      className="w-full max-w-md px-4 py-2 mt-5 rounded bg-white text-gray-800 dark:bg-darkModeItemBg dark:text-darkModeFontColor"
       onChange={handleChange}
       defaultValue=""
     >
       <option value="" disabled>
-        タグを選択
+        タグ
       </option>
       {Tags.map((tag, index) => (
         <option key={index} value={tag}>

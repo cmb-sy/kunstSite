@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Categories } from "@/app/lib/types/categories";
 
 const CategoryList = () => {
@@ -11,7 +10,7 @@ const CategoryList = () => {
         <Link key={index} href={`/category/${category}/1`}>
           <button className="w-full max-w-md p-2 border-b border-gray-200 text-left text-black dark:text-darkModeFontColor flex items-center">
             {React.createElement(Categories[category])}
-            <span className="ml-2">{category}</span>
+            <span className="ml-2 hover:text-lime-700">{category}</span>
           </button>
         </Link>
       ))}

@@ -71,7 +71,7 @@
 }
 
 .dark .article-element-h1 {
-  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+  color: var(--darkModeFontColor);
 }
 
 .article-element h2 {
@@ -119,7 +119,7 @@
 }
 
 .dark .custom-p {
-  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+  color: var(--darkModeFontColor);
 }
 
 .article-element ul {
@@ -134,7 +134,7 @@
 }
 
 .dark .article-element li {
-  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+  color: var(--darkModeFontColor);
 }
 
 .article-element ol {
@@ -149,7 +149,7 @@
 }
 
 .dark .article-element ol li {
-  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
+  color: var(--darkModeFontColor);
 }
 
 /* ------------------------- */
@@ -161,27 +161,34 @@
   margin-bottom: 1rem;
 }
 
-.article-element th,
 .article-element td {
-  border: 1px solid #ddd;
+  border: 1px solid #b7c7bb;
   padding: 0.5rem;
   text-align: left;
 }
 
-.article-element th {
-  background-color: #f3f4f6;
-  color: #4b5563;
-}
-
-.dark .article-element th {
-  background-color: #333; /* ダークモード時の背景色 */
-  color: var(--darkModeFontColor); /* ダークモード時の文字色 */
-}
-
-.article-element tr:nth-child(even) {
+.article-element tr {
   background-color: #f9fafb;
 }
 
-.dark .article-element tr:nth-child(even) {
-  background-color: #2a2a2a; /* ダークモード時の背景色 */
+.dark .article-element tr {
+  background-color: #434343;
+  color: var(--darkModeFontColor);
+}
+
+.article-element th {
+  background-color: #f7fff9;
+  border: 1px solid #b7c7bb;
+  color: black;
+  font-weight: bold;
+}
+
+.dark .article-element th {
+  background-color: #282828;
+  color: var(--darkModeFontColor);
+  border: 1px solid #1c1c1c;
+}
+
+.dark .article-element td {
+  border: 1px solid #1c1c1c;
 }
