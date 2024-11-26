@@ -1,7 +1,7 @@
 "use client";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
 import { BiCheck, BiCopy } from "react-icons/bi";
 
@@ -38,7 +38,7 @@ const CodeBlock: React.FC<Props> = ({ className, children = "" }: Props) => {
         <div className="code-block-container">
           <SyntaxHighlighter
             language={language}
-            style={oneDark}
+            style={atomDark}
             className={syntaxHighlighterClass}
           >
             {code}
@@ -98,7 +98,7 @@ const CodeBlock: React.FC<Props> = ({ className, children = "" }: Props) => {
       <style jsx global>{`
         .code-block {
           border-radius: 0.3rem !important;
-          padding: 1.5rem !important;
+          padding: 1.1rem !important;
         }
         .code-block-with-title {
           border-radius: 0 0.3rem 0.3rem 0.3rem !important;
