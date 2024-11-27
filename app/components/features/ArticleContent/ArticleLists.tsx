@@ -35,7 +35,7 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
     <>
       <section className="max-w-screen-lg">
         <div className="flex justify-center items-center p-4">
-          <span className="text-3xl font-medium px-4 pt-1 pb-2 text-black rounded">
+          <span className="text-3xl font-medium px-4 pt-1 pb-2 text-black dark:text-darkModeFontColor rounded">
             {label}
           </span>
         </div>
@@ -49,19 +49,20 @@ const ArticleLists: React.FC<ArticleListsProps> = async ({
               return (
                 <div
                   key={index}
-                  className="p-5 border rounded shadow-lg bg-white relative transform transition-transform duration-300 hover:scale-105 max-w-lg mx-auto"
+                  className="group p-5 border shadow-xl dark:border-none rounded bg-white dark:bg-darkModeItemBg"
                 >
                   <Link href={`/blog/${post.slug}`}>
-                    <h1 className="text-xl font-bold mb-2">{post.title}</h1>
-                    <div className="relative"></div>
-                    <div className="flex items-center space-x-2 text-gray-500 text-sm mb-2">
+                    <h1 className="text-xl font-bold mb-2 group-hover:text-lime-700">
+                      {post.title}
+                    </h1>
+                    <div className="flex items-center space-x-2 text-gray-500 dark:text-darkModeFontColor text-sm mb-2">
                       <span>{post.date}</span>
                       {/* タグがない場合でも対応できるようにする */}
                       {(post.tags || []).map(
                         (tag: string, tagIndex: number) => (
                           <span
                             key={tagIndex}
-                            className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+                            className="inline-block bg-lime-600 text-white text-xs mr-2 px-2.5 py-0.5 rounded"
                           >
                             {tag}
                           </span>

@@ -11,7 +11,7 @@ const scrollToTop = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 relative">
+    <footer className="bg-FooterDarkBackgroundColor text-white py-12">
       <div className="container mx-auto gap-8">
         <div className="text-center md:text-left">
           <Link href="/" aria-label="HomePage">
@@ -21,18 +21,24 @@ const Footer = () => {
             Welcome to kunst Site. Stay updated with the latest posts.
           </p>
           <div className="flex flex-col md:flex-row justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4 mt-10">
-            <Link href="/privacyPolicy" className="hover:underline">
+            <Link
+              href="/privacyPolicy"
+              className="hover:underline hover:text-lime-700"
+            >
               Privacy Policy
             </Link>
-            <Link href="/aboutBlog" className="hover:underline">
+            <Link
+              href="/aboutBlog"
+              className="hover:underline hover:text-lime-700"
+            >
               About Blog
             </Link>
-            <span className="hidden md:inline">|</span>
+            <span className="hidden md:inline hover:text-lime-700">|</span>
             {linkDatasets.map((linkDataset, index) => (
               <Link
                 key={index}
                 href={linkDataset.path}
-                className="hover:underline transition duration-300"
+                className="hover:underline transition duration-300 hover:text-lime-700"
               >
                 {linkDataset.labelEn}
               </Link>
@@ -40,24 +46,24 @@ const Footer = () => {
           </div>
           <div className="flex justify-center md:justify-start space-x-6 mt-10">
             <Link href="https://twitter.com" aria-label="Twitter">
-              <BsTwitterX className="text-3xl hover:text-gray-400 transition duration-300" />
+              <BsTwitterX className="text-3xl hover:text-gray-400 transition duration-300 hover:text-lime-700" />
             </Link>
             <Link href="https://facebook.com" aria-label="Facebook">
-              <FaFacebook className="text-3xl hover:text-gray-400 transition duration-300" />
+              <FaFacebook className="text-3xl hover:text-gray-400 transition duration-300 hover:text-lime-700" />
             </Link>
           </div>
-          <p className="text-xs text-gray-500 mt-20">
+          <p className="text-xs text-gray-500 mt-20 hover:text-lime-700">
             Copyright © 2024 kunst Site
           </p>
         </div>
       </div>
-      <div className="absolute bottom-1 right-1 md:bottom-5 md:right-5">
+      <div className="absolute bottom-1 right-1 md:bottom-5 md:right-5 group">
         <button
           onClick={scrollToTop}
-          className="bg-gray-700 p-3 hover:bg-gray-600 transition duration-300 w-12 h-12 flex items-center justify-center"
+          className="bg-lime-700 p-3 w-12 h-12 flex items-center justify-center group-hover:bg-white"
           aria-label="Scroll to top"
         >
-          <FaArrowUp className="text-2xl text-white" />
+          <FaArrowUp className="text-2xl text-white group-hover:text-lime-700" />
         </button>
       </div>
     </footer>

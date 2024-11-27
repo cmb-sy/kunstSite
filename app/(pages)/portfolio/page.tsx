@@ -7,28 +7,28 @@ function portfolio() {
       title: "About Me",
       comment: "私について",
       component: <Portfolio.AboutMe />,
-      bgColor: "bg-slate-50",
+      bgColor: "bg-slate-50 dark:bg-neutral-800",
     },
     {
       id: "skills",
       title: "Skill",
       comment: "経験のあるスキルを一覧でまとめました",
       component: <Portfolio.Skills />,
-      bgColor: "bg-white",
+      bgColor: "bg-white dark:bg-neutral-700",
     },
     {
       id: "works",
       title: "Works",
       comment: "過去に作成したアプリケーションを掲載しました",
       component: <Portfolio.Works />,
-      bgColor: "bg-slate-50",
+      bgColor: "bg-slate-50 dark:bg-neutral-800",
     },
     {
       id: "career",
       title: "Career",
       comment: "これまでの業務経験をまとめました",
       component: <Portfolio.Career />,
-      bgColor: "bg-white",
+      bgColor: "bg-white dark:bg-neutral-700",
     },
   ];
 

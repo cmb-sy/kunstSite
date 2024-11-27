@@ -4,8 +4,10 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
+import { useTheme } from "next-themes";
 
 const ParticleBackground = () => {
+  const { theme } = useTheme();
   const [init, setInit] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +26,7 @@ const ParticleBackground = () => {
       autoPlay: true,
       background: {
         color: {
-          value: "#ffffff",
+          value: theme === "dark" ? "#000000" : "#ffffff",
         },
         image: "",
         position: "",
@@ -205,7 +207,7 @@ const ParticleBackground = () => {
           },
         },
         color: {
-          value: "#656565",
+          value: theme === "dark" ? "#ffffff" : "#656565",
           animation: {
             h: {
               count: 0,
@@ -477,7 +479,7 @@ const ParticleBackground = () => {
         links: {
           blink: false,
           color: {
-            value: "#000000",
+            value: theme === "dark" ? "#ffffff" : "#000000",
           },
           consent: false,
           distance: 150,
@@ -523,25 +525,26 @@ const ParticleBackground = () => {
         },
       },
     }),
-    []
+    [theme]
   );
 
-  //   if (!init || loading) {
-  //     return (
-  //       <div
-  //         style={{
-  //           position: "relative",
-  //           width: "100%",
-  //           height: "100vh",
-  //           display: "flex",
-  //           justifyContent: "center",
-  //           alignItems: "center",
-  //         }}
-  //       >
-  //         <div>Loading...</div>
-  //       </div>
-  //     );
-  //   }
+  if (!init || loading) {
+    return (
+      <div
+        className="dark:bg-black bg-white"
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -15,7 +15,7 @@ const Works: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer" // セキュリティ対策
           >
-            <div className="border rounded-lg p-4 w-full sm:w-96 md:w-128 shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300 transform hover:-translate-y-2">
+            <div className="border rounded-lg p-4 w-full sm:w-96 md:w-128 shadow-md transition duration-300 transform hover:-translate-y-2">
               <Image
                 src={work.imageUrl}
                 alt={work.title}

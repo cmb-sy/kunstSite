@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
@@ -17,7 +18,14 @@ const config: Config = {
         "custom-298": "298px",
       },
       backgroundColor: {
-        topPageBackgroundColor: "#F9F9F9",
+        MessageBackgroundColor: "#F9F9F9",
+        MessageDarkBackgroundColor: "#1e1e1e",
+        FooterDarkBackgroundColor: "#0d120d",
+        darkModeBg: "#1d1d1d",
+        darkModeItemBg: "#424242",
+      },
+      colors: {
+        darkModeFontColor: "#c9d1d9",
       },
     },
   },

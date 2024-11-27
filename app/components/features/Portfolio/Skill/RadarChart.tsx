@@ -8,7 +8,10 @@ import {
   Filler,
   Tooltip,
   Legend,
+  Colors,
 } from "chart.js";
+import { Background } from "@tsparticles/engine";
+import { colorBrewer } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 ChartJS.register(
   RadialLinearScale,
@@ -21,6 +24,9 @@ ChartJS.register(
 
 const RadarChart: React.FC = () => {
   const [chartSize, setChartSize] = useState({ width: 400, height: 400 });
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.documentElement.classList.contains("dark")
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,13 +38,25 @@ const RadarChart: React.FC = () => {
       });
     };
 
+    const handleDarkModeChange = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+
     window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
+    const observer = new MutationObserver(handleDarkModeChange);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
+    };
   }, []);
 
-  // サンプルデータ
   const skillLevels = [
     { name: "フロントエンド" },
     { name: "バックエンド" },
@@ -52,8 +70,8 @@ const RadarChart: React.FC = () => {
     datasets: [
       {
         data: [4, 3, 3, 5, 3],
-        backgroundColor: "rgba(128, 128, 128, 0.2)",
-        borderColor: "#808080",
+        backgroundColor: "rgba(158, 158, 158, 0.2)", // 多角形内の色
+        borderColor: isDarkMode ? "#c9d1d9" : "#808080", // 多角形の線
         borderWidth: 1,
       },
     ],
@@ -67,22 +85,28 @@ const RadarChart: React.FC = () => {
         max: 5,
         ticks: {
           stepSize: 1,
+          backdropColor: "rgba(0, 0, 0, 0)",
+          color: isDarkMode ? "#e0e0e0" : "#828282",
+          z: 1, // 表示の位置を変更
         },
         angleLines: {
           display: true,
+          color: isDarkMode ? "#757575" : "#c9d1d9",
         },
         grid: {
           circular: true,
+          color: isDarkMode ? "#757575" : "#c9d1d9",
         },
         pointLabels: {
           font: {
             size: 14,
           },
+          color: isDarkMode ? "#c9d1d9" : "#828282",
         },
       },
     },
     plugins: {
-      // 文字が表示しないようにして
+      // 文字が表示しないように
       legend: {
         display: false,
       },
@@ -91,6 +115,7 @@ const RadarChart: React.FC = () => {
 
   return (
     <div
+      className="dark:text-white"
       style={{
         width: `${chartSize.width}px`,
         height: `${chartSize.height}px`,

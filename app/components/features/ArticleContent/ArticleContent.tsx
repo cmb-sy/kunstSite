@@ -51,24 +51,30 @@ const BlogContent: React.FC<BlogContentProps> = ({
     <section className="flex justify-center my-10">
       <div className="article-sidebar-area gap-0 lg:gap-6">
         {/* gapはArticleListと合わせる */}
-        <div className="article-area">
-          <h1 className="article-element-h1">{blogArticle.title}</h1>
-          <br />
-          <ArticleTopic
-            text={blogArticle.category}
-            href={`/category/${blogArticle.category}/1`}
-          />
-          {blogArticle.tags &&
-            blogArticle.tags
-              // 空文字対応
-              .filter((tag: string) => tag.trim() !== "")
-              .map((tag: string, index: number) => (
-                <span key={index}>
-                  <ArticleTopic text={tag} href={`/tags/${tag}`} />
-                </span>
-              ))}
-          <br />
-          <span className="text-gray-400">更新日：{blogArticle.date}</span>
+        <div className="article-area dark:bg-darkModeItemBg">
+          <div className="mb-14">
+            <h1 className="article-element-h1 dark:text-darkModeFontColor">
+              {blogArticle.title}
+            </h1>
+            <br />
+            <ArticleTopic
+              text={blogArticle.category}
+              href={`/category/${blogArticle.category}/1`}
+            />
+            {blogArticle.tags &&
+              blogArticle.tags
+                // 空文字対応
+                .filter((tag: string) => tag.trim() !== "")
+                .map((tag: string, index: number) => (
+                  <span key={index}>
+                    <ArticleTopic text={tag} href={`/tags/${tag}`} />
+                  </span>
+                ))}
+            <br />
+            <span className="text-gray-400 text-sm">
+              更新日：{blogArticle.date}
+            </span>
+          </div>
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
@@ -77,7 +83,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
           />
           {/* 目次表示に必要 */}
           <div className="target-toc">
-            <div className="article-element">
+            <div className="article-element dark:text-darkModeFontColor">
               <MDXRemote
                 source={blogArticle.content}
                 components={{
@@ -94,7 +100,12 @@ const BlogContent: React.FC<BlogContentProps> = ({
                     ) {
                       return <div {...props} />;
                     }
-                    return <p {...props} className="custom-p" />;
+                    return (
+                      <p
+                        {...props}
+                        className="custom-p dark:text-darkModeFontColor"
+                      />
+                    );
                   },
                 }}
                 options={{
