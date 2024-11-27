@@ -56,7 +56,7 @@ const Header = () => {
           <nav
             className={`
               fixed right-0 top-0 pt-16 flex
-              h-full flex-col bg-white dark:bg-gray-800 bg-opacity-95 transition-transform duration-300 ease-in-out
+              h-full flex-col bg-white dark:bg-FooterDarkBackgroundColor bg-opacity-95 transition-transform duration-300 ease-in-out
               ${menuOpen ? "translate-x-0 relative z-10" : "translate-x-full"}
               w-full px-4
               md:relative md:translate-x-0 md:bg-transparent md:dark:bg-transparent md:p-0 md:flex-row

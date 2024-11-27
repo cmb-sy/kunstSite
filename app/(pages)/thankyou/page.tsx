@@ -18,7 +18,7 @@ const ThankYou = () => {
         </p>
         <div className="flex justify-center mt-10">
           <Link href="/" passHref>
-            <button className="bg-gray-800 hover:bg-gray-700 text-white rounded px-4 py-2">
+            <button className="bg-lime-700 hover:bg-lime-600 text-white rounded px-4 py-2">
               トップページへ戻る
             </button>
           </Link>

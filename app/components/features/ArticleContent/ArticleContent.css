@@ -75,7 +75,7 @@
 }
 
 .article-element h2 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   padding: 0.4em 0.5em;
   border-left: solid 5px #4d7c0f;
   border-bottom: solid 1px #4d7c0f;
@@ -85,10 +85,10 @@
 }
 
 .article-element h3 {
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-weight: bold;
   margin-bottom: 1.1rem;
-  margin-top: 1em;
+  margin-top: 1.5em;
   border-bottom: solid 1px #4d7c0f;
 }
 
@@ -112,8 +112,8 @@
 
 .custom-p {
   margin: 14px 0;
-  font-size: 16px;
-  font-family: Inter;
+  font-size: 15px;
+  font-family: Arial;
   line-height: 1.9;
   color: #000000d1;
 }
@@ -172,7 +172,7 @@
 }
 
 .dark .article-element tr {
-  background-color: #434343;
+  background-color: #313131;
   color: var(--darkModeFontColor);
 }
 
