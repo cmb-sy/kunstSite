@@ -17,11 +17,11 @@ const NavLinks: React.FC<NavLinksProps> = ({ portfolioItems }) => {
   };
 
   return (
-    <div className="flex justify-center items-center text-gray-300">
+    <div className="flex justify-center items-center text-gray-300 dark:text-gray-500">
       {portfolioItems.map((portfolioItem) => (
         <span
           key={portfolioItem.id}
-          className="cursor-pointer hover:text-gray-500 mx-2"
+          className="cursor-pointer hover:text-lime-700 mx-2"
           onClick={() => handleScroll(portfolioItem.id)}
         >
           {portfolioItem.id}

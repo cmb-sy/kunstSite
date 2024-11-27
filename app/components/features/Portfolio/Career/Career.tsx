@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { CareerData, YearData } from "./CareerData";
+import { FaChevronDown } from "react-icons/fa";
 
 interface AccordionTableProps {
   title: string;
@@ -29,11 +29,9 @@ function AccordionTable({ title, children, onToggle }: AccordionTableProps) {
       className="w-full max-w-3xl px-4 my-4 border border-gray-400 p-4 cursor-pointer hover:cursor-pointer"
       onClick={handleToggle}
     >
-      <h3 className="text-center text-black py-2 flex justify-between items-center">
+      <h3 className="text-center text-black dark:text-darkModeFontColor py-2 flex justify-between items-center">
         {title}
-        <Image
-          src="/portfolio/chevron.svg"
-          alt="chevron"
+        <FaChevronDown
           width={24}
           height={24}
           className={`transition-transform duration-500 ${

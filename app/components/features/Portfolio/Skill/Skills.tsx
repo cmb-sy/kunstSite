@@ -15,7 +15,7 @@ const Skills: React.FC = () => {
         </div>
         {ProgrammingSkills.map((skillCategory: skillTable, index: number) => (
           <div key={index} className="p-6 transition duration-300 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-center">
+            <h2 className="text-2xl font-bold mb-20 mt-10 text-center">
               {skillCategory.skillType}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
