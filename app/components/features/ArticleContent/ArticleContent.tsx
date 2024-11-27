@@ -52,7 +52,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
       <div className="article-sidebar-area gap-0 lg:gap-6">
         {/* gapはArticleListと合わせる */}
         <div className="article-area dark:bg-darkModeItemBg">
-          <div className="mb-14">
+          <div className="mb-5">
             <h1 className="article-element-h1 dark:text-darkModeFontColor">
               {blogArticle.title}
             </h1>
