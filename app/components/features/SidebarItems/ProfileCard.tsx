@@ -20,12 +20,12 @@ const ProfileCard = () => {
           </p>
           <div className="flex justify-center mt-4 space-x-4">
             <Link href="https://x.com/kunst_sy_">
-              <div className="text-gray-600 dark:text-darkModeFontColor">
+              <div className="hover:text-lime-700">
                 <BsTwitterX size={24} />
               </div>
             </Link>
             <Link href="https://github.com/cmb-sy">
-              <div className="text-gray-600 dark:text-darkModeFontColor">
+              <div className="hover:text-lime-700">
                 <BsGithub size={24} />
               </div>
             </Link>
