@@ -52,7 +52,7 @@ const Footer = () => {
               <FaFacebook className="text-3xl hover:text-gray-400 transition duration-300 hover:text-lime-700" />
             </Link>
           </div>
-          <p className="text-xs text-gray-500 mt-20 hover:text-lime-700">
+          <p className="text-xs text-gray-500 mt-20">
             Copyright © 2024 kunst Site
           </p>
         </div>

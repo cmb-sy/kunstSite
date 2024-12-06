@@ -24,7 +24,7 @@ const MessageBoard = () => {
             }`}
           >
             <Link href="#">
-              <div className="flex flex-wrap md:flex-nowrap items-stretch text-gray-800 dark:text-gray-200 no-underline border-b border-gray-300 dark:border-gray-700 p-4">
+              <div className="flex flex-wrap md:flex-nowrap items-stretch border-b border-gray-300 dark:border-gray-700 p-4">
                 <p className="m-0 min-w-[80px] text-sm text-gray-600 dark:text-gray-400 flex items-center">
                   {announcement.date}
                 </p>
@@ -33,7 +33,7 @@ const MessageBoard = () => {
                     {announcement.category}
                   </span>
                 </p>
-                <p className="m-0 w-full md:mt-0 mt-2 text-base hover:underline cursor-pointer flex items-center">
+                <p className="m-0 w-full md:mt-0 mt-2 hover:underline hover:text-lime-700 cursor-pointer flex items-center">
                   {announcement.title}
                 </p>
               </div>
