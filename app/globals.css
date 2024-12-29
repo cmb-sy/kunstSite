@@ -34,7 +34,11 @@
     background: #cff8d9;
     border-radius: 0 0 5px 5px;
     width: 1px;
+<<<<<<< HEAD
     bottom: 12px;
+=======
+    height: calc(100% - 26px);
+>>>>>>> caef85a (目次の線を微修正)
     top: 13px;
     left: -1.5px;
   }

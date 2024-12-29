@@ -161,7 +161,7 @@ export const ProgrammingSkills: skillTable[] = [
     skillType: "保有資格",
     skill: [
       {
-        name: "IPA:FE/AP/SC",
+        name: "IPA:FE/AP/SC/DB",
         imagePass: IPA,
         level: "",
         description: "IT知識全般を身につけるため取得しました。",

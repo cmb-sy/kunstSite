@@ -28,7 +28,7 @@ export const Toc = () => {
     tocbot.init({
       tocSelector: ".toc",
       contentSelector: ".target-toc",
-      headingSelector: "h2, h3, h4",
+      headingSelector: "h2, h3",
       headingsOffset: 100,
       scrollSmoothOffset: -40,
     });
