@@ -67,7 +67,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
                 .filter((tag: string) => tag.trim() !== "")
                 .map((tag: string, index: number) => (
                   <span key={index}>
-                    <ArticleTopic text={tag} href={`/tags/${tag}`} />
+                    <ArticleTopic text={tag} href={`/tags/${tag}/1`} />
                   </span>
                 ))}
             <br />

@@ -5,7 +5,7 @@ import { getPostsData } from "@/app/lib/utils/getPostsData";
 import { POSTS_PER_PAGE } from "@/app/lib/contants";
 import { createPageData, PageData } from "@/app/lib/utils/createPage";
 
-type TagType = "教師あり学習" | "kaggle" | "数学" | "教師なし学習";
+type TagType = "教師あり学習" | "kaggle" | "数学" | "教師なし学習" | "振り返り";
 
 export async function generateStaticParams() {
   const posts = await getPostsData();
@@ -37,7 +37,11 @@ const TagsFilteredArticleListPage = async ({
   const [tag, pageNumber] = decodedSlug.split(",") as [string, string];
 
   // tag が TagType のいずれかであることをチェック
-  if (!["教師あり学習", "kaggle", "数学", "教師なし学習"].includes(tag)) {
+  if (
+    !["教師あり学習", "kaggle", "数学", "教師なし学習", "振り返り"].includes(
+      tag
+    )
+  ) {
     throw new Error("Invalid tag");
   }
   const apiUrl =
