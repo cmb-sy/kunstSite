@@ -73,6 +73,12 @@ export const getPostsData = async () => {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     const blogData = await res.json();
+
+    // dateでソート
+    blogData.sort((a: { date: string }, b: { date: string }) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
     return blogData;
   } catch (error) {
     console.error(
